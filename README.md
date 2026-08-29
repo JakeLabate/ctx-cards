@@ -23,7 +23,7 @@ systems read the same source your readers do. No page text is sent anywhere.
 That is the whole install. `seo-core` gives you 40 terms immediately with
 nothing authored.
 
-Pin the version. `@v0.6.0` is served immutably by jsDelivr and the script
+Pin the version. `@v0.7.1` is served immutably by jsDelivr and the script
 derives its pack URLs from its own `src`, so pinning the tag pins the packs too.
 
 ### Subresource integrity
@@ -33,8 +33,8 @@ set, a compromised or substituted CDN file is refused by the browser rather
 than executed on your visitors' pages.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@v0.6.0/dist/ctx.min.js"
-        integrity="sha384-JFvsfCBinMRg1LGwHZSQysGkQjgcY7/UGgRKbCM1N9JAVWyKj+HU+kJtXiGTw534"
+<script src="https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@v0.7.1/dist/ctx.min.js"
+        integrity="sha384-v28gmyQ2ad9QYnYIFYJz/BuCjd9GouQzf1nEgy2cpk6EiFzlYSmzMiFbtLYZY0UG"
         crossorigin="anonymous"
         data-packs="seo-core" defer></script>
 ```
@@ -52,7 +52,7 @@ executable code.
 |---|---|---|
 | `data-scope` | `main, article` | Selector for the content root to scan. |
 | `data-style` | `minimal` | `minimal`, `paper`, or `contrast`. |
-| `data-packs` | none | Comma-separated pack ids or absolute URLs. |
+| `data-packs` | none | Comma-separated pack ids, or locations. A bare id (`seo-core`) resolves against `data-pack-base`; anything containing a `/` or ending in `.json` is used as given. |
 | `data-pack-base` | derived from `src` | Override where packs are fetched from. |
 | `data-ignore` | `pre, code, kbd, samp, a, h1, h2, h3, [data-no-ctx]` | Selectors never marked. |
 | `data-repeat` | `first` | `first` marks one occurrence per term; `all` marks every occurrence. |

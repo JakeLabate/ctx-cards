@@ -60,7 +60,7 @@ jobs:
       - name: dist matches src
         run: |
           npx --yes terser@5 src/ctx.js -c passes=2 -m \
-            --format 'preamble="/*! ctx-cards v0.7.0 | MIT | github.com/JakeLabate/ctx-cards */"' \
+            --format 'preamble="/*! ctx-cards v0.7.1 | MIT | github.com/JakeLabate/ctx-cards */"' \
             -o /tmp/ctx.min.js
           diff -q /tmp/ctx.min.js dist/ctx.min.js || (echo "dist/ is stale, run npm run build" && exit 1)
 

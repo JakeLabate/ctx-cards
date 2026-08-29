@@ -174,11 +174,25 @@
   }
 
   function fetchPack(id) {
-    var url = /^https?:/.test(id) ? id : CFG.packBase + '/' + id + '.json';
+    /* A bare id ("seo-core") resolves against packBase. Anything that already
+       looks like a location — absolute URL, root-relative, relative path, or a
+       name ending in .json — is used as given. Without this, a path silently
+       became packBase + '/' + path + '.json', producing a 404 that looked like
+       an empty pack rather than a mistake. */
+    var isPath = /^https?:/.test(id) || id.indexOf('/') !== -1 || /\.json$/i.test(id);
+    var url = isPath ? id : CFG.packBase + '/' + id + '.json';
     return fetch(url, { credentials: 'omit', cache: 'force-cache' })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (j) { return j ? termsFrom(j) : []; })
-      .catch(function () { return []; });
+      .then(function (r) {
+        if (!r.ok) throw new Error(r.status + ' ' + url);
+        return r.json();
+      })
+      .then(function (j) { return termsFrom(j); })
+      .catch(function (e) {
+        /* A missing pack is survivable — the others still load — but silence
+           makes a typo look like a pack with no matching terms. */
+        if (window.console && console.warn) console.warn('[ctx-cards] pack failed:', e.message || e);
+        return [];
+      });
   }
 
   function start(packLists) {

@@ -39,3 +39,21 @@ assert.strictEqual(count('GEO', 'geometry and geography', Infinity), 0,
 assert.strictEqual(count('structured data', 'Structured Data here', Infinity), 1);
 
 console.log('repeat semantics: all assertions passed');
+
+/* --- pack id resolution (v0.7.1) ---
+   A bare id resolves against packBase; anything path-like is used as given.
+   Getting this wrong appends .json to a path and 404s in a way that looks
+   like an empty pack rather than a mistake. */
+function resolvePack(id, base) {
+  const isPath = /^https?:/.test(id) || id.indexOf('/') !== -1 || /\.json$/i.test(id);
+  return isPath ? id : base + '/' + id + '.json';
+}
+const B = 'https://cdn.example.com/packs';
+assert.strictEqual(resolvePack('seo-core', B), B + '/seo-core.json', 'bare id uses packBase');
+assert.strictEqual(resolvePack('https://x.dev/a.json', B), 'https://x.dev/a.json', 'absolute url as given');
+assert.strictEqual(resolvePack('/sites/jakelabate.json', B), '/sites/jakelabate.json', 'root-relative as given');
+assert.strictEqual(resolvePack('../packs/custom.json', B), '../packs/custom.json', 'relative path as given');
+assert.strictEqual(resolvePack('custom.json', B), 'custom.json', 'bare filename as given');
+assert.strictEqual(resolvePack('agentic-ai', B), B + '/agentic-ai.json', 'hyphenated id still resolves');
+
+console.log('pack id resolution: all assertions passed');
