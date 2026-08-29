@@ -181,6 +181,48 @@ Run it at several targets and look at the shape before picking one. On a real
 40,000-word corpus, keeping every viable term put the densest pages at 30 marks
 per thousand words — one every 33 words. The budget is what stops that.
 
+### Judging with an LLM
+
+The scorer's constants — where reach peaks, how obscurity is weighted — are
+estimates nobody has validated. It also answers a proxy question: is this term
+rare in English and prominent here. The real question is whether a reader of
+*this* page, with *this* audience, would need it defined. That needs judgment.
+
+`scripts/judge-terms.py` reranks the scorer's shortlist with an LLM, showing it
+the real sentences each term appears in:
+
+```bash
+python3 scripts/score-corpus.py --corpus ./pages --packs seo-core \
+        --per-1000-words 40 --emit shortlist.json      # wide net
+ANTHROPIC_API_KEY=... python3 scripts/judge-terms.py \
+        --corpus ./pages --shortlist shortlist.json \
+        --audience "mid-market SEO managers" \
+        --review verdicts.csv --emit judged.json        # narrow it
+```
+
+Retrieval then rerank: the scorer is cheap and cuts 660 terms to a shortlist,
+the LLM is expensive and judges only those. Sending every term against every
+page would cost a great deal and be mostly wasted on terms that never appear.
+
+**Three properties matter more than the prompt.**
+
+The LLM never runs at page load. It runs once, at onboarding, and its output is
+frozen into a static pack. Runtime stays fully deterministic — the same
+property the scorer has, preserved.
+
+Every verdict is cached on a hash of its exact inputs, so reruns cost nothing
+and return identical answers. Non-determinism is confined to the first time a
+given term-and-context pair is seen.
+
+Every verdict carries a one-line reason and `--review` writes them to CSV. The
+output is meant to be argued with, not trusted. A low-confidence cut is
+overridden back to keep by `--min-confidence`, because cutting is the
+destructive direction and a guess should not be destructive.
+
+Sample sentences are deduplicated before being sent: boilerplate repeats
+verbatim across pages, and three copies of one sentence crowd out the varied
+context that would actually inform the judgment.
+
 ### What it excludes outright
 
 Terms that appear only inside links and headings are structurally unmarkable
