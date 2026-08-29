@@ -56,19 +56,19 @@
     minimal: {
       mkColor: '#8f8c85', mkStyle: 'dotted', mkWidth: '1.5px',
       bg: '#ffffff', fg: '#16161a', mut: '#55535d', bd: '#e0dfe4', acc: '#15558f',
-      eye: '#8a8794', rule: '#ececf0',
+      eye: '#6d6a79', rule: '#ececf0',
       r: '12px', sh: '0 12px 32px -8px rgba(20,20,30,.18), 0 2px 6px -2px rgba(20,20,30,.10)',
       dark: { bg: '#22222a', fg: '#f2f1f5', mut: '#a9a7b3', bd: '#35343e', acc: '#8fbdf2',
-              eye: '#7d7b88', rule: '#2e2d37', mkColor: '#8a867e',
+              eye: '#9a97a6', rule: '#2e2d37', mkColor: '#8a867e',
               sh: '0 14px 36px -8px rgba(0,0,0,.6)' }
     },
     paper: {
       mkColor: '#8a7c63', mkStyle: 'solid', mkWidth: '1px',
       bg: '#fffdf8', fg: '#1e1b16', mut: '#5c554a', bd: '#e0d7c5', acc: '#7a4a1e',
-      eye: '#9a8f7c', rule: '#eee7d9',
+      eye: '#7d735f', rule: '#eee7d9',
       r: '3px', sh: '0 10px 26px -10px rgba(90,70,40,.30), 0 1px 0 #e0d7c5',
       dark: { bg: '#24211a', fg: '#f4efe4', mut: '#aca596', bd: '#3d382c', acc: '#d9a76a',
-              eye: '#8a8172', rule: '#332f25', mkColor: '#8b8071',
+              eye: '#a09684', rule: '#332f25', mkColor: '#8b8071',
               sh: '0 14px 34px -10px rgba(0,0,0,.65)' }
     },
     contrast: {
@@ -79,6 +79,44 @@
       dark: { bg: '#000000', fg: '#ffffff', mut: '#e8e8ec', bd: '#ffffff', acc: '#9ec5ff',
               eye: '#b8b8c0', rule: '#ffffff', mkColor: '#ffffff',
               sh: '4px 4px 0 rgba(255,255,255,.80)' }
+    },
+
+    /* Technical documentation and developer tools. Monospace throughout,
+       tight radius, so the card reads as part of a reference rather than a
+       marketing surface. */
+    terminal: {
+      mkColor: '#767670', mkStyle: 'dashed', mkWidth: '1px',
+      font: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
+      bg: '#fbfbfa', fg: '#17171a', mut: '#4b4b50', bd: '#d8d8d4', acc: '#0a6046',
+      eye: '#73736d', rule: '#ebebe7',
+      r: '2px', sh: '0 3px 10px -2px rgba(0,0,0,.13)',
+      dark: { bg: '#131315', fg: '#e9e9e5', mut: '#a2a29c', bd: '#2d2d2f', acc: '#4fd6a0',
+              eye: '#7e7e79', rule: '#232325', mkColor: '#7d7d77',
+              sh: '0 6px 18px -4px rgba(0,0,0,.7)' }
+    },
+
+    /* Consumer-facing sites: retail, health, education. Large radius, no hard
+       border, generous padding. The least technical-looking option. */
+    soft: {
+      mkColor: '#8b86a0', mkStyle: 'dotted', mkWidth: '2px',
+      bg: '#ffffff', fg: '#1c1b22', mut: '#54525e', bd: '#e9e7f0', acc: '#5b3fb8',
+      eye: '#6f6c80', rule: '#f1eff6',
+      r: '16px', sh: '0 10px 28px -8px rgba(38,28,74,.20), 0 2px 6px -2px rgba(38,28,74,.10)',
+      dark: { bg: '#242130', fg: '#f3f1f8', mut: '#aeaabc', bd: '#37343f', acc: '#b7a2f2',
+              eye: '#8d8a9c', rule: '#2e2b39', mkColor: '#8a86a0',
+              sh: '0 14px 34px -10px rgba(0,0,0,.6)' }
+    },
+
+    /* Finance, legal, insurance. Restrained navy, small radius, no flourish.
+       Built to survive a compliance review rather than to be noticed. */
+    corporate: {
+      mkColor: '#78818d', mkStyle: 'solid', mkWidth: '1px',
+      bg: '#ffffff', fg: '#14181f', mut: '#4a525f', bd: '#d8dce2', acc: '#0f4c81',
+      eye: '#5f6874', rule: '#eef1f4',
+      r: '4px', sh: '0 5px 16px -5px rgba(14,30,52,.20), 0 1px 3px rgba(14,30,52,.08)',
+      dark: { bg: '#171b21', fg: '#eff2f6', mut: '#a5adb8', bd: '#2b313a', acc: '#84b4e4',
+              eye: '#7e8794', rule: '#232932', mkColor: '#79828e',
+              sh: '0 10px 26px -8px rgba(0,0,0,.65)' }
     }
   };
   var T = THEMES[CFG.style] || THEMES.minimal;
@@ -415,7 +453,7 @@
     '#ctx-card{position:absolute;z-index:2147483000;width:max-content;' +
       'max-width:min(var(--ctx-w,302px),calc(100vw - 24px));background:var(--ctx-bg);color:var(--ctx-fg);' +
       'border:1px solid var(--ctx-bd);border-radius:' + T.r + ';box-shadow:var(--ctx-sh);' +
-      'padding:13px 15px 14px;font-family:inherit;opacity:0;' +
+      'padding:13px 15px 14px;font-family:' + (T.font || 'inherit') + ';opacity:0;' +
       'transform:translateY(-6px) scale(.94);' +
       'transition:opacity .12s ease-out,transform .13s ease-out;pointer-events:none}' +
     '#ctx-card.on{opacity:1;transform:none;pointer-events:auto;' +

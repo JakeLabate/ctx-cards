@@ -51,7 +51,7 @@ executable code.
 | Attribute | Default | Notes |
 |---|---|---|
 | `data-scope` | `main, article` | Selector for the content root to scan. |
-| `data-style` | `minimal` | `minimal`, `paper`, or `contrast`. |
+| `data-style` | `minimal` | `minimal`, `paper`, `contrast`, `terminal`, `soft`, or `corporate`. |
 | `data-packs` | none | Comma-separated pack ids, or locations. A bare id (`seo-core`) resolves against `data-pack-base`; anything containing a `/` or ending in `.json` is used as given. |
 | `data-pack-base` | derived from `src` | Override where packs are fetched from. |
 | `data-ignore` | `pre, code, kbd, samp, a, h1, h2, h3, [data-no-ctx]` | Selectors never marked. |
@@ -59,6 +59,31 @@ executable code.
 | `data-max-per-term` | unset | A number. Overrides `data-repeat` with an explicit cap. |
 | `data-analytics` | off | `auto` forwards to the analytics already on your page; a URL posts batches to your own collector. |
 | `data-skip-title` | `false` | `true` suppresses terms named in the page's own `<h1>`. |
+
+### Themes
+
+| Theme | Reads as | Suits |
+|---|---|---|
+| `minimal` | Modern UI component. 12px radius, layered shadow, blue accent. | The default. Safe on most sites. |
+| `paper` | Editorial. 3px radius, warm surface, burnt-orange accent, hard bottom edge. | Publishers, essays, anything on a cream background. |
+| `contrast` | Deliberate and loud. Square corners, 2px black border, hard offset shadow. | Accessibility-first builds, or when cards should announce themselves. |
+| `terminal` | Reference material. Monospace throughout, 2px radius, green accent. | Developer tools and documentation. |
+| `soft` | Friendly. 16px radius, no hard border, violet accent, generous shadow. | Retail, health, education. The least technical option. |
+| `corporate` | Restrained. Navy accent, 4px radius, no flourish. | Finance, legal, insurance. |
+
+All six carry a dark palette. The script picks by sampling the luminance of
+your content background, not the visitor's OS setting, so a light site stays
+light for a visitor in dark mode.
+
+Every palette clears WCAG AA for body, title, link, and eyebrow text in both
+modes, and 3:1 for the non-text marker underline. The eyebrow is the one that
+catches people out: at 10px it is small text and needs 4.5:1, not 3:1.
+
+Themes vary radius, shadow, accent, marker style, and border weight. They do
+not vary the monospace eyebrow, the tail, the type scale, the entrance, or the
+dismiss logic — those are the component's identity. Only `terminal` overrides
+the font; the rest inherit your page's typeface, which is most of why a card
+reads as part of the page rather than a widget on top of it.
 
 ### Repeating a term
 
