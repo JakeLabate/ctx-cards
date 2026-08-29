@@ -140,15 +140,39 @@ To collect the raw stream instead, pass a URL. Events batch and send with
 |---|---|---|
 | `mark` | A term is marked on load | term, kind, path |
 | `open` | A card is opened | term, kind, path |
-| `close` | A card is dismissed | term, kind, path, dwell in ms |
+| `close` | A card is dismissed | term, kind, path, dwell in ms, words, complexity |
 | `follow` | The card's outbound link is clicked | term, kind, path |
 
 `mark` exists to give `open` a denominator. Five opens out of five marked terms
 and five out of ninety are very different results, and an open count alone
 cannot tell them apart.
 
-Dwell separates a glance from a read. A card dismissed in 300ms answered
-nothing; one held for four seconds did. `follow` is the inverse signal: the
+Dwell separates a glance from a read, but raw milliseconds are not comparable
+across card kinds: a 12-word acronym card and a 60-word verdict card are not
+the same read. `close` therefore also carries `words` (text actually rendered)
+and `complexity` (structural elements that cost time but few words — table
+rows, a chart, enumerated steps, a code block). Without complexity every stat
+card would look ignored.
+
+Normalise in analysis:
+
+```
+expected_ms = 250 + 200 × words + 120 × complexity
+read_ratio  = dwell_ms / expected_ms
+```
+
+| Ratio | Reading |
+|---|---|
+| under 0.3 | Never read. Accidental open, or instant reject. |
+| 0.3 – 0.8 | Title only, then bailed — or the title was enough. |
+| 0.8 – 1.5 | Actually read. |
+| over 2.5 | Stalled: valuable or confusing. `follow` tells you which. |
+
+**The client sends the inputs, not the ratio.** Those three constants are an
+estimate. Baking them into the script would lock every historical event to a
+model you will want to revise; keeping `words` and `complexity` raw lets you
+plot dwell against word count across a few thousand events and fit the real
+slope and intercept for your own content. `follow` is the inverse signal: the
 card did not finish the job and the reader left anyway, which usually means the
 definition is too thin for that term's tier.
 

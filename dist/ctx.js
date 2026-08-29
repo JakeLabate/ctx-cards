@@ -300,6 +300,8 @@
       var name = 'ctx_' + ev.e;
       var props = { term: ev.t, kind: ev.k, path: ev.p };
       if (ev.d != null) props.dwell_ms = ev.d;
+      if (ev.w != null) props.words = ev.w;
+      if (ev.c != null) props.complexity = ev.c;
 
       if (typeof window.gtag === 'function') {
         window.gtag('event', name, props);
@@ -346,9 +348,12 @@
 
     return {
       on: true,
-      send: function (name, term, extra) {
+      send: function (name, term, dwell, cost) {
         var ev = { e: name, t: term.title, k: term.kind || 'term', p: path };
-        if (extra != null) ev.d = extra;
+        if (dwell != null) ev.d = dwell;
+        /* w = words rendered, c = complexity units. Sent raw so the reading
+           model can be fitted later rather than fixed now. */
+        if (cost) { ev.w = cost.w; ev.c = cost.c; }
         try {
           if (isURL) {
             queue.push(ev);
@@ -848,6 +853,42 @@
   };
 
 
+
+  /* ---------- reading cost ----------
+     Raw dwell cannot be compared across card kinds: a 12-word acronym card and
+     a 60-word verdict card are not the same read. We measure the card that was
+     actually rendered and send the inputs, not a ratio.
+
+     Complexity counts the structural elements that cost time to parse but
+     carry few words — a sparkline, a provenance table, a numbered procedure.
+     Without it every stat card would look ignored.
+
+     The client deliberately does not compute a ratio. Any ms-per-word constant
+     is a guess until fitted against real distributions, and baking one in here
+     would lock every historical event to a model you will want to revise. */
+  function readingCost(host) {
+    /* textContent concatenates adjacent elements with no separator, so a card
+       reading "VALUE" then "Indexed pages" collapses to "VALUEIndexed pages"
+       and undercounts. Walk the text nodes and join them instead. */
+    var walk = document.createTreeWalker(host, NodeFilter.SHOW_TEXT);
+    var parts = [], tn;
+    while ((tn = walk.nextNode())) {
+      var v = (tn.nodeValue || '').trim();
+      if (v) parts.push(v);
+    }
+    var text = parts.join(' ').trim();
+    var words = text ? text.split(/\s+/).length : 0;
+    var c = 0;
+    c += host.querySelectorAll('.row').length * 2;        /* table rows scan slowly */
+    c += host.querySelectorAll('ol.steps li').length * 2; /* enumerated steps */
+    c += host.querySelectorAll('.cmp h4').length * 2;     /* comparison columns */
+    if (host.querySelector('svg, .spark')) c += 6;        /* a chart is a real pause */
+    if (host.querySelector('.badge')) c += 1;
+    if (host.querySelector('pre')) c += 4;                /* code is read slowly */
+    if (host.querySelector('.big')) c += 1;
+    return { w: words, c: c };
+  }
+
   /* ---------- 4. the card ---------- */
   var card = document.createElement('div');
   card.id = 'ctx-card';
@@ -860,6 +901,7 @@
   document.body.appendChild(card);
 
   var openT = null, closeT = null, cur = null, viaPointer = false, openedAt = 0;
+  var lastCost = null;
   var coarse = matchMedia('(hover: none), (pointer: coarse)').matches;
 
   function place(el) {
@@ -888,6 +930,7 @@
     card.style.setProperty('--ctx-w', R.w + 'px');
     inner.appendChild(el('span', 'eye', R.eyebrow(t)));
     R.body(inner, t);
+    lastCost = readingCost(inner);
     var wasOpen = card.classList.contains('on');
     if (wasOpen) {
       /* moving between terms: snap back to the closed state with no transition,
@@ -910,7 +953,7 @@
     if (cur && openedAt) {
       /* Dwell separates a glance from a read. A card dismissed in 300ms did not
          answer anything; one held for four seconds did. */
-      ANALYTICS.send('close', cur.term, Date.now() - openedAt);
+      ANALYTICS.send('close', cur.term, Date.now() - openedAt, lastCost);
     }
     openedAt = 0;
     card.classList.remove('on');

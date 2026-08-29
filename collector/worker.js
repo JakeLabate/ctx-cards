@@ -27,6 +27,8 @@ CREATE TABLE IF NOT EXISTS events (
   path     TEXT NOT NULL,
   n        INTEGER NOT NULL DEFAULT 0,
   dwell_ms INTEGER,
+  words    INTEGER,
+  cplx     INTEGER,
   PRIMARY KEY (day, event, term, kind, path)
 );
 CREATE INDEX IF NOT EXISTS idx_events_term ON events(term);
@@ -64,17 +66,30 @@ export default {
                SUM(CASE WHEN event='mark'   THEN n ELSE 0 END) AS marks,
                SUM(CASE WHEN event='open'   THEN n ELSE 0 END) AS opens,
                SUM(CASE WHEN event='follow' THEN n ELSE 0 END) AS follows,
-               MAX(dwell_ms) AS max_dwell
+               MAX(dwell_ms) AS max_dwell,
+               MAX(words) AS words,
+               MAX(cplx) AS cplx
         FROM events
         WHERE day >= date('now', '-30 days')
         GROUP BY term, kind
         ORDER BY opens DESC
         LIMIT 500
       `).all();
-      const rows = results.map(r => ({
-        ...r,
-        open_rate: r.marks ? +(r.opens / r.marks).toFixed(3) : null,
-      }));
+      // read_ratio normalises dwell against how much card there was to read,
+      // so an acronym card and a verdict card become comparable. The constants
+      // are a starting estimate; refit them once the distributions are real.
+      const ORIENT = 250, MS_PER_WORD = 200, MS_PER_CPLX = 120;
+      const rows = results.map(r => {
+        const expected = r.words != null
+          ? ORIENT + MS_PER_WORD * r.words + MS_PER_CPLX * (r.cplx || 0)
+          : null;
+        return {
+          ...r,
+          open_rate: r.marks ? +(r.opens / r.marks).toFixed(3) : null,
+          expected_ms: expected,
+          read_ratio: expected && r.max_dwell ? +(r.max_dwell / expected).toFixed(2) : null,
+        };
+      });
       return Response.json(rows, { headers: CORS });
     }
 
@@ -98,10 +113,12 @@ export default {
     // Upsert counts rather than appending rows: the table stays small, and
     // there is no row-per-hit history to correlate later even in principle.
     const stmt = env.CTX_DB.prepare(`
-      INSERT INTO events (day, event, term, kind, path, n, dwell_ms)
-      VALUES (?, ?, ?, ?, ?, 1, ?)
+      INSERT INTO events (day, event, term, kind, path, n, dwell_ms, words, cplx)
+      VALUES (?, ?, ?, ?, ?, 1, ?, ?, ?)
       ON CONFLICT(day, event, term, kind, path) DO UPDATE SET
         n = n + 1,
+        words = COALESCE(excluded.words, events.words),
+        cplx  = COALESCE(excluded.cplx,  events.cplx),
         dwell_ms = CASE
           WHEN excluded.dwell_ms IS NULL THEN events.dwell_ms
           WHEN events.dwell_ms IS NULL THEN excluded.dwell_ms
@@ -113,7 +130,10 @@ export default {
     for (const e of events) {
       if (!EVENTS.has(e?.e) || !e?.t) continue;
       const dwell = Number.isFinite(e.d) ? Math.min(Math.round(e.d), 600000) : null;
-      batch.push(stmt.bind(day, e.e, clean(e.t), clean(e.k) || "term", clean(e.p), dwell));
+      const words = Number.isFinite(e.w) ? Math.min(e.w, 1000) : null;
+      const cplx = Number.isFinite(e.c) ? Math.min(e.c, 200) : null;
+      batch.push(stmt.bind(day, e.e, clean(e.t), clean(e.k) || "term",
+                           clean(e.p), dwell, words, cplx));
     }
     if (batch.length) await env.CTX_DB.batch(batch);
 
