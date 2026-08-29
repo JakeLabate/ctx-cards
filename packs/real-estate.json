@@ -4,20 +4,26 @@
   "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/real-estate.json",
   "identifier": "real-estate",
   "name": "Real estate and property",
-  "description": "Residential and commercial property vocabulary.",
-  "dateModified": "2026-08-28",
+  "description": "Residential and commercial property.",
+  "dateModified": "2026-08-29",
   "inLanguage": "en",
   "hasDefinedTerm": [
     {
       "@type": "DefinedTerm",
       "name": "MLS",
       "termCode": "T2",
-      "description": "The shared database brokers use to list and search properties in a market.",
-      "alternateName": [
-        "multiple listing service"
-      ],
+      "description": "Multiple listing service. The shared database brokers use to list and search properties in a market.",
       "ctx": {
         "expansion": "Multiple listing service"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "IDX",
+      "termCode": "T2",
+      "description": "Internet data exchange. The framework letting brokers publish MLS listings on their own websites.",
+      "ctx": {
+        "expansion": "Internet data exchange"
       }
     },
     {
@@ -28,6 +34,132 @@
       "alternateName": [
         "comparables"
       ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CMA",
+      "termCode": "T2",
+      "description": "Comparative market analysis. An agent's valuation estimate built from comparable sales.",
+      "ctx": {
+        "expansion": "Comparative market analysis"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "appraisal",
+      "termCode": "T2",
+      "description": "A licensed valuation of a property, usually required by a lender."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "days on market",
+      "termCode": "T1",
+      "description": "How long a listing has been active before going under contract.",
+      "alternateName": [
+        "DOM"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "absorption rate",
+      "termCode": "T2",
+      "description": "How quickly available inventory sells in a market, usually expressed in months of supply."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "under contract",
+      "termCode": "T2",
+      "description": "An accepted offer with conditions still outstanding, so the sale is not yet complete."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "contingency",
+      "termCode": "T2",
+      "description": "A condition that must be met before a sale closes, such as financing or inspection."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "escrow",
+      "termCode": "T2",
+      "description": "Funds or documents held by a neutral third party until closing conditions are met."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "closing costs",
+      "termCode": "T2",
+      "description": "Fees paid at completion, covering lending, title, and transfer charges."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "title insurance",
+      "termCode": "T2",
+      "description": "Coverage protecting against defects in a property's ownership history."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "lien",
+      "termCode": "T2",
+      "description": "A legal claim against a property securing a debt."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "deed",
+      "termCode": "T2",
+      "description": "The instrument transferring ownership of real property."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "earnest money",
+      "termCode": "T2",
+      "description": "A deposit showing a buyer's good faith, credited at closing."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "pre-approval",
+      "termCode": "T2",
+      "description": "A lender's conditional commitment to a loan amount, based on verified financials."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PMI",
+      "termCode": "T2",
+      "description": "Private mortgage insurance. Required by lenders when a down payment falls below a threshold.",
+      "ctx": {
+        "expansion": "Private mortgage insurance"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "HOA",
+      "termCode": "T2",
+      "description": "Homeowners association. The body governing shared areas and rules in a community, funded by member dues.",
+      "ctx": {
+        "expansion": "Homeowners association"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "zoning",
+      "termCode": "T2",
+      "description": "Local rules dictating how a parcel of land may be used and what may be built on it."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "variance",
+      "termCode": "T2",
+      "description": "Permission to depart from zoning rules for a specific property."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "easement",
+      "termCode": "T2",
+      "description": "A right for someone else to use part of a property for a defined purpose."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "setback",
+      "termCode": "T2",
+      "description": "The minimum required distance between a structure and a property line."
     },
     {
       "@type": "DefinedTerm",
@@ -42,85 +174,31 @@
       "@type": "DefinedTerm",
       "name": "NOI",
       "termCode": "T1",
-      "description": "Rental income less operating expenses, before debt service and taxes.",
-      "alternateName": [
-        "net operating income"
-      ],
+      "description": "Net operating income. Rental income less operating expenses, before debt service and taxes.",
       "ctx": {
         "expansion": "Net operating income"
       }
     },
     {
       "@type": "DefinedTerm",
-      "name": "escrow",
+      "name": "cash on cash return",
       "termCode": "T2",
-      "description": "Funds or documents held by a neutral third party until closing conditions are met."
+      "description": "Annual pre-tax cash flow divided by the cash actually invested."
     },
     {
       "@type": "DefinedTerm",
-      "name": "title insurance",
+      "name": "DSCR",
       "termCode": "T2",
-      "description": "Coverage protecting against defects in a property's ownership history."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "appraisal",
-      "termCode": "T2",
-      "description": "A licensed valuation of a property, usually required by a lender."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "closing costs",
-      "termCode": "T2",
-      "description": "Fees paid at completion, covering lending, title, and transfer charges."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "HOA",
-      "termCode": "T2",
-      "description": "The body governing shared areas and rules in a community, funded by member dues.",
-      "alternateName": [
-        "homeowners association"
-      ],
+      "description": "Debt service coverage ratio. Net operating income divided by debt payments.",
       "ctx": {
-        "expansion": "Homeowners association"
+        "expansion": "Debt service coverage ratio"
       }
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "zoning",
-      "termCode": "T2",
-      "description": "Local rules dictating how a parcel of land may be used and what may be built on it."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "absorption rate",
-      "termCode": "T2",
-      "description": "How quickly available inventory sells in a market, usually expressed in months of supply."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "days on market",
-      "termCode": "T1",
-      "description": "How long a listing has been active before going under contract.",
-      "alternateName": [
-        "DOM"
-      ]
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "under contract",
-      "termCode": "T2",
-      "description": "An accepted offer with conditions still outstanding, so the sale is not yet complete."
     },
     {
       "@type": "DefinedTerm",
       "name": "1031 exchange",
       "termCode": "T2",
-      "description": "A US provision deferring capital gains tax when sale proceeds are reinvested in like-kind property.",
-      "ctx": {
-        "expansion": "Section 1031 like-kind exchange"
-      }
+      "description": "A US provision deferring capital gains tax when sale proceeds are reinvested in like-kind property."
     },
     {
       "@type": "DefinedTerm",
@@ -133,15 +211,63 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "gross lease",
+      "termCode": "T2",
+      "description": "A lease where the landlord covers operating expenses out of the rent."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "tenant improvement",
+      "termCode": "T2",
+      "description": "Work done to fit a commercial space to a tenant's needs, often funded by an allowance.",
+      "alternateName": [
+        "TI"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "vacancy rate",
+      "termCode": "T2",
+      "description": "The share of rentable space sitting empty."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "class A",
+      "termCode": "T2",
+      "description": "The top tier of commercial property quality, by age, location, and finish."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "cap ex",
+      "termCode": "T2",
+      "description": "Spending on improvements that extend a property's life or value, as distinct from routine repairs.",
+      "alternateName": [
+        "capital expenditure"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "property management",
+      "termCode": "T2",
+      "description": "Day-to-day operation of a property on the owner's behalf."
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "iBuyer",
       "termCode": "T2",
       "description": "A company making algorithmic instant cash offers on homes."
     },
     {
       "@type": "DefinedTerm",
-      "name": "local pack",
+      "name": "pocket listing",
       "termCode": "T2",
-      "description": "The map-plus-three-listings block in local search results. The primary organic target for agents."
+      "description": "A property marketed privately rather than through the MLS."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "dual agency",
+      "termCode": "T2",
+      "description": "One agent or brokerage representing both sides of a transaction. Restricted or barred in some jurisdictions."
     },
     {
       "@type": "DefinedTerm",
@@ -154,19 +280,16 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "IDX",
+      "name": "geo page",
       "termCode": "T2",
-      "description": "The framework letting brokers publish MLS listings on their own websites.",
-      "ctx": {
-        "expansion": "Internet Data Exchange"
-      }
+      "description": "A location-targeted landing page. Valuable when genuinely local, thin when templated across towns."
     },
     {
       "@type": "DefinedTerm",
-      "name": "pocket listing",
+      "name": "farming",
       "termCode": "T2",
-      "description": "A property marketed privately rather than through the MLS."
+      "description": "Concentrating marketing on one geographic area to build recognition over time."
     }
   ],
-  "version": "e5ab36c9"
+  "version": "6c87ee42"
 }

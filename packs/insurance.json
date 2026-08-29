@@ -1,0 +1,268 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/insurance.json",
+  "identifier": "insurance",
+  "name": "Insurance",
+  "description": "Industry vocabulary only. Not coverage advice.",
+  "dateModified": "2026-08-29",
+  "inLanguage": "en",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "premium",
+      "termCode": "T1",
+      "description": "The amount paid for insurance coverage, usually monthly or annually."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "deductible",
+      "termCode": "T1",
+      "description": "The amount an insured pays out of pocket before coverage begins to pay."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "copay",
+      "termCode": "T2",
+      "description": "A fixed amount paid for a covered service, separate from the deductible."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "coinsurance",
+      "termCode": "T2",
+      "description": "The percentage of a covered cost the insured pays after the deductible is met."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "out-of-pocket maximum",
+      "termCode": "T2",
+      "description": "The annual ceiling on what an insured pays before coverage pays everything else."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "policy limit",
+      "termCode": "T2",
+      "description": "The maximum an insurer will pay under a policy."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "rider",
+      "termCode": "T2",
+      "description": "An add-on modifying the coverage of a base policy.",
+      "alternateName": [
+        "endorsement"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "exclusion",
+      "termCode": "T2",
+      "description": "A circumstance a policy explicitly does not cover."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "underwriting",
+      "termCode": "T2",
+      "description": "Assessing the risk of insuring someone and setting terms accordingly."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "actuary",
+      "termCode": "T2",
+      "description": "A specialist who models risk and prices it using statistical methods."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "loss ratio",
+      "termCode": "T2",
+      "description": "Claims paid as a proportion of premiums collected."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "combined ratio",
+      "termCode": "T2",
+      "description": "Claims plus expenses as a proportion of premiums. Below 100% means underwriting profit."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "claim",
+      "termCode": "T1",
+      "description": "A request for payment under the terms of a policy."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "adjuster",
+      "termCode": "T2",
+      "description": "The person who investigates a claim and determines what the insurer owes."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "subrogation",
+      "termCode": "T2",
+      "description": "An insurer pursuing a third party responsible for a loss it has paid out."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "first-party claim",
+      "termCode": "T2",
+      "description": "A claim made by the policyholder against their own insurer."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "third-party claim",
+      "termCode": "T2",
+      "description": "A claim made against a policyholder by someone else."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "reinsurance",
+      "termCode": "T2",
+      "description": "Insurance bought by insurers to cap their own exposure."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "captive insurer",
+      "termCode": "T2",
+      "description": "An insurance subsidiary formed to cover its parent company's risks."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "broker",
+      "termCode": "T2",
+      "description": "An intermediary representing the buyer when placing coverage."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "agent",
+      "termCode": "T2",
+      "description": "An intermediary representing the insurer when selling coverage.",
+      "alternateName": [
+        "insurance agent"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "carrier",
+      "termCode": "T2",
+      "description": "The company actually bearing the insured risk."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "open enrollment",
+      "termCode": "T2",
+      "description": "The defined window during which coverage may be selected or changed."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "qualifying life event",
+      "termCode": "T2",
+      "description": "A change permitting a coverage election outside open enrollment."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "in-network",
+      "termCode": "T2",
+      "description": "A provider with a negotiated contract with the insurer."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "EOB",
+      "termCode": "T2",
+      "description": "Explanation of benefits. The statement showing what was billed, covered, and owed. Not a bill.",
+      "ctx": {
+        "expansion": "Explanation of benefits"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "formulary",
+      "termCode": "T2",
+      "description": "The list of medications a health plan covers, usually organized in cost tiers."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "umbrella policy",
+      "termCode": "T2",
+      "description": "Additional liability coverage sitting above the limits of underlying policies."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "named perils",
+      "termCode": "T2",
+      "description": "A policy covering only the specific risks it lists."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "all risk",
+      "termCode": "T2",
+      "description": "A policy covering any risk except those explicitly excluded.",
+      "alternateName": [
+        "open perils"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "replacement cost",
+      "termCode": "T2",
+      "description": "Coverage paying to replace property without deducting for depreciation."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "actual cash value",
+      "termCode": "T2",
+      "description": "Coverage paying replacement cost minus depreciation.",
+      "alternateName": [
+        "ACV"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "proof of loss",
+      "termCode": "T2",
+      "description": "The documentation an insured submits to substantiate a claim."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "lapse",
+      "termCode": "T2",
+      "description": "Coverage ending because premiums were not paid."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "grace period",
+      "termCode": "T2",
+      "description": "A window after a missed payment during which coverage continues."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "risk pool",
+      "termCode": "T2",
+      "description": "The group across which insured risk is spread."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "adverse selection",
+      "termCode": "T2",
+      "description": "When higher-risk people are disproportionately likely to buy coverage, pushing prices up."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "moral hazard",
+      "termCode": "T2",
+      "description": "The tendency to take more risk once insured against its consequences."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "insurtech",
+      "termCode": "T2",
+      "description": "Technology-led entrants and tools reshaping insurance distribution and underwriting."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "embedded insurance",
+      "termCode": "T2",
+      "description": "Coverage offered inside another purchase, such as at checkout."
+    }
+  ],
+  "version": "aa545dbf"
+}

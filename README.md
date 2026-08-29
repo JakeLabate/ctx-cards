@@ -49,12 +49,23 @@ setting, so a light site stays light for a visitor in dark mode.
 
 | Pack | Terms | Covers |
 |---|---|---|
-| `seo-core` | 40 | Search, technical SEO, structured data, GEO. Load on every site. |
-| `ecommerce` | 25 | Catalog, merchandising, conversion, agentic commerce. |
-| `saas` | 25 | Subscription metrics, APIs, developer experience. |
-| `finance` | 22 | Lending, compliance, investment vocabulary. |
-| `healthcare` | 20 | Industry and marketing terms only. See the caveat below. |
-| `real-estate` | 20 | Residential and commercial property. |
+| `seo-core` | 100 | Search, technical SEO, structured data, GEO. Load on every site. |
+| `agentic-ai` | 25 | MCP, WebMCP, A2A, UCP, ACP, NLWeb, and agent vocabulary. |
+| `ecommerce` | 56 | Catalog, merchandising, fulfilment, conversion, agentic commerce. |
+| `saas` | 54 | Subscription metrics, APIs, developer experience, procurement. |
+| `finance` | 53 | Lending, investing, compliance, business finance. |
+| `healthcare` | 47 | Payers, systems, standards, research. Industry terms only. |
+| `legal` | 50 | Contracts, disputes, IP, data protection. |
+| `insurance` | 40 | Coverage, claims, underwriting, distribution. |
+| `real-estate` | 40 | Residential, commercial, and local property search. |
+| `home-services` | 38 | Trades, local search, field operations. |
+| `manufacturing` | 40 | Production, quality, supply chain, industrial B2B. |
+| `hospitality` | 38 | Hotels, restaurants, distribution, revenue management. |
+| `education` | 40 | Higher ed, K-12, workforce training, compliance. |
+| `automotive` | 39 | Dealership retail, service, EV. |
+
+**660 terms, 149 KB total.** Packs load independently, so a site pulls only
+what it needs. 145 acronyms carry a written-out expansion.
 
 Each pack carries a content-hashed `version` so the CDN can cache immutably.
 

@@ -1,0 +1,367 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/legal.json",
+  "identifier": "legal",
+  "name": "Legal and compliance",
+  "description": "Industry vocabulary only. Not legal advice.",
+  "dateModified": "2026-08-29",
+  "inLanguage": "en",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "indemnity",
+      "termCode": "T2",
+      "description": "A promise by one party to cover specified losses suffered by another.",
+      "alternateName": [
+        "indemnification"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "limitation of liability",
+      "termCode": "T2",
+      "description": "A clause capping what one party can owe the other if things go wrong."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "force majeure",
+      "termCode": "T2",
+      "description": "A clause excusing performance when specified extraordinary events prevent it."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "warranty",
+      "termCode": "T2",
+      "description": "A contractual promise that a stated fact is true, with remedies if it is not."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "representation",
+      "termCode": "T2",
+      "description": "A statement of fact made to induce another party to enter an agreement."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "covenant",
+      "termCode": "T2",
+      "description": "A contractual promise to do or refrain from doing something."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "consideration",
+      "termCode": "T2",
+      "description": "The thing of value each side gives, without which a contract is generally unenforceable."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "term and termination",
+      "termCode": "T2",
+      "description": "The clauses setting how long an agreement runs and how it can be ended."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "assignment",
+      "termCode": "T2",
+      "description": "Transferring contractual rights or obligations to a third party."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "governing law",
+      "termCode": "T2",
+      "description": "The jurisdiction whose law will be used to interpret an agreement."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "arbitration",
+      "termCode": "T2",
+      "description": "Private dispute resolution before a neutral decision-maker instead of a court."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "NDA",
+      "termCode": "T2",
+      "description": "An agreement restricting disclosure of information shared between parties.",
+      "alternateName": [
+        "non-disclosure agreement"
+      ],
+      "ctx": {
+        "expansion": "Non-disclosure agreement"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MSA",
+      "termCode": "T2",
+      "description": "An umbrella contract setting standing terms, with specific work defined in separate orders.",
+      "alternateName": [
+        "master services agreement"
+      ],
+      "ctx": {
+        "expansion": "Master services agreement"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SOW",
+      "termCode": "T2",
+      "description": "A document defining scope, deliverables, and timelines under a master agreement.",
+      "alternateName": [
+        "statement of work"
+      ],
+      "ctx": {
+        "expansion": "Statement of work"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "DPA",
+      "termCode": "T2",
+      "description": "A contract governing how a vendor handles personal data on a customer's behalf.",
+      "alternateName": [
+        "data processing agreement"
+      ],
+      "ctx": {
+        "expansion": "Data processing agreement"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SLA",
+      "termCode": "T2",
+      "description": "A commitment to defined service standards, usually with remedies for shortfalls.",
+      "alternateName": [
+        "service level agreement"
+      ],
+      "ctx": {
+        "expansion": "Service level agreement"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "boilerplate",
+      "termCode": "T2",
+      "description": "Standard clauses appearing in most agreements. Routine, and occasionally consequential."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "redline",
+      "termCode": "T2",
+      "description": "A marked-up draft showing proposed changes between negotiating parties."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "execution",
+      "termCode": "T2",
+      "description": "The signing that makes an agreement binding."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "LLC",
+      "termCode": "T2",
+      "description": "Limited liability company. A US structure combining liability protection with pass-through taxation.",
+      "ctx": {
+        "expansion": "Limited liability company"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "incorporation",
+      "termCode": "T2",
+      "description": "Forming a company as a legal entity separate from its owners."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "registered agent",
+      "termCode": "T2",
+      "description": "The party designated to receive legal notices on a company's behalf."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "due diligence",
+      "termCode": "T2",
+      "description": "Investigation of a counterparty or asset before committing to a transaction."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "litigation",
+      "termCode": "T2",
+      "description": "Resolving a dispute through the courts."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "discovery",
+      "termCode": "T2",
+      "description": "The pre-trial phase in which parties exchange relevant evidence."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "deposition",
+      "termCode": "T2",
+      "description": "Sworn out-of-court testimony taken during discovery."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "settlement",
+      "termCode": "T2",
+      "description": "An agreed resolution ending a dispute without a judgment."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "injunction",
+      "termCode": "T2",
+      "description": "A court order requiring a party to do or stop doing something."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "statute of limitations",
+      "termCode": "T2",
+      "description": "The deadline after which a claim can no longer be brought."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "class action",
+      "termCode": "T2",
+      "description": "A suit brought by representatives on behalf of a larger group with common claims."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "privilege",
+      "termCode": "T2",
+      "description": "Protection from compelled disclosure of confidential legal advice.",
+      "alternateName": [
+        "attorney-client privilege"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "conflict of interest",
+      "termCode": "T2",
+      "description": "A situation where duties to one client could compromise duties to another."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "retainer",
+      "termCode": "T2",
+      "description": "An advance payment securing legal services."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "billable hour",
+      "termCode": "T2",
+      "description": "The standard unit of legal billing. Increasingly supplemented by fixed-fee arrangements."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "intellectual property",
+      "termCode": "T2",
+      "description": "Legally protected creations: patents, trademarks, copyrights, and trade secrets.",
+      "alternateName": [
+        "IP"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "trademark",
+      "termCode": "T2",
+      "description": "A protected mark identifying the source of goods or services."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "copyright",
+      "termCode": "T2",
+      "description": "Protection for original works of authorship, arising automatically on creation."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "patent",
+      "termCode": "T2",
+      "description": "A time-limited exclusive right over an invention, granted in exchange for disclosure."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "trade secret",
+      "termCode": "T2",
+      "description": "Commercially valuable information protected by being kept confidential."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "fair use",
+      "termCode": "T2",
+      "description": "A US doctrine permitting some unlicensed use of copyrighted work. Fact-specific and decided case by case."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "licence",
+      "termCode": "T2",
+      "description": "Permission to use protected material on stated terms.",
+      "alternateName": [
+        "license"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "GDPR",
+      "termCode": "T2",
+      "description": "The EU regulation governing personal data processing, with extraterritorial reach.",
+      "ctx": {
+        "expansion": "General Data Protection Regulation"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CCPA",
+      "termCode": "T2",
+      "description": "California's consumer privacy law, granting access, deletion, and opt-out rights.",
+      "ctx": {
+        "expansion": "California Consumer Privacy Act"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "data subject request",
+      "termCode": "T2",
+      "description": "An individual's request to access, correct, or delete data held about them.",
+      "alternateName": [
+        "DSAR"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "processor",
+      "termCode": "T2",
+      "description": "A party handling personal data on behalf of, and under instruction from, a controller."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "controller",
+      "termCode": "T2",
+      "description": "The party determining the purposes and means of processing personal data."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "breach notification",
+      "termCode": "T2",
+      "description": "The regulated obligation to inform authorities and affected people after a data breach."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "records retention",
+      "termCode": "T2",
+      "description": "The policy governing how long records are kept and when they are destroyed."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "legal hold",
+      "termCode": "T2",
+      "description": "A directive suspending routine deletion when litigation is anticipated."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "compliance program",
+      "termCode": "T2",
+      "description": "The structured set of policies, training, and monitoring used to meet legal obligations."
+    }
+  ],
+  "version": "0ceb89c9"
+}

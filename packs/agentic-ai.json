@@ -1,0 +1,205 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/agentic-ai.json",
+  "identifier": "agentic-ai",
+  "name": "Agentic AI protocols",
+  "description": "Protocols and vocabulary for AI agents consuming the web.",
+  "dateModified": "2026-08-29",
+  "inLanguage": "en",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "MCP",
+      "termCode": "T2",
+      "description": "Standardizes how an AI host discovers tools, resources, and prompts from external systems, so each integration is not custom-built per client.",
+      "alternateName": [
+        "Model Context Protocol"
+      ],
+      "ctx": {
+        "expansion": "Model Context Protocol"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "WebMCP",
+      "termCode": "T2",
+      "description": "Lets a website declare structured tool APIs in-page through browser-mediated capabilities, reducing brittle DOM automation. A W3C community proposal.",
+      "ctx": {
+        "expansion": "Web Model Context Protocol"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "A2A",
+      "termCode": "T2",
+      "description": "Standardizes capability discovery, task lifecycle, and cross-agent messaging so agents interoperate regardless of vendor stack.",
+      "alternateName": [
+        "Agent2Agent"
+      ],
+      "ctx": {
+        "expansion": "Agent-to-Agent protocol"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "UCP",
+      "termCode": "T2",
+      "description": "Standardizes commerce capabilities and negotiation so platforms, merchants, and payment handlers can transact in agentic interfaces.",
+      "alternateName": [
+        "Universal Commerce Protocol"
+      ],
+      "ctx": {
+        "expansion": "Universal Commerce Protocol"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ACP",
+      "termCode": "T2",
+      "description": "An overloaded acronym. Confirm whether a source means the commerce protocol or the agent-communication one before implementing.",
+      "ctx": {
+        "expansion": "Agent Commerce Protocol"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "NLWeb",
+      "termCode": "T2",
+      "description": "Turns a site into a natural-language queryable endpoint. Agents post a question and receive structured JSON instead of scraping HTML. Every NLWeb instance is also an MCP server.",
+      "alternateName": [
+        "Natural Language Web"
+      ],
+      "ctx": {
+        "expansion": "Natural Language Web"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "AP2",
+      "termCode": "T2",
+      "description": "An agent payments protocol, designed to sit alongside A2A and MCP in commerce flows.",
+      "ctx": {
+        "expansion": "Agent Payments Protocol"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "agentic commerce",
+      "termCode": "T2",
+      "description": "Purchases discovered, negotiated, or completed by an AI agent acting for a person."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "browser agent",
+      "termCode": "T2",
+      "description": "An AI agent that navigates and acts on websites through a real browser session."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "tool use",
+      "termCode": "T2",
+      "description": "A model invoking an external function or API rather than answering from its own parameters.",
+      "alternateName": [
+        "function calling"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "agent card",
+      "termCode": "T2",
+      "description": "A machine-readable description of an agent's capabilities, used for discovery in A2A."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "capability discovery",
+      "termCode": "T2",
+      "description": "How one system learns what another can do before calling it."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MCP server",
+      "termCode": "T2",
+      "description": "A service exposing tools and resources to AI hosts over the Model Context Protocol."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MCP client",
+      "termCode": "T2",
+      "description": "The application connecting a model to MCP servers and mediating tool calls.",
+      "alternateName": [
+        "MCP host"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "agents.json",
+      "termCode": "T2",
+      "description": "A proposed manifest describing a site's APIs and workflows so agents can discover and execute them."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Web Bot Auth",
+      "termCode": "T2",
+      "description": "A proposal for cryptographically identifying legitimate bots to the sites they visit."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "x402",
+      "termCode": "T2",
+      "description": "A proposal reviving the HTTP 402 status code for machine-to-machine payment flows."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "AGENTS.md",
+      "termCode": "T2",
+      "description": "A repository convention giving coding agents project-specific instructions."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "autonomous agent",
+      "termCode": "T2",
+      "description": "A system that plans and executes multi-step tasks toward a goal with limited human input."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "human in the loop",
+      "termCode": "T2",
+      "description": "Requiring human approval at defined points in an otherwise automated process.",
+      "alternateName": [
+        "HITL"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "agent orchestration",
+      "termCode": "T2",
+      "description": "Coordinating multiple specialised agents on parts of one task."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "structured output",
+      "termCode": "T2",
+      "description": "Constraining a model's response to a schema so downstream systems can parse it reliably."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "context window",
+      "termCode": "T2",
+      "description": "The amount of text a model can consider at once, spanning input and output."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "prompt injection",
+      "termCode": "T2",
+      "description": "An attack embedding instructions in content a model reads, hijacking its behaviour."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "machine-readable",
+      "termCode": "T2",
+      "description": "Structured so a program can parse meaning without inference. The prerequisite for agent consumption."
+    }
+  ],
+  "version": "3253033c"
+}

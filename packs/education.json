@@ -1,0 +1,289 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/education.json",
+  "identifier": "education",
+  "name": "Education",
+  "description": "Higher education, K-12, and workforce training.",
+  "dateModified": "2026-08-29",
+  "inLanguage": "en",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "LMS",
+      "termCode": "T2",
+      "description": "Learning management system. The platform hosting courses, assignments, and grades.",
+      "ctx": {
+        "expansion": "Learning management system"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SIS",
+      "termCode": "T2",
+      "description": "Student information system. The system of record for enrolment, records, and transcripts.",
+      "ctx": {
+        "expansion": "Student information system"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "enrollment",
+      "termCode": "T1",
+      "description": "The count of registered students, and the primary institutional revenue driver.",
+      "alternateName": [
+        "enrolment"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "yield rate",
+      "termCode": "T2",
+      "description": "The share of admitted applicants who enrol."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "melt",
+      "termCode": "T2",
+      "description": "Admitted students who commit but never arrive.",
+      "alternateName": [
+        "summer melt"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "retention rate",
+      "termCode": "T2",
+      "description": "The share of students continuing from one year to the next."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "persistence",
+      "termCode": "T2",
+      "description": "Whether a student continues in higher education anywhere, not only at one institution."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "completion rate",
+      "termCode": "T2",
+      "description": "The share of a cohort finishing their programme within a defined window.",
+      "alternateName": [
+        "graduation rate"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "attrition",
+      "termCode": "T2",
+      "description": "Students leaving before completion."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "accreditation",
+      "termCode": "T2",
+      "description": "Recognition by an authorized body that an institution meets defined standards."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "articulation agreement",
+      "termCode": "T2",
+      "description": "A formal arrangement letting credits transfer between institutions."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "credit hour",
+      "termCode": "T2",
+      "description": "The standard unit of academic workload."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "cohort",
+      "termCode": "T2",
+      "description": "A group progressing through a programme together."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "asynchronous learning",
+      "termCode": "T2",
+      "description": "Study without fixed meeting times, completed on the student's schedule."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "synchronous learning",
+      "termCode": "T2",
+      "description": "Instruction delivered live at a scheduled time."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "blended learning",
+      "termCode": "T2",
+      "description": "Combining in-person and online instruction.",
+      "alternateName": [
+        "hybrid"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "competency-based education",
+      "termCode": "T2",
+      "description": "Progression by demonstrated mastery rather than time served.",
+      "alternateName": [
+        "CBE"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "microcredential",
+      "termCode": "T2",
+      "description": "A short, targeted qualification certifying a specific skill."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "stackable credential",
+      "termCode": "T2",
+      "description": "A qualification that counts toward a larger one later."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "bootcamp",
+      "termCode": "T2",
+      "description": "An intensive short programme focused on job-ready skills."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CEU",
+      "termCode": "T2",
+      "description": "Continuing education unit. A standard measure of professional development.",
+      "ctx": {
+        "expansion": "Continuing education unit"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "FAFSA",
+      "termCode": "T2",
+      "description": "The US application determining eligibility for federal student financial aid.",
+      "ctx": {
+        "expansion": "Free Application for Federal Student Aid"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "financial aid package",
+      "termCode": "T2",
+      "description": "The combination of grants, loans, and work-study offered to a student."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "net price",
+      "termCode": "T2",
+      "description": "Published cost minus grant aid. What a student actually pays."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Title IV",
+      "termCode": "T2",
+      "description": "The US federal student aid programs, and the compliance regime attached to them."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "FERPA",
+      "termCode": "T2",
+      "description": "The US law governing the privacy of student education records.",
+      "ctx": {
+        "expansion": "Family Educational Rights and Privacy Act"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Title IX",
+      "termCode": "T2",
+      "description": "The US law prohibiting sex discrimination in federally funded education programs."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "IPEDS",
+      "termCode": "T2",
+      "description": "The US federal data collection all participating institutions must report to.",
+      "ctx": {
+        "expansion": "Integrated Postsecondary Education Data System"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "student outcomes",
+      "termCode": "T2",
+      "description": "Measured results after study, such as completion, employment, and earnings."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "learning outcome",
+      "termCode": "T2",
+      "description": "A stated, assessable description of what a student should be able to do."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "formative assessment",
+      "termCode": "T2",
+      "description": "Assessment during learning, used to guide teaching rather than grade it."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "summative assessment",
+      "termCode": "T2",
+      "description": "Assessment at the end of a unit, used to judge achievement."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "rubric",
+      "termCode": "T2",
+      "description": "A published scoring guide making assessment criteria explicit."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "differentiated instruction",
+      "termCode": "T2",
+      "description": "Adapting teaching to varied readiness and needs within one group."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "IEP",
+      "termCode": "T2",
+      "description": "Individualized education program. A legally required plan for a US student with a disability.",
+      "ctx": {
+        "expansion": "Individualized education program"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "EdTech",
+      "termCode": "T2",
+      "description": "Technology built for teaching, learning, and institutional operations."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "program page",
+      "termCode": "T2",
+      "description": "The page describing a course of study. The highest-intent page in education search."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Course schema",
+      "termCode": "T2",
+      "description": "Structured data describing a course's provider, delivery mode, and credential."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "nontraditional student",
+      "termCode": "T2",
+      "description": "A learner outside the school-leaver profile: older, part-time, working, or returning."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "workforce development",
+      "termCode": "T2",
+      "description": "Training aligned to identified employer demand in a region."
+    }
+  ],
+  "version": "2afb8d5f"
+}

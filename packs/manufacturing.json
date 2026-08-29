@@ -1,0 +1,319 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/manufacturing.json",
+  "identifier": "manufacturing",
+  "name": "Manufacturing and industrial",
+  "description": "Production, supply chain, and industrial B2B.",
+  "dateModified": "2026-08-29",
+  "inLanguage": "en",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "OEM",
+      "termCode": "T2",
+      "description": "Original equipment manufacturer. The company that produced a part or system under its own name.",
+      "ctx": {
+        "expansion": "Original equipment manufacturer"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ODM",
+      "termCode": "T2",
+      "description": "Original design manufacturer. A supplier that designs as well as builds, for another brand to sell.",
+      "ctx": {
+        "expansion": "Original design manufacturer"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "contract manufacturing",
+      "termCode": "T2",
+      "description": "Outsourced production to a supplier's specification and capacity."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "BOM",
+      "termCode": "T2",
+      "description": "The structured list of every component required to build a product.",
+      "alternateName": [
+        "bill of materials"
+      ],
+      "ctx": {
+        "expansion": "Bill of materials"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MOQ",
+      "termCode": "T2",
+      "description": "Minimum order quantity. The smallest batch a supplier will produce.",
+      "ctx": {
+        "expansion": "Minimum order quantity"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "lead time",
+      "termCode": "T1",
+      "description": "Elapsed time from placing an order to receiving it."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "takt time",
+      "termCode": "T2",
+      "description": "The production pace required to meet customer demand."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "cycle time",
+      "termCode": "T2",
+      "description": "How long one unit takes to move through a process."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "throughput",
+      "termCode": "T1",
+      "description": "Units produced per unit of time."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "OEE",
+      "termCode": "T2",
+      "description": "Overall equipment effectiveness. Availability times performance times quality.",
+      "ctx": {
+        "expansion": "Overall equipment effectiveness"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "yield",
+      "termCode": "T2",
+      "description": "The share of units produced that meet specification."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "scrap rate",
+      "termCode": "T2",
+      "description": "The share of material lost to defects or waste."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "rework",
+      "termCode": "T2",
+      "description": "Correcting defective output rather than scrapping it."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "tolerance",
+      "termCode": "T2",
+      "description": "The permitted deviation from a specified dimension."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "GD&T",
+      "termCode": "T2",
+      "description": "Geometric dimensioning and tolerancing. A standard notation for specifying allowable variation.",
+      "ctx": {
+        "expansion": "Geometric dimensioning and tolerancing"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CNC",
+      "termCode": "T2",
+      "description": "Computer numerical control. Machining driven by programmed instructions.",
+      "ctx": {
+        "expansion": "Computer numerical control"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CAD",
+      "termCode": "T2",
+      "description": "Computer-aided design. Software for producing engineering drawings and models.",
+      "ctx": {
+        "expansion": "Computer-aided design"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CAM",
+      "termCode": "T2",
+      "description": "Computer-aided manufacturing. Software translating designs into machine instructions.",
+      "ctx": {
+        "expansion": "Computer-aided manufacturing"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "additive manufacturing",
+      "termCode": "T2",
+      "description": "Building parts by adding material layer by layer rather than cutting it away.",
+      "alternateName": [
+        "3D printing"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "injection moulding",
+      "termCode": "T2",
+      "description": "Forming parts by forcing molten material into a tool. High tooling cost, low unit cost at volume.",
+      "alternateName": [
+        "injection molding"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "tooling",
+      "termCode": "T2",
+      "description": "The dies, moulds, and fixtures required to produce a part."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "prototype",
+      "termCode": "T2",
+      "description": "An early build used to validate design before committing to production tooling."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "NPI",
+      "termCode": "T2",
+      "description": "The process of taking a design from validated prototype into stable production.",
+      "alternateName": [
+        "new product introduction"
+      ],
+      "ctx": {
+        "expansion": "National provider identifier"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "lean manufacturing",
+      "termCode": "T2",
+      "description": "A method focused on removing activity that does not add customer value."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Six Sigma",
+      "termCode": "T2",
+      "description": "A method for reducing process variation using statistical analysis."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "kaizen",
+      "termCode": "T2",
+      "description": "Continuous incremental improvement driven by the people doing the work."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "kanban",
+      "termCode": "T2",
+      "description": "A pull-based signalling system that triggers replenishment only when stock is consumed."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "just in time",
+      "termCode": "T2",
+      "description": "Receiving material only as production needs it. Efficient, and fragile under supply shock.",
+      "alternateName": [
+        "JIT"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MRP",
+      "termCode": "T2",
+      "description": "Material requirements planning. Scheduling purchases and production from a demand forecast.",
+      "ctx": {
+        "expansion": "Material requirements planning"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ERP",
+      "termCode": "T2",
+      "description": "Enterprise resource planning. The system of record spanning finance, inventory, and production.",
+      "ctx": {
+        "expansion": "Enterprise resource planning"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MES",
+      "termCode": "T2",
+      "description": "Manufacturing execution system. Software tracking and controlling work on the shop floor.",
+      "ctx": {
+        "expansion": "Manufacturing execution system"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SCADA",
+      "termCode": "T2",
+      "description": "Supervisory control and data acquisition. Systems monitoring and controlling industrial equipment.",
+      "ctx": {
+        "expansion": "Supervisory control and data acquisition"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PLC",
+      "termCode": "T2",
+      "description": "Programmable logic controller. The industrial computer running machine control logic.",
+      "ctx": {
+        "expansion": "Programmable logic controller"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "predictive maintenance",
+      "termCode": "T2",
+      "description": "Using condition data to service equipment before it fails."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ISO 9001",
+      "termCode": "T2",
+      "description": "The international standard for quality management systems."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "traceability",
+      "termCode": "T2",
+      "description": "The ability to follow a part's history through materials, process, and handling."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "supply chain resilience",
+      "termCode": "T2",
+      "description": "The capacity to keep producing when a supplier, route, or input fails."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "nearshoring",
+      "termCode": "T2",
+      "description": "Relocating production closer to the end market to shorten and de-risk supply."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "spec sheet",
+      "termCode": "T2",
+      "description": "The document stating a product's dimensions, materials, and performance. High-intent content in industrial search.",
+      "alternateName": [
+        "datasheet"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "RFQ",
+      "termCode": "T2",
+      "description": "Request for quote. A buyer's formal request for pricing against a specification.",
+      "ctx": {
+        "expansion": "Request for quote"
+      }
+    }
+  ],
+  "version": "c05ccdf0"
+}

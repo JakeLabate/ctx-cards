@@ -1,0 +1,283 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/home-services.json",
+  "identifier": "home-services",
+  "name": "Home and field services",
+  "description": "Trades, local service businesses, and field operations.",
+  "dateModified": "2026-08-29",
+  "inLanguage": "en",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "service area",
+      "termCode": "T2",
+      "description": "The geographic region a business will travel to serve. Defines realistic local targeting."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SAB",
+      "termCode": "T2",
+      "description": "A business serving customers at their location rather than at a storefront. Listed without a public address.",
+      "alternateName": [
+        "service area business"
+      ],
+      "ctx": {
+        "expansion": "Service area business"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Google Business Profile",
+      "termCode": "T2",
+      "description": "The listing controlling how a business appears in maps and local results.",
+      "alternateName": [
+        "GBP"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "local pack",
+      "termCode": "T2",
+      "description": "The map plus three business listings shown for local-intent queries.",
+      "alternateName": [
+        "map pack"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "NAP",
+      "termCode": "T2",
+      "description": "Name, address, phone. Consistency across listings is a core local ranking signal.",
+      "ctx": {
+        "expansion": "Name, address, phone"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "citation",
+      "termCode": "T2",
+      "description": "A mention of a business's name, address, and phone on a directory or site.",
+      "alternateName": [
+        "local citation"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "proximity",
+      "termCode": "T2",
+      "description": "How close a searcher is to a business. Usually the strongest local ranking factor, and the one you cannot change."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "review velocity",
+      "termCode": "T2",
+      "description": "How quickly new reviews arrive. Steadier matters more than bursty."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "review gating",
+      "termCode": "T2",
+      "description": "Soliciting reviews only from satisfied customers. Prohibited by most major platforms."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "LSA",
+      "termCode": "T2",
+      "description": "Google's pay-per-lead ad format for service businesses, requiring background screening.",
+      "alternateName": [
+        "Local Services Ads"
+      ],
+      "ctx": {
+        "expansion": "Local Services Ads"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Google Guaranteed",
+      "termCode": "T2",
+      "description": "A badge on Local Services Ads indicating screening and a limited job-value guarantee."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "lead",
+      "termCode": "T1",
+      "description": "A prospective customer who has made contact but not yet booked."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "cost per lead",
+      "termCode": "T1",
+      "description": "Marketing spend divided by leads generated.",
+      "alternateName": [
+        "CPL"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "booked job rate",
+      "termCode": "T2",
+      "description": "The share of leads that convert into scheduled work."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "average ticket",
+      "termCode": "T2",
+      "description": "Average revenue per completed job."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "truck roll",
+      "termCode": "T2",
+      "description": "Sending a technician to a site. The main unit of cost in field service."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "first-time fix rate",
+      "termCode": "T2",
+      "description": "The share of jobs resolved on the first visit."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "dispatch",
+      "termCode": "T2",
+      "description": "Assigning and routing technicians to jobs."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "field service management",
+      "termCode": "T2",
+      "description": "Software coordinating scheduling, dispatch, and invoicing for mobile crews.",
+      "alternateName": [
+        "FSM"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "estimate",
+      "termCode": "T1",
+      "description": "A priced proposal for work, given before the job is accepted.",
+      "alternateName": [
+        "quote"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "change order",
+      "termCode": "T2",
+      "description": "A documented adjustment to agreed scope and price mid-job."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "callback",
+      "termCode": "T2",
+      "description": "A return visit to correct earlier work. Usually unpaid, and a direct margin loss."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "warranty work",
+      "termCode": "T2",
+      "description": "Repairs performed under an existing guarantee."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "maintenance agreement",
+      "termCode": "T2",
+      "description": "A recurring contract for scheduled servicing. The main route to predictable revenue in trades.",
+      "alternateName": [
+        "service plan"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "preventive maintenance",
+      "termCode": "T2",
+      "description": "Scheduled servicing intended to avoid failures rather than respond to them."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "emergency call-out",
+      "termCode": "T2",
+      "description": "Unscheduled urgent work, usually priced at a premium."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "licensed and bonded",
+      "termCode": "T2",
+      "description": "Holding the required trade licence and a surety bond covering incomplete or defective work."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "permit",
+      "termCode": "T2",
+      "description": "Municipal authorization required before certain work may legally proceed."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "inspection",
+      "termCode": "T2",
+      "description": "An official check that completed work meets code."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "code compliance",
+      "termCode": "T2",
+      "description": "Conformance with the building or trade standards in force locally."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "HVAC",
+      "termCode": "T2",
+      "description": "Heating, ventilation, and air conditioning.",
+      "ctx": {
+        "expansion": "Heating, ventilation, and air conditioning"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SEER",
+      "termCode": "T2",
+      "description": "Seasonal energy efficiency ratio. A cooling efficiency rating for HVAC equipment.",
+      "ctx": {
+        "expansion": "Seasonal energy efficiency ratio"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "hard water",
+      "termCode": "T2",
+      "description": "Water with high mineral content, which scales fixtures and shortens appliance life."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "backflow prevention",
+      "termCode": "T2",
+      "description": "A device stopping contaminated water re-entering a clean supply."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "load calculation",
+      "termCode": "T2",
+      "description": "Sizing equipment to a building's actual heating or cooling demand rather than by rule of thumb."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "seasonality",
+      "termCode": "T2",
+      "description": "Predictable demand swings across the year. The defining planning problem in most trades."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "referral rate",
+      "termCode": "T2",
+      "description": "The share of new work arriving through existing customers."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "before and after",
+      "termCode": "T2",
+      "description": "Paired photos documenting completed work. The highest-converting content type in most trades."
+    }
+  ],
+  "version": "7547efea"
+}

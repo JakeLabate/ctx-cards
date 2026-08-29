@@ -5,7 +5,7 @@
   "identifier": "saas",
   "name": "SaaS and developer tools",
   "description": "Subscription software, APIs, and technical products.",
-  "dateModified": "2026-08-28",
+  "dateModified": "2026-08-29",
   "inLanguage": "en",
   "hasDefinedTerm": [
     {
@@ -13,9 +13,6 @@
       "name": "ARR",
       "termCode": "T1",
       "description": "Contracted subscription revenue normalized to a yearly figure.",
-      "alternateName": [
-        "annual recurring revenue"
-      ],
       "ctx": {
         "expansion": "Annual recurring revenue"
       }
@@ -25,9 +22,6 @@
       "name": "MRR",
       "termCode": "T1",
       "description": "Contracted subscription revenue normalized to a monthly figure.",
-      "alternateName": [
-        "monthly recurring revenue"
-      ],
       "ctx": {
         "expansion": "Monthly recurring revenue"
       }
@@ -43,23 +37,98 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "net revenue retention",
+      "name": "logo churn",
+      "termCode": "T2",
+      "description": "Churn counted by number of customers rather than by revenue."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "revenue churn",
+      "termCode": "T2",
+      "description": "Churn counted by lost revenue. Can differ sharply from logo churn if losses skew large or small."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "NRR",
       "termCode": "T2",
       "description": "Revenue from existing customers this period versus last, including expansion and churn. Above 100% means growth without new logos.",
       "alternateName": [
-        "NRR"
-      ]
+        "net revenue retention"
+      ],
+      "ctx": {
+        "expansion": "Net revenue retention"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "GRR",
+      "termCode": "T2",
+      "description": "Retention excluding expansion. Shows the true floor beneath a revenue base.",
+      "alternateName": [
+        "gross revenue retention"
+      ],
+      "ctx": {
+        "expansion": "Gross revenue retention"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "expansion revenue",
+      "termCode": "T2",
+      "description": "Additional revenue from existing customers through upgrades, seats, or usage."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CAC payback",
+      "termCode": "T2",
+      "description": "How long it takes gross margin from a customer to repay their acquisition cost."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "magic number",
+      "termCode": "T2",
+      "description": "A sales efficiency ratio comparing new ARR to the sales and marketing spend that produced it."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "rule of 40",
+      "termCode": "T2",
+      "description": "A heuristic that growth rate plus profit margin should exceed forty."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "burn multiple",
+      "termCode": "T2",
+      "description": "Net cash burned per unit of net new ARR. A capital efficiency measure."
     },
     {
       "@type": "DefinedTerm",
       "name": "PQL",
       "termCode": "T2",
-      "description": "A user whose product usage signals readiness to buy, as opposed to one who filled in a form.",
-      "alternateName": [
-        "product qualified lead"
-      ],
+      "description": "Product qualified lead. A user whose product usage signals readiness to buy, as opposed to one who filled in a form.",
       "ctx": {
         "expansion": "Product qualified lead"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MQL",
+      "termCode": "T2",
+      "description": "Marketing qualified lead. A contact judged ready for sales follow-up based on marketing engagement.",
+      "ctx": {
+        "expansion": "Marketing qualified lead"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SQL",
+      "termCode": "T2",
+      "description": "A lead sales has accepted as worth pursuing.",
+      "alternateName": [
+        "sales qualified lead"
+      ],
+      "ctx": {
+        "expansion": "Sales qualified lead"
       }
     },
     {
@@ -73,6 +142,12 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "sales-led growth",
+      "termCode": "T2",
+      "description": "Acquiring customers primarily through outbound and direct selling."
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "free trial",
       "termCode": "T2",
       "description": "Time-limited full access used to demonstrate value before purchase."
@@ -82,6 +157,12 @@
       "name": "freemium",
       "termCode": "T2",
       "description": "A permanently free tier with paid upgrades, as distinct from a time-limited trial."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "self-serve",
+      "termCode": "T2",
+      "description": "A purchase path a customer completes without talking to sales."
     },
     {
       "@type": "DefinedTerm",
@@ -100,12 +181,27 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "onboarding",
+      "termCode": "T2",
+      "description": "The guided path from signup to first value."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "aha moment",
+      "termCode": "T2",
+      "description": "The specific action correlating most strongly with a user becoming retained."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "seat expansion",
+      "termCode": "T2",
+      "description": "Growth in revenue from adding users within an existing account."
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "API",
       "termCode": "T1",
       "description": "A defined contract letting one system call another programmatically.",
-      "alternateName": [
-        "application programming interface"
-      ],
       "ctx": {
         "expansion": "Application programming interface"
       }
@@ -139,42 +235,87 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "idempotency",
+      "termCode": "T2",
+      "description": "A property where repeating a request produces the same result. Essential for safe retries."
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "SDK",
       "termCode": "T1",
       "description": "A language-specific library wrapping an API so developers do not hand-roll requests.",
-      "alternateName": [
-        "software development kit"
-      ],
       "ctx": {
         "expansion": "Software development kit"
       }
     },
     {
       "@type": "DefinedTerm",
+      "name": "OAuth",
+      "termCode": "T2",
+      "description": "A standard letting an application access an account without handling the password."
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "SSO",
       "termCode": "T2",
-      "description": "Authenticating once against an identity provider to access multiple applications.",
-      "alternateName": [
-        "single sign-on"
-      ],
+      "description": "Single sign-on. Authenticating once against an identity provider to access multiple applications.",
       "ctx": {
         "expansion": "Single sign-on"
       }
     },
     {
       "@type": "DefinedTerm",
-      "name": "SOC 2",
+      "name": "SCIM",
       "termCode": "T2",
-      "description": "An audit report on security and availability controls. Frequently required in enterprise procurement.",
+      "description": "A standard for automatically provisioning and deprovisioning user accounts.",
       "ctx": {
-        "expansion": "System and Organization Controls, Type 2"
+        "expansion": "System for Cross-domain Identity Management"
       }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "multi-tenancy",
+      "termCode": "T2",
+      "description": "One application instance serving many customers with their data isolated."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "sandbox",
+      "termCode": "T2",
+      "description": "An isolated environment for testing against an API without touching production data."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "deprecation",
+      "termCode": "T2",
+      "description": "Marking an API feature for removal, with a window for consumers to migrate."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "versioning",
+      "termCode": "T2",
+      "description": "Publishing distinct API versions so changes do not break existing integrations."
     },
     {
       "@type": "DefinedTerm",
       "name": "uptime SLA",
       "termCode": "T2",
       "description": "A contractual availability commitment, usually with credits owed when it is missed."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "latency",
+      "termCode": "T1",
+      "description": "The delay between a request and its response."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "developer experience",
+      "termCode": "T2",
+      "description": "How easily a developer can adopt and succeed with a tool. A genuine differentiator in this category.",
+      "alternateName": [
+        "DX"
+      ]
     },
     {
       "@type": "DefinedTerm",
@@ -193,31 +334,70 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "self-serve",
-      "termCode": "T2",
-      "description": "A purchase path a customer completes without talking to sales."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "expansion revenue",
-      "termCode": "T2",
-      "description": "Additional revenue from existing customers through upgrades, seats, or usage."
-    },
-    {
-      "@type": "DefinedTerm",
       "name": "usage-based pricing",
       "termCode": "T2",
       "description": "Charging by consumption rather than a flat seat fee."
     },
     {
       "@type": "DefinedTerm",
-      "name": "developer experience",
+      "name": "seat-based pricing",
       "termCode": "T2",
-      "description": "How easily a developer can adopt and succeed with a tool. A genuine differentiator in this category.",
+      "description": "Charging per user, regardless of how much each uses."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "feature gating",
+      "termCode": "T2",
+      "description": "Restricting capabilities to particular plan tiers."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "design partner",
+      "termCode": "T2",
+      "description": "An early customer who shapes a product in exchange for access and influence."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "integration marketplace",
+      "termCode": "T2",
+      "description": "A directory of third-party connections, often a significant organic acquisition channel."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SOC 2",
+      "termCode": "T2",
+      "description": "An audit report on security and availability controls. Frequently required in enterprise procurement.",
+      "ctx": {
+        "expansion": "System and Organization Controls, Type 2"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "penetration test",
+      "termCode": "T2",
+      "description": "An authorized simulated attack used to find exploitable weaknesses.",
       "alternateName": [
-        "DX"
+        "pentest"
       ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "data residency",
+      "termCode": "T2",
+      "description": "A commitment about which jurisdictions customer data is stored in."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "procurement",
+      "termCode": "T2",
+      "description": "The buyer-side process of security review, legal review, and approval before a contract is signed."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "land and expand",
+      "termCode": "T2",
+      "description": "Winning a small initial deployment then growing it across an organization."
     }
   ],
-  "version": "d3b1c674"
+  "version": "81f9be67"
 }

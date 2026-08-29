@@ -1,0 +1,316 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/automotive.json",
+  "identifier": "automotive",
+  "name": "Automotive",
+  "description": "Dealerships, service, and vehicle retail.",
+  "dateModified": "2026-08-29",
+  "inLanguage": "en",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "VIN",
+      "termCode": "T2",
+      "description": "Vehicle identification number. The unique seventeen-character identifier for a vehicle.",
+      "ctx": {
+        "expansion": "Vehicle identification number"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "trim",
+      "termCode": "T2",
+      "description": "A named specification variant of a model, bundling features and options.",
+      "alternateName": [
+        "trim level"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MSRP",
+      "termCode": "T2",
+      "description": "Manufacturer's suggested retail price. The published list price before negotiation.",
+      "ctx": {
+        "expansion": "Manufacturer's suggested retail price"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "invoice price",
+      "termCode": "T2",
+      "description": "What the dealer nominally pays the manufacturer. A negotiation reference, not full cost."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "holdback",
+      "termCode": "T2",
+      "description": "A manufacturer payment to a dealer after sale, below invoice price."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "floor plan",
+      "termCode": "T2",
+      "description": "The financing dealers use to hold inventory on the lot."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "days supply",
+      "termCode": "T2",
+      "description": "How long current inventory would last at the recent sales rate."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "turn rate",
+      "termCode": "T2",
+      "description": "How quickly inventory sells and is replaced."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "front-end gross",
+      "termCode": "T2",
+      "description": "Profit on the vehicle sale itself."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "back-end gross",
+      "termCode": "T2",
+      "description": "Profit from financing, insurance, and add-ons sold alongside the vehicle."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "F&I",
+      "termCode": "T2",
+      "description": "Finance and insurance. The department selling financing and protection products.",
+      "ctx": {
+        "expansion": "Finance and insurance"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "trade-in",
+      "termCode": "T2",
+      "description": "A vehicle given toward the purchase of another."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ACV",
+      "termCode": "T2",
+      "description": "A trade-in's wholesale market value to the dealer.",
+      "alternateName": [
+        "actual cash value"
+      ],
+      "ctx": {
+        "expansion": "Actual cash value"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "reconditioning",
+      "termCode": "T2",
+      "description": "Work done to prepare a used vehicle for retail sale.",
+      "alternateName": [
+        "recon"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CPO",
+      "termCode": "T2",
+      "description": "A used vehicle inspected and warranted under a manufacturer program.",
+      "alternateName": [
+        "certified pre-owned"
+      ],
+      "ctx": {
+        "expansion": "Certified pre-owned"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "VDP",
+      "termCode": "T2",
+      "description": "The listing page for a single vehicle. The core conversion page in automotive retail.",
+      "alternateName": [
+        "vehicle detail page"
+      ],
+      "ctx": {
+        "expansion": "Vehicle detail page"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SRP",
+      "termCode": "T2",
+      "description": "The filterable inventory listing page on a dealer site.",
+      "alternateName": [
+        "search results page"
+      ],
+      "ctx": {
+        "expansion": "Search results page"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "lead form",
+      "termCode": "T2",
+      "description": "The enquiry form on a listing. The primary conversion event for most dealers."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "walkaround video",
+      "termCode": "T2",
+      "description": "A recorded tour of a specific vehicle. Consistently the highest-converting listing asset."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "service absorption",
+      "termCode": "T2",
+      "description": "How much of a dealership's fixed cost is covered by service and parts profit."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "RO",
+      "termCode": "T2",
+      "description": "The record of work performed in a service visit.",
+      "alternateName": [
+        "repair order"
+      ],
+      "ctx": {
+        "expansion": "Repair order"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "effective labor rate",
+      "termCode": "T2",
+      "description": "Actual labour revenue divided by hours billed."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "warranty claim",
+      "termCode": "T2",
+      "description": "Reimbursement sought from a manufacturer for covered repair work."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "recall",
+      "termCode": "T2",
+      "description": "A manufacturer-initiated correction of a safety or compliance defect."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "TSB",
+      "termCode": "T2",
+      "description": "Technical service bulletin. Manufacturer guidance on a known issue, short of a recall.",
+      "ctx": {
+        "expansion": "Technical service bulletin"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "OEM parts",
+      "termCode": "T2",
+      "description": "Parts made by or for the vehicle manufacturer, as opposed to aftermarket equivalents."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "aftermarket",
+      "termCode": "T2",
+      "description": "Parts and accessories made by companies other than the vehicle manufacturer."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "EV",
+      "termCode": "T1",
+      "description": "A vehicle driven by electric motors and powered by a battery.",
+      "alternateName": [
+        "electric vehicle"
+      ],
+      "ctx": {
+        "expansion": "Electric vehicle"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "BEV",
+      "termCode": "T2",
+      "description": "Battery electric vehicle. Fully electric, with no combustion engine.",
+      "ctx": {
+        "expansion": "Battery electric vehicle"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PHEV",
+      "termCode": "T2",
+      "description": "Plug-in hybrid electric vehicle. Combines a battery that charges externally with a combustion engine.",
+      "ctx": {
+        "expansion": "Plug-in hybrid electric vehicle"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "range anxiety",
+      "termCode": "T2",
+      "description": "A buyer's concern about running out of charge before reaching a charger."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Level 2 charging",
+      "termCode": "T2",
+      "description": "AC charging at 240 volts. The standard home and workplace charging speed."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "DC fast charging",
+      "termCode": "T2",
+      "description": "High-power direct current charging used for rapid top-ups on longer journeys."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "kWh",
+      "termCode": "T2",
+      "description": "Kilowatt hour. The unit of battery capacity and energy consumption.",
+      "ctx": {
+        "expansion": "Kilowatt hour"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MPGe",
+      "termCode": "T2",
+      "description": "Miles per gallon equivalent. An efficiency measure letting electric and combustion vehicles be compared.",
+      "ctx": {
+        "expansion": "Miles per gallon equivalent"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ADAS",
+      "termCode": "T2",
+      "description": "Advanced driver assistance systems. Features such as lane keeping and automatic braking.",
+      "ctx": {
+        "expansion": "Advanced driver assistance systems"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "telematics",
+      "termCode": "T2",
+      "description": "Vehicle data transmitted for tracking, diagnostics, or usage-based insurance."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Vehicle schema",
+      "termCode": "T2",
+      "description": "Structured data describing a vehicle's specification, mileage, and price for enriched listings."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "inventory feed",
+      "termCode": "T2",
+      "description": "A structured export of available vehicles sent to listing sites and ad platforms."
+    }
+  ],
+  "version": "208123ce"
+}

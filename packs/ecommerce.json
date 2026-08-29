@@ -5,17 +5,14 @@
   "identifier": "ecommerce",
   "name": "Ecommerce and retail",
   "description": "Marketplace, DTC, and retail catalog sites.",
-  "dateModified": "2026-08-28",
+  "dateModified": "2026-08-29",
   "inLanguage": "en",
   "hasDefinedTerm": [
     {
       "@type": "DefinedTerm",
       "name": "AOV",
       "termCode": "T1",
-      "description": "Total revenue divided by number of orders. Measures how much a typical customer spends per purchase.",
-      "alternateName": [
-        "average order value"
-      ],
+      "description": "Total revenue divided by number of orders. What a typical customer spends per purchase.",
       "ctx": {
         "expansion": "Average order value"
       }
@@ -38,18 +35,24 @@
       "name": "CAC",
       "termCode": "T1",
       "description": "The total sales and marketing spend required to acquire one new customer.",
-      "alternateName": [
-        "customer acquisition cost"
-      ],
       "ctx": {
         "expansion": "Customer acquisition cost"
       }
     },
     {
       "@type": "DefinedTerm",
-      "name": "conversion rate",
+      "name": "ROAS",
       "termCode": "T1",
-      "description": "The share of visitors who complete a target action, usually a purchase."
+      "description": "Revenue generated per unit of ad spend. A channel efficiency measure.",
+      "ctx": {
+        "expansion": "Return on ad spend"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "contribution margin",
+      "termCode": "T2",
+      "description": "Revenue less all variable costs, including fulfilment and returns. What a sale actually leaves behind."
     },
     {
       "@type": "DefinedTerm",
@@ -59,12 +62,48 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "checkout abandonment",
+      "termCode": "T2",
+      "description": "Leaving after starting checkout rather than at the cart. Usually a friction or trust problem, not a pricing one."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "repeat purchase rate",
+      "termCode": "T2",
+      "description": "The share of customers who buy more than once. The clearest early signal of retention."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "returns rate",
+      "termCode": "T1",
+      "description": "The share of orders sent back. A direct drag on contribution margin."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "sell-through rate",
+      "termCode": "T2",
+      "description": "Units sold as a share of units received in a period. An inventory efficiency measure."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "attach rate",
+      "termCode": "T2",
+      "description": "How often an accessory or add-on sells alongside a primary product."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "GMV",
+      "termCode": "T1",
+      "description": "Gross merchandise value. Total sales value transacted, before fees, returns, or discounts.",
+      "ctx": {
+        "expansion": "Gross merchandise value"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "SKU",
       "termCode": "T1",
       "description": "A unique identifier for one distinct sellable item, including its size and colour variant.",
-      "alternateName": [
-        "stock keeping unit"
-      ],
       "ctx": {
         "expansion": "Stock keeping unit"
       }
@@ -84,36 +123,11 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "product feed",
+      "name": "MPN",
       "termCode": "T2",
-      "description": "A structured file of catalog data submitted to shopping channels so they can list your items.",
-      "alternateName": [
-        "merchant feed"
-      ]
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "PDP",
-      "termCode": "T1",
-      "description": "The page for a single product, carrying its description, images, price, and availability.",
-      "alternateName": [
-        "product detail page"
-      ],
+      "description": "Manufacturer part number. Identifies a product as the maker designates it.",
       "ctx": {
-        "expansion": "Product detail page"
-      }
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "PLP",
-      "termCode": "T1",
-      "description": "A page listing multiple products, usually filterable and paginated.",
-      "alternateName": [
-        "product listing page",
-        "category page"
-      ],
-      "ctx": {
-        "expansion": "Product listing page"
+        "expansion": "Manufacturer part number"
       }
     },
     {
@@ -124,15 +138,120 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "Product schema",
+      "name": "parent product",
       "termCode": "T2",
-      "description": "Structured data describing an item's price, availability, and reviews, enabling enriched shopping results."
+      "description": "The grouping record that variants belong to. Usually the URL you want indexed."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "product feed",
+      "termCode": "T2",
+      "description": "A structured file of catalog data submitted to shopping channels so they can list your items.",
+      "alternateName": [
+        "merchant feed"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "category taxonomy",
+      "termCode": "T2",
+      "description": "The hierarchy products are organized into. Drives both navigation and crawl efficiency."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "attribute enrichment",
+      "termCode": "T2",
+      "description": "Filling out product attributes so items are filterable, comparable, and retrievable."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "catalog hygiene",
+      "termCode": "T2",
+      "description": "Keeping titles, attributes, images, and availability accurate across a large catalog."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PIM",
+      "termCode": "T2",
+      "description": "Product information management. The system holding canonical product data feeding storefronts and channels.",
+      "ctx": {
+        "expansion": "Product information management"
+      }
     },
     {
       "@type": "DefinedTerm",
       "name": "out of stock",
       "termCode": "T2",
       "description": "An unavailable item. How you handle the page matters: keeping and updating it usually beats removing it."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "backorder",
+      "termCode": "T2",
+      "description": "Accepting an order for stock not yet held, to be fulfilled on arrival."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "discontinued product",
+      "termCode": "T2",
+      "description": "An item no longer sold. Redirect to the nearest replacement rather than returning a 404."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PDP",
+      "termCode": "T1",
+      "description": "The page for a single product, carrying its description, images, price, and availability.",
+      "ctx": {
+        "expansion": "Product detail page"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PLP",
+      "termCode": "T1",
+      "description": "A page listing multiple products, usually filterable and paginated.",
+      "alternateName": [
+        "category page"
+      ],
+      "ctx": {
+        "expansion": "Product listing page"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "collection page",
+      "termCode": "T2",
+      "description": "A curated grouping of products, often built for a theme or campaign rather than the core taxonomy."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Product schema",
+      "termCode": "T2",
+      "description": "Structured data describing an item's price, availability, and reviews, enabling enriched shopping results."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "review schema",
+      "termCode": "T2",
+      "description": "Structured data exposing ratings and reviews, commonly rendered as stars in results."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "UGC",
+      "termCode": "T2",
+      "description": "Reviews, photos, and questions contributed by customers. Cheap, distinctive content that is hard for competitors to copy.",
+      "alternateName": [
+        "user generated content"
+      ],
+      "ctx": {
+        "expansion": "User generated content"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "buying guide",
+      "termCode": "T2",
+      "description": "Editorial content helping a shopper choose between options. Captures upper-funnel intent that product pages cannot."
     },
     {
       "@type": "DefinedTerm",
@@ -154,9 +273,78 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "returns rate",
-      "termCode": "T1",
-      "description": "The share of orders sent back. A direct drag on contribution margin."
+      "name": "3PL",
+      "termCode": "T2",
+      "description": "Third-party logistics. An outside provider handling warehousing and fulfilment.",
+      "ctx": {
+        "expansion": "Third-party logistics"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "fulfilment",
+      "termCode": "T2",
+      "description": "Picking, packing, and shipping an order after it is placed."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "last mile",
+      "termCode": "T2",
+      "description": "The final delivery leg to the customer. Usually the most expensive part of shipping."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "BOPIS",
+      "termCode": "T2",
+      "description": "Buy online, pick up in store. A fulfilment option blending ecommerce and physical retail.",
+      "ctx": {
+        "expansion": "Buy online, pick up in store"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "inventory turnover",
+      "termCode": "T2",
+      "description": "How many times stock is sold and replaced in a period."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "stockout",
+      "termCode": "T2",
+      "description": "Demand arriving with no inventory to meet it. Costs the sale and often the customer."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "safety stock",
+      "termCode": "T2",
+      "description": "Buffer inventory held to absorb demand variability and supplier delay."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "price parity",
+      "termCode": "T2",
+      "description": "Keeping a product's price consistent across the channels you sell on."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MAP",
+      "termCode": "T2",
+      "description": "Minimum advertised price. A supplier-set floor on the price resellers may display.",
+      "ctx": {
+        "expansion": "Minimum advertised price"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "dynamic pricing",
+      "termCode": "T2",
+      "description": "Adjusting price automatically in response to demand, competition, or inventory."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "markdown",
+      "termCode": "T2",
+      "description": "A permanent price reduction, usually to clear ageing inventory."
     },
     {
       "@type": "DefinedTerm",
@@ -175,52 +363,55 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "BOPIS",
+      "name": "loyalty program",
       "termCode": "T2",
-      "description": "Ordering online and collecting in a physical location.",
-      "alternateName": [
-        "buy online pick up in store"
-      ],
+      "description": "A structured incentive rewarding repeat purchase."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "chargeback",
+      "termCode": "T2",
+      "description": "A forced reversal of a card payment initiated by the cardholder's bank."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "payment gateway",
+      "termCode": "T2",
+      "description": "The service authorizing and processing card payments at checkout."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "BNPL",
+      "termCode": "T2",
+      "description": "Buy now, pay later. Instalment financing offered at checkout.",
       "ctx": {
-        "expansion": "Buy online, pick up in store"
+        "expansion": "Buy now, pay later"
       }
     },
     {
       "@type": "DefinedTerm",
-      "name": "UCP",
+      "name": "headless commerce",
       "termCode": "T2",
-      "description": "Standardizes commerce capabilities so agents can discover products and complete purchases across platforms.",
-      "alternateName": [
-        "Universal Commerce Protocol"
-      ],
-      "ctx": {
-        "expansion": "Universal Commerce Protocol"
-      }
+      "description": "Separating the storefront presentation layer from the commerce backend, connected by APIs."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "omnichannel",
+      "termCode": "T2",
+      "description": "Treating online, mobile, and physical retail as one continuous customer experience."
     },
     {
       "@type": "DefinedTerm",
       "name": "agentic commerce",
       "termCode": "T2",
-      "description": "Purchases initiated and completed by an AI agent on a shopper's behalf."
+      "description": "Purchases discovered, negotiated, or completed by an AI agent acting for a shopper."
     },
     {
       "@type": "DefinedTerm",
-      "name": "price parity",
+      "name": "conversational commerce",
       "termCode": "T2",
-      "description": "Keeping a product's price consistent across the channels you sell on."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "category taxonomy",
-      "termCode": "T2",
-      "description": "The hierarchy products are organized into. Drives both navigation and crawl efficiency."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "review schema",
-      "termCode": "T2",
-      "description": "Structured data exposing ratings and reviews, commonly rendered as stars in results."
+      "description": "Selling through chat, messaging, or assistant interfaces rather than a browsing storefront."
     }
   ],
-  "version": "7c4f4406"
+  "version": "ccd286d7"
 }

@@ -1,0 +1,289 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/hospitality.json",
+  "identifier": "hospitality",
+  "name": "Hospitality and travel",
+  "description": "Hotels, restaurants, and travel operators.",
+  "dateModified": "2026-08-29",
+  "inLanguage": "en",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "ADR",
+      "termCode": "T2",
+      "description": "Average daily rate. Room revenue divided by rooms sold.",
+      "ctx": {
+        "expansion": "Average daily rate"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "RevPAR",
+      "termCode": "T2",
+      "description": "Revenue per available room. Occupancy multiplied by average daily rate.",
+      "ctx": {
+        "expansion": "Revenue per available room"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "occupancy rate",
+      "termCode": "T1",
+      "description": "The share of available rooms sold in a period."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "TRevPAR",
+      "termCode": "T2",
+      "description": "Total revenue per available room, including food, beverage, and other spend.",
+      "ctx": {
+        "expansion": "Total revenue per available room"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "GOPPAR",
+      "termCode": "T2",
+      "description": "Gross operating profit per available room. A profitability rather than revenue measure.",
+      "ctx": {
+        "expansion": "Gross operating profit per available room"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "length of stay",
+      "termCode": "T2",
+      "description": "Average nights per booking. Longer stays lower servicing cost per night.",
+      "alternateName": [
+        "LOS"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "booking window",
+      "termCode": "T2",
+      "description": "How far ahead of arrival a reservation is made.",
+      "alternateName": [
+        "lead time"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "OTA",
+      "termCode": "T2",
+      "description": "Online travel agency. A third-party booking channel charging commission per reservation.",
+      "ctx": {
+        "expansion": "Online travel agency"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "direct booking",
+      "termCode": "T2",
+      "description": "A reservation made through the property's own channels, avoiding commission."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "rate parity",
+      "termCode": "T2",
+      "description": "Keeping published rates consistent across distribution channels."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "channel manager",
+      "termCode": "T2",
+      "description": "Software syncing availability and rates across booking channels."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PMS",
+      "termCode": "T2",
+      "description": "Property management system. The operational system of record for reservations and rooms.",
+      "ctx": {
+        "expansion": "Property management system"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CRS",
+      "termCode": "T2",
+      "description": "Central reservation system. The hub distributing inventory to booking channels.",
+      "ctx": {
+        "expansion": "Central reservation system"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "GDS",
+      "termCode": "T2",
+      "description": "Global distribution system. The legacy network travel agents use to book inventory.",
+      "ctx": {
+        "expansion": "Global distribution system"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "yield management",
+      "termCode": "T2",
+      "description": "Adjusting price and availability by demand to maximise revenue rather than occupancy.",
+      "alternateName": [
+        "revenue management"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "overbooking",
+      "termCode": "T2",
+      "description": "Deliberately accepting more reservations than rooms, priced against expected cancellations."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "no-show",
+      "termCode": "T2",
+      "description": "A confirmed guest who never arrives."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "walk",
+      "termCode": "T2",
+      "description": "Relocating a guest to another property when the hotel is oversold."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "comp set",
+      "termCode": "T2",
+      "description": "The group of properties a hotel benchmarks its performance against.",
+      "alternateName": [
+        "competitive set"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "STR report",
+      "termCode": "T2",
+      "description": "A benchmarking report comparing a property's performance against its comp set."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "shoulder season",
+      "termCode": "T2",
+      "description": "The period between peak and low season, with softer rates and demand."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "group business",
+      "termCode": "T2",
+      "description": "Bookings from conferences, weddings, and corporate blocks."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MICE",
+      "termCode": "T2",
+      "description": "Meetings, incentives, conferences, and exhibitions. The organized-events segment.",
+      "ctx": {
+        "expansion": "Meetings, incentives, conferences, and exhibitions"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "F&B",
+      "termCode": "T2",
+      "description": "Food and beverage. Usually the second-largest revenue line after rooms.",
+      "ctx": {
+        "expansion": "Food and beverage"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "cover",
+      "termCode": "T2",
+      "description": "One meal served to one guest. The unit of restaurant volume."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "RevPASH",
+      "termCode": "T2",
+      "description": "Revenue per available seat hour. The restaurant analogue of RevPAR.",
+      "ctx": {
+        "expansion": "Revenue per available seat hour"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "front of house",
+      "termCode": "T2",
+      "description": "The guest-facing part of an operation."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "back of house",
+      "termCode": "T2",
+      "description": "The operational areas guests do not see."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "turndown",
+      "termCode": "T2",
+      "description": "Evening room service preparing the room for the night."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "upsell",
+      "termCode": "T2",
+      "description": "Offering a higher-value option at or after booking."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ancillary revenue",
+      "termCode": "T2",
+      "description": "Income beyond the core product, such as parking, spa, or late checkout."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "loyalty program",
+      "termCode": "T2",
+      "description": "A structured incentive rewarding repeat stays, and a major direct-booking driver."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "guest satisfaction score",
+      "termCode": "T2",
+      "description": "A survey-based measure of guest experience.",
+      "alternateName": [
+        "GSS"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "review response rate",
+      "termCode": "T2",
+      "description": "The share of guest reviews the property replies to. A visible trust signal."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "destination content",
+      "termCode": "T2",
+      "description": "Editorial about the surrounding area. Captures planning-stage intent before a property is chosen."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "seasonality",
+      "termCode": "T2",
+      "description": "Predictable demand swings across the year. The central planning constraint in travel."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "cancellation policy",
+      "termCode": "T2",
+      "description": "The terms under which a booking may be voided and what is refunded."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Hotel schema",
+      "termCode": "T2",
+      "description": "Structured data describing a property's rooms, amenities, and rates for enriched search results."
+    }
+  ],
+  "version": "59985d34"
+}

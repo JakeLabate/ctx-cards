@@ -4,8 +4,8 @@
   "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/finance.json",
   "identifier": "finance",
   "name": "Financial services",
-  "description": "General industry vocabulary. Not financial advice, and not a substitute for compliance review.",
-  "dateModified": "2026-08-28",
+  "description": "Industry vocabulary only. Not financial advice, and not a substitute for compliance review.",
+  "dateModified": "2026-08-29",
   "inLanguage": "en",
   "hasDefinedTerm": [
     {
@@ -13,9 +13,6 @@
       "name": "APR",
       "termCode": "T1",
       "description": "The yearly cost of borrowing including interest and most fees, expressed as a percentage.",
-      "alternateName": [
-        "annual percentage rate"
-      ],
       "ctx": {
         "expansion": "Annual percentage rate"
       }
@@ -25,9 +22,6 @@
       "name": "APY",
       "termCode": "T1",
       "description": "The yearly return on savings including compounding. Distinct from a simple interest rate.",
-      "alternateName": [
-        "annual percentage yield"
-      ],
       "ctx": {
         "expansion": "Annual percentage yield"
       }
@@ -39,6 +33,27 @@
       "description": "One hundredth of a percentage point. Fifty basis points is half a percent.",
       "alternateName": [
         "bps"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "prime rate",
+      "termCode": "T2",
+      "description": "The reference rate banks quote to their most creditworthy borrowers."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "fixed rate",
+      "termCode": "T2",
+      "description": "An interest rate that does not change over the life of a loan."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "variable rate",
+      "termCode": "T2",
+      "description": "An interest rate that moves with an underlying index.",
+      "alternateName": [
+        "adjustable rate"
       ]
     },
     {
@@ -76,60 +91,63 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "escrow",
-      "termCode": "T2",
-      "description": "Funds held by a third party until the conditions of an agreement are met."
-    },
-    {
-      "@type": "DefinedTerm",
       "name": "amortization",
       "termCode": "T2",
       "description": "Paying down a balance through scheduled payments that cover both interest and principal."
     },
     {
       "@type": "DefinedTerm",
+      "name": "principal",
+      "termCode": "T1",
+      "description": "The amount borrowed, separate from the interest charged on it."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "origination fee",
+      "termCode": "T2",
+      "description": "A charge for processing a new loan, usually a percentage of the amount."
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "refinance",
       "termCode": "T2",
-      "description": "Replacing an existing loan with a new one, usually for different rate or term."
+      "description": "Replacing an existing loan with a new one, usually for a different rate or term."
     },
     {
       "@type": "DefinedTerm",
-      "name": "KYC",
+      "name": "collateral",
       "termCode": "T2",
-      "description": "Regulated identity verification performed before opening an account.",
-      "alternateName": [
-        "know your customer"
-      ],
-      "ctx": {
-        "expansion": "Know your customer"
-      }
+      "description": "An asset pledged against a loan, which the lender may claim on default."
     },
     {
       "@type": "DefinedTerm",
-      "name": "AML",
+      "name": "secured loan",
       "termCode": "T2",
-      "description": "Controls and reporting designed to detect and prevent illicit funds moving through a business.",
-      "alternateName": [
-        "anti-money laundering"
-      ],
-      "ctx": {
-        "expansion": "Anti-money laundering"
-      }
+      "description": "Borrowing backed by collateral. Generally cheaper than unsecured borrowing."
     },
     {
       "@type": "DefinedTerm",
-      "name": "fiduciary",
+      "name": "default",
       "termCode": "T2",
-      "description": "A party legally obliged to act in another's interest ahead of its own."
+      "description": "Failure to meet the agreed obligations of a debt."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "delinquency",
+      "termCode": "T2",
+      "description": "A payment past due but not yet in default."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "escrow",
+      "termCode": "T2",
+      "description": "Funds held by a third party until the conditions of an agreement are met."
     },
     {
       "@type": "DefinedTerm",
       "name": "AUM",
       "termCode": "T1",
-      "description": "The total market value of assets a firm manages on behalf of clients.",
-      "alternateName": [
-        "assets under management"
-      ],
+      "description": "Assets under management. The total market value of assets a firm manages for clients.",
       "ctx": {
         "expansion": "Assets under management"
       }
@@ -154,21 +172,90 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "asset allocation",
+      "termCode": "T2",
+      "description": "How a portfolio is divided across asset classes."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "volatility",
+      "termCode": "T2",
+      "description": "How much a price fluctuates over time. A common proxy for risk."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "yield",
+      "termCode": "T1",
+      "description": "Income from an investment expressed as a percentage of its price."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "capital gain",
+      "termCode": "T2",
+      "description": "The profit realized when an asset sells above its purchase price."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "cost basis",
+      "termCode": "T2",
+      "description": "The original purchase value used to calculate gain or loss on sale."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "fiduciary",
+      "termCode": "T2",
+      "description": "A party legally obliged to act in another's interest ahead of its own."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "suitability",
+      "termCode": "T2",
+      "description": "A standard requiring a recommendation to fit a client's circumstances. A lower bar than fiduciary duty."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "prospectus",
+      "termCode": "T2",
+      "description": "The formal disclosure document describing an investment offering."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "index fund",
+      "termCode": "T2",
+      "description": "A fund tracking a market index rather than selecting holdings actively."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ETF",
+      "termCode": "T2",
+      "description": "Exchange-traded fund. A pooled fund whose shares trade on an exchange throughout the day.",
+      "ctx": {
+        "expansion": "Exchange-traded fund"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "KYC",
+      "termCode": "T2",
+      "description": "Know your customer. Regulated identity verification performed before opening an account.",
+      "ctx": {
+        "expansion": "Know your customer"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "AML",
+      "termCode": "T2",
+      "description": "Anti-money laundering. Controls and reporting designed to detect illicit funds moving through a business.",
+      "ctx": {
+        "expansion": "Anti-money laundering"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "compliance",
       "termCode": "T2",
       "description": "The function ensuring a business meets its regulatory and legal obligations."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "open banking",
-      "termCode": "T2",
-      "description": "Regulated sharing of bank data with third parties through APIs, at the customer's direction."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "chargeback",
-      "termCode": "T2",
-      "description": "A forced reversal of a card payment initiated by the cardholder's bank."
     },
     {
       "@type": "DefinedTerm",
@@ -181,10 +268,112 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "chargeback",
+      "termCode": "T2",
+      "description": "A forced reversal of a card payment initiated by the cardholder's bank."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "open banking",
+      "termCode": "T2",
+      "description": "Regulated sharing of bank data with third parties through APIs, at the customer's direction."
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "embedded finance",
       "termCode": "T2",
       "description": "Financial products delivered inside a non-financial company's product experience."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ACH",
+      "termCode": "T2",
+      "description": "The US network for batched bank-to-bank transfers. Cheaper and slower than card rails.",
+      "ctx": {
+        "expansion": "Automated Clearing House"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "wire transfer",
+      "termCode": "T2",
+      "description": "A direct bank-to-bank transfer, typically same day and irreversible."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "settlement",
+      "termCode": "T2",
+      "description": "The point at which a transaction's funds actually move between parties."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "reconciliation",
+      "termCode": "T2",
+      "description": "Matching internal records against external statements to confirm they agree."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "audit trail",
+      "termCode": "T2",
+      "description": "A tamper-evident record of who did what and when."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Reg BI",
+      "termCode": "T2",
+      "description": "A US rule requiring broker-dealers to act in a retail customer's best interest when recommending.",
+      "ctx": {
+        "expansion": "Regulation Best Interest"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "disclosure",
+      "termCode": "T2",
+      "description": "Required published information about risks, fees, or conflicts."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "financial promotion",
+      "termCode": "T2",
+      "description": "A regulated communication inviting investment activity. Subject to approval rules in many jurisdictions."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "EBITDA",
+      "termCode": "T2",
+      "description": "Earnings before interest, tax, depreciation, and amortization. A rough proxy for operating cash generation.",
+      "ctx": {
+        "expansion": "Earnings before interest, tax, depreciation, and amortization"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "working capital",
+      "termCode": "T2",
+      "description": "Current assets minus current liabilities. What funds day-to-day operations."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "runway",
+      "termCode": "T2",
+      "description": "How long a business can operate at its current burn rate before it needs more capital."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "cash flow",
+      "termCode": "T1",
+      "description": "Money actually moving in and out, as distinct from revenue booked."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "accounts receivable",
+      "termCode": "T2",
+      "description": "Money owed to a business by its customers.",
+      "alternateName": [
+        "AR"
+      ]
     }
   ],
-  "version": "46f40527"
+  "version": "ff25b3c4"
 }

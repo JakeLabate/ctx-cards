@@ -1,53 +1,118 @@
 {
-  "generated": "2026-08-28",
+  "generated": "2026-08-29",
+  "totalTerms": 660,
   "packs": [
     {
       "id": "seo-core",
-      "name": "SEO and content marketing",
-      "terms": 40,
-      "version": "f4179151",
-      "bytes": 10889,
+      "name": "Search and content marketing",
+      "terms": 100,
+      "version": "955e763d",
+      "bytes": 24022,
       "note": "Universal pack. Load this on every site."
+    },
+    {
+      "id": "agentic-ai",
+      "name": "Agentic AI protocols",
+      "terms": 25,
+      "version": "3253033c",
+      "bytes": 6724,
+      "note": "Protocols and vocabulary for AI agents consuming the web."
     },
     {
       "id": "ecommerce",
       "name": "Ecommerce and retail",
-      "terms": 25,
-      "version": "7c4f4406",
-      "bytes": 6844,
+      "terms": 56,
+      "version": "ccd286d7",
+      "bytes": 13264,
       "note": "Marketplace, DTC, and retail catalog sites."
     },
     {
       "id": "saas",
       "name": "SaaS and developer tools",
-      "terms": 25,
-      "version": "d3b1c674",
-      "bytes": 6610,
+      "terms": 54,
+      "version": "81f9be67",
+      "bytes": 12382,
       "note": "Subscription software, APIs, and technical products."
     },
     {
       "id": "finance",
       "name": "Financial services",
-      "terms": 22,
-      "version": "46f40527",
-      "bytes": 5747,
-      "note": "General industry vocabulary. Not financial advice, and not a substitute for compliance review."
+      "terms": 53,
+      "version": "ff25b3c4",
+      "bytes": 11772,
+      "note": "Industry vocabulary only. Not financial advice, and not a substitute for compliance review."
     },
     {
       "id": "healthcare",
       "name": "Healthcare and life sciences",
-      "terms": 20,
-      "version": "ddec9aef",
-      "bytes": 5183,
-      "note": "Industry and marketing vocabulary only. Contains no clinical guidance and must not be used for medical content without review."
+      "terms": 47,
+      "version": "25336162",
+      "bytes": 10982,
+      "note": "Industry and marketing vocabulary only. Contains no clinical guidance and must not be used for medical content without qualified review."
+    },
+    {
+      "id": "legal",
+      "name": "Legal and compliance",
+      "terms": 50,
+      "version": "0ceb89c9",
+      "bytes": 11217,
+      "note": "Industry vocabulary only. Not legal advice."
+    },
+    {
+      "id": "insurance",
+      "name": "Insurance",
+      "terms": 40,
+      "version": "aa545dbf",
+      "bytes": 8060,
+      "note": "Industry vocabulary only. Not coverage advice."
     },
     {
       "id": "real-estate",
       "name": "Real estate and property",
-      "terms": 20,
-      "version": "e5ab36c9",
-      "bytes": 5137,
-      "note": "Residential and commercial property vocabulary."
+      "terms": 40,
+      "version": "6c87ee42",
+      "bytes": 9106,
+      "note": "Residential and commercial property."
+    },
+    {
+      "id": "home-services",
+      "name": "Home and field services",
+      "terms": 38,
+      "version": "7547efea",
+      "bytes": 8593,
+      "note": "Trades, local service businesses, and field operations."
+    },
+    {
+      "id": "manufacturing",
+      "name": "Manufacturing and industrial",
+      "terms": 40,
+      "version": "c05ccdf0",
+      "bytes": 9624,
+      "note": "Production, supply chain, and industrial B2B."
+    },
+    {
+      "id": "hospitality",
+      "name": "Hospitality and travel",
+      "terms": 38,
+      "version": "59985d34",
+      "bytes": 8670,
+      "note": "Hotels, restaurants, and travel operators."
+    },
+    {
+      "id": "education",
+      "name": "Education",
+      "terms": 40,
+      "version": "2afb8d5f",
+      "bytes": 8755,
+      "note": "Higher education, K-12, and workforce training."
+    },
+    {
+      "id": "automotive",
+      "name": "Automotive",
+      "terms": 39,
+      "version": "208123ce",
+      "bytes": 9294,
+      "note": "Dealerships, service, and vehicle retail."
     }
   ]
 }

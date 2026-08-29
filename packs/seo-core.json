@@ -3,9 +3,9 @@
   "@type": "DefinedTermSet",
   "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/seo-core.json",
   "identifier": "seo-core",
-  "name": "SEO and content marketing",
+  "name": "Search and content marketing",
   "description": "Universal pack. Load this on every site.",
-  "dateModified": "2026-08-28",
+  "dateModified": "2026-08-29",
   "inLanguage": "en",
   "hasDefinedTerm": [
     {
@@ -52,11 +52,116 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "canonical tag",
+      "name": "organic traffic",
+      "termCode": "T1",
+      "description": "Visits arriving from unpaid search results."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "search intent",
       "termCode": "T2",
-      "description": "A link element naming the preferred version of a page, used to consolidate duplicates onto one URL.",
+      "description": "What a searcher is actually trying to accomplish. Usually grouped as informational, navigational, commercial, or transactional.",
       "alternateName": [
-        "rel=canonical"
+        "user intent"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "keyword research",
+      "termCode": "T2",
+      "description": "Identifying the queries an audience uses, and the volume and competition behind each."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "search volume",
+      "termCode": "T1",
+      "description": "How many times a query is searched in a given period, usually monthly."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "keyword difficulty",
+      "termCode": "T2",
+      "description": "An estimate of how hard it is to rank for a query, usually derived from the authority of pages already ranking."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "long tail",
+      "termCode": "T2",
+      "description": "Low-volume, highly specific queries. Individually small, collectively the majority of search demand.",
+      "alternateName": [
+        "long-tail"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "head term",
+      "termCode": "T2",
+      "description": "A short, high-volume query. Competitive, and usually ambiguous in intent."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SERP feature",
+      "termCode": "T2",
+      "description": "Any non-standard result element such as a featured snippet, knowledge panel, or People Also Ask block."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "featured snippet",
+      "termCode": "T2",
+      "description": "An answer extracted from a page and shown above the standard results."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "People Also Ask",
+      "termCode": "T2",
+      "description": "The expandable related-question block in Google results. A useful map of sub-intents around a query.",
+      "alternateName": [
+        "PAA"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "knowledge panel",
+      "termCode": "T2",
+      "description": "The entity summary box shown beside results, assembled from Google's knowledge graph."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "local pack",
+      "termCode": "T2",
+      "description": "The map plus three business listings shown for local-intent queries.",
+      "alternateName": [
+        "map pack"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "zero-click search",
+      "termCode": "T2",
+      "description": "A search resolved on the results page itself, so no site receives the visit."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "cannibalization",
+      "termCode": "T2",
+      "description": "Several pages on one site competing for the same query, splitting signals between them.",
+      "alternateName": [
+        "keyword cannibalization"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "crawling",
+      "termCode": "T1",
+      "description": "The process of a search engine fetching pages from a site."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "indexation",
+      "termCode": "T2",
+      "description": "Whether a page has been stored in a search engine's index and is therefore eligible to rank.",
+      "alternateName": [
+        "indexing"
       ]
     },
     {
@@ -67,12 +172,9 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "indexation",
+      "name": "crawl depth",
       "termCode": "T2",
-      "description": "Whether a page has been stored in a search engine's index and is therefore eligible to rank.",
-      "alternateName": [
-        "indexing"
-      ]
+      "description": "How many clicks from the homepage a page sits. Deeper pages are crawled less often."
     },
     {
       "@type": "DefinedTerm",
@@ -88,12 +190,186 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "nofollow",
+      "termCode": "T2",
+      "description": "A link attribute telling search engines not to pass authority through that link."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "canonical tag",
+      "termCode": "T2",
+      "description": "A link element naming the preferred version of a page, used to consolidate duplicates onto one URL.",
+      "alternateName": [
+        "rel=canonical"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "XML sitemap",
       "termCode": "T2",
       "description": "A machine-readable list of a site's URLs submitted to search engines to aid discovery.",
       "alternateName": [
         "sitemap.xml"
       ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "redirect chain",
+      "termCode": "T2",
+      "description": "Two or more redirects in sequence before reaching the final URL. Wastes crawl and leaks a little signal each hop."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "301 redirect",
+      "termCode": "T2",
+      "description": "A permanent redirect. Passes nearly all ranking signal to the destination."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "302 redirect",
+      "termCode": "T2",
+      "description": "A temporary redirect. Signals the original URL should stay indexed."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "soft 404",
+      "termCode": "T2",
+      "description": "A page that returns a success status while showing not-found content. Confuses indexing."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "orphan page",
+      "termCode": "T2",
+      "description": "A page with no internal links pointing to it, so crawlers and users can only reach it by direct URL."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "faceted navigation",
+      "termCode": "T2",
+      "description": "Filter-driven URLs on listing pages. A common source of near-duplicate pages and wasted crawl."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "pagination",
+      "termCode": "T2",
+      "description": "Splitting a long list across numbered pages. Needs care so crawlers reach deep items."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "log file analysis",
+      "termCode": "T2",
+      "description": "Reading server logs to see what crawlers actually requested, rather than what you assume they did."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "hreflang",
+      "termCode": "T2",
+      "description": "An annotation declaring the language and region a page targets, used to serve the right version internationally."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "render budget",
+      "termCode": "T2",
+      "description": "The limited resource search engines allocate to executing JavaScript before indexing a page."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "client-side rendering",
+      "termCode": "T2",
+      "description": "Building page content in the browser with JavaScript. Adds a rendering step before content can be indexed.",
+      "alternateName": [
+        "CSR"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "server-side rendering",
+      "termCode": "T2",
+      "description": "Producing complete HTML on the server, so crawlers receive content without executing JavaScript.",
+      "alternateName": [
+        "SSR"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "static site generation",
+      "termCode": "T2",
+      "description": "Pre-building pages at deploy time. The most crawl-friendly rendering strategy.",
+      "alternateName": [
+        "SSG"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "hydration",
+      "termCode": "T2",
+      "description": "Attaching JavaScript behaviour to server-rendered HTML in the browser."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "mobile-first indexing",
+      "termCode": "T2",
+      "description": "Google's use of the mobile version of a page as the primary basis for indexing and ranking."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Core Web Vitals",
+      "termCode": "T2",
+      "description": "Google's page-experience metrics covering loading, interactivity, and layout stability.",
+      "alternateName": [
+        "CWV"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "LCP",
+      "termCode": "T1",
+      "description": "How long the largest visible element takes to render. A loading-speed metric.",
+      "ctx": {
+        "expansion": "Largest Contentful Paint"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CLS",
+      "termCode": "T1",
+      "description": "How much visible content moves unexpectedly during load. A visual-stability metric.",
+      "ctx": {
+        "expansion": "Cumulative Layout Shift"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "INP",
+      "termCode": "T1",
+      "description": "How quickly a page responds to user interaction. Replaced First Input Delay.",
+      "ctx": {
+        "expansion": "Interaction to Next Paint"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "TTFB",
+      "termCode": "T1",
+      "description": "Time to first byte. How long the server takes to begin responding.",
+      "ctx": {
+        "expansion": "Time to first byte"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "field data",
+      "termCode": "T2",
+      "description": "Performance measured from real visitors, as opposed to a synthetic lab test.",
+      "alternateName": [
+        "CrUX"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "lazy loading",
+      "termCode": "T2",
+      "description": "Deferring off-screen resources until they are needed. Helps loading speed, hurts indexing if applied to primary content."
     },
     {
       "@type": "DefinedTerm",
@@ -115,6 +391,12 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "schema.org",
+      "termCode": "T2",
+      "description": "The shared vocabulary search engines use for structured data, maintained collaboratively by the major engines."
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "rich result",
       "termCode": "T2",
       "description": "An enhanced search listing showing extra detail such as ratings, prices, or FAQs, driven by structured data.",
@@ -124,45 +406,132 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "Core Web Vitals",
+      "name": "entity",
       "termCode": "T2",
-      "description": "Google's page-experience metrics covering loading, interactivity, and layout stability."
+      "description": "A distinct thing a search engine can identify and hold facts about: a person, product, place, or organization."
     },
     {
       "@type": "DefinedTerm",
-      "name": "LCP",
-      "termCode": "T1",
-      "description": "How long the largest visible element takes to render. A loading-speed metric.",
+      "name": "knowledge graph",
+      "termCode": "T2",
+      "description": "A search engine's database of entities and the relationships between them."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "disambiguation",
+      "termCode": "T2",
+      "description": "Resolving which entity a name refers to when several share it."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "DefinedTerm",
+      "termCode": "T2",
+      "description": "A schema.org type for a term and its definition, groupable into a DefinedTermSet."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "breadcrumb",
+      "termCode": "T2",
+      "description": "A trail showing a page's position in the site hierarchy. Often rendered directly in search results."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "topic cluster",
+      "termCode": "T2",
+      "description": "A pillar page plus supporting pages on subtopics, interlinked to signal depth on a theme.",
       "alternateName": [
-        "Largest Contentful Paint"
-      ],
+        "content hub"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "pillar page",
+      "termCode": "T2",
+      "description": "The broad, central page of a topic cluster, linking out to its supporting detail pages."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "content decay",
+      "termCode": "T2",
+      "description": "The gradual traffic loss a page suffers as it ages and competitors publish fresher material."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "content refresh",
+      "termCode": "T2",
+      "description": "Updating an existing page rather than publishing a new one, usually the higher-return move."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "content pruning",
+      "termCode": "T2",
+      "description": "Removing or consolidating low-value pages to concentrate authority and reduce crawl waste."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "thin content",
+      "termCode": "T2",
+      "description": "A page with too little substance to satisfy the query it targets. Often generated at scale."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "duplicate content",
+      "termCode": "T2",
+      "description": "Substantially identical content at more than one URL, forcing engines to pick a version."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "programmatic SEO",
+      "termCode": "T2",
+      "description": "Generating many pages from a structured data source against a template. Powerful at scale, and the fastest route to thin content if unmanaged."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "E-E-A-T",
+      "termCode": "T2",
+      "description": "Experience, expertise, authoritativeness, and trust. Criteria in Google's quality rater guidelines, not a direct ranking factor.",
       "ctx": {
-        "expansion": "Largest Contentful Paint"
+        "expansion": "Experience, Expertise, Authoritativeness, Trust"
       }
     },
     {
       "@type": "DefinedTerm",
-      "name": "CLS",
-      "termCode": "T1",
-      "description": "How much visible content moves unexpectedly during load. A visual-stability metric.",
-      "alternateName": [
-        "Cumulative Layout Shift"
-      ],
+      "name": "YMYL",
+      "termCode": "T2",
+      "description": "Your Money or Your Life. Topics where inaccuracy could cause real harm, held to a higher quality bar.",
       "ctx": {
-        "expansion": "Cumulative Layout Shift"
+        "expansion": "Your Money or Your Life"
       }
     },
     {
       "@type": "DefinedTerm",
-      "name": "INP",
+      "name": "helpful content",
+      "termCode": "T2",
+      "description": "Google's framing for material written primarily for people rather than for search engines."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "title tag",
       "termCode": "T1",
-      "description": "How quickly a page responds to user interaction. Replaced First Input Delay.",
-      "alternateName": [
-        "Interaction to Next Paint"
-      ],
-      "ctx": {
-        "expansion": "Interaction to Next Paint"
-      }
+      "description": "The page title used as the clickable headline in search results."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "meta description",
+      "termCode": "T1",
+      "description": "A page summary search engines may use as the result snippet. Not a ranking factor, but it affects click-through."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "H1",
+      "termCode": "T1",
+      "description": "The primary heading of a page. One per page, describing what the page is about."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "alt text",
+      "termCode": "T2",
+      "description": "A text description of an image, used by screen readers and by image search."
     },
     {
       "@type": "DefinedTerm",
@@ -187,72 +556,39 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "link equity",
+      "termCode": "T2",
+      "description": "The ranking value passed through a link. Divided among the links on a page.",
+      "alternateName": [
+        "link juice"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "domain authority",
       "termCode": "T2",
-      "description": "A third-party score estimating a domain's ranking strength. Useful for comparison, not a Google metric."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "keyword cannibalization",
-      "termCode": "T2",
-      "description": "Several pages on one site competing for the same query, splitting signals between them."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "search intent",
-      "termCode": "T2",
-      "description": "What a searcher is actually trying to accomplish. Usually grouped as informational, navigational, commercial, or transactional.",
+      "description": "A third-party score estimating a domain's ranking strength. Useful for comparison, not a Google metric.",
       "alternateName": [
-        "user intent"
+        "DA"
       ]
     },
     {
       "@type": "DefinedTerm",
-      "name": "topic cluster",
+      "name": "digital PR",
       "termCode": "T2",
-      "description": "A pillar page plus supporting pages on subtopics, interlinked to signal depth on a theme.",
-      "alternateName": [
-        "content hub"
-      ]
+      "description": "Earning coverage and links from publications through newsworthy material rather than outreach at volume."
     },
     {
       "@type": "DefinedTerm",
-      "name": "content decay",
+      "name": "toxic backlink",
       "termCode": "T2",
-      "description": "The gradual traffic loss a page suffers as it ages and competitors publish fresher material."
+      "description": "A link from a manipulative or low-quality source. Usually ignored rather than penalised."
     },
     {
       "@type": "DefinedTerm",
-      "name": "E-E-A-T",
+      "name": "brand mention",
       "termCode": "T2",
-      "description": "Experience, expertise, authoritativeness, and trust. Criteria in Google's quality rater guidelines, not a direct ranking factor.",
-      "ctx": {
-        "expansion": "Experience, Expertise, Authoritativeness, Trust"
-      }
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "hreflang",
-      "termCode": "T2",
-      "description": "An annotation declaring the language and region a page targets, used to serve the right version internationally."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "pagination",
-      "termCode": "T2",
-      "description": "Splitting a long list across numbered pages. Needs care so crawlers reach deep items."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "faceted navigation",
-      "termCode": "T2",
-      "description": "Filter-driven URLs on listing pages. A common source of near-duplicate pages and wasted crawl."
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "log file analysis",
-      "termCode": "T2",
-      "description": "Reading server logs to see what crawlers actually requested, rather than what you assume they did."
+      "description": "A reference to a brand without a link. Contributes to entity confidence even absent link equity."
     },
     {
       "@type": "DefinedTerm",
@@ -268,6 +604,18 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "AEO",
+      "termCode": "T2",
+      "description": "Optimizing to be the answer an assistant returns, rather than a link a user clicks.",
+      "alternateName": [
+        "answer engine optimization"
+      ],
+      "ctx": {
+        "expansion": "Answer engine optimization"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "AI Overviews",
       "termCode": "T2",
       "description": "Google's generated summaries shown above traditional results, assembled from retrieved pages."
@@ -276,10 +624,7 @@
       "@type": "DefinedTerm",
       "name": "RAG",
       "termCode": "T2",
-      "description": "Retrieving source documents at query time and generating an answer grounded in them.",
-      "alternateName": [
-        "retrieval-augmented generation"
-      ],
+      "description": "Retrieval-augmented generation. Retrieving source documents at query time and generating an answer grounded in them.",
       "ctx": {
         "expansion": "Retrieval-augmented generation"
       }
@@ -292,46 +637,100 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "chunking",
+      "termCode": "T2",
+      "description": "Splitting content into passages for retrieval. Chunk boundaries decide what can be retrieved independently.",
+      "alternateName": [
+        "content chunking"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "embedding",
+      "termCode": "T2",
+      "description": "A numeric vector representing meaning, letting systems compare passages by similarity rather than keyword overlap."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "vector search",
+      "termCode": "T2",
+      "description": "Retrieval by meaning similarity rather than exact term matching.",
+      "alternateName": [
+        "semantic search"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "citation",
+      "termCode": "T2",
+      "description": "A generated answer's attribution to a source page. The GEO equivalent of a ranking position."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "hallucination",
+      "termCode": "T2",
+      "description": "A confident model output unsupported by any source. Grounding in retrieved documents reduces but does not remove it."
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "llms.txt",
       "termCode": "T2",
       "description": "A proposed root-level file offering LLM-oriented site guidance. Adoption and effect remain contested."
     },
     {
       "@type": "DefinedTerm",
-      "name": "MCP",
+      "name": "AI crawler",
       "termCode": "T2",
-      "description": "Standardizes how an AI host discovers tools and resources from external systems.",
+      "description": "A bot collecting content for model training or retrieval, distinct from a search indexing crawler."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "grounding",
+      "termCode": "T2",
+      "description": "Constraining a generated answer to retrieved source material so claims can be traced."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Google Search Console",
+      "termCode": "T2",
+      "description": "Google's first-party reporting for impressions, clicks, indexing, and technical issues.",
       "alternateName": [
-        "Model Context Protocol"
-      ],
+        "GSC"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "GA4",
+      "termCode": "T2",
+      "description": "The current version of Google Analytics, built on an event-based data model.",
       "ctx": {
-        "expansion": "Model Context Protocol"
+        "expansion": "Google Analytics 4"
       }
     },
     {
       "@type": "DefinedTerm",
-      "name": "redirect chain",
+      "name": "attribution",
       "termCode": "T2",
-      "description": "Two or more redirects in sequence before reaching the final URL. Wastes crawl and leaks a little signal each hop."
+      "description": "Assigning credit for a conversion across the touchpoints that preceded it."
     },
     {
       "@type": "DefinedTerm",
-      "name": "orphan page",
+      "name": "share of voice",
       "termCode": "T2",
-      "description": "A page with no internal links pointing to it, so crawlers and users can only reach it by direct URL."
+      "description": "A brand's visibility across a tracked keyword set relative to competitors."
     },
     {
       "@type": "DefinedTerm",
-      "name": "thin content",
-      "termCode": "T2",
-      "description": "A page with too little substance to satisfy the query it targets. Often generated at scale."
+      "name": "conversion rate",
+      "termCode": "T1",
+      "description": "The share of visitors who complete a target action."
     },
     {
       "@type": "DefinedTerm",
-      "name": "SERP feature",
+      "name": "bounce rate",
       "termCode": "T2",
-      "description": "Any non-standard result element such as a featured snippet, knowledge panel, or People Also Ask block."
+      "description": "The share of sessions with no qualifying engagement. Directional, and easy to misread."
     }
   ],
-  "version": "f4179151"
+  "version": "955e763d"
 }
