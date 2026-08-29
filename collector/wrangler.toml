@@ -1,8 +1,9 @@
 name = "ctx-collect"
 main = "worker.js"
 compatibility_date = "2026-01-01"
+workers_dev = true
 
 [[d1_databases]]
 binding = "CTX_DB"
 database_name = "ctx-analytics"
-database_id = "REPLACE_WITH_YOUR_D1_ID"
+database_id = "5abf0384-2a81-4719-a70e-06a32eb3c470"
