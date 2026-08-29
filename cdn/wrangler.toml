@@ -1,0 +1,16 @@
+name = "ctx-cards-cdn"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# Binds the Worker to the hostname. Cloudflare creates the DNS record for
+# cdn.jakelabate.com automatically on first deploy, provided jakelabate.com is
+# already a zone in this Cloudflare account.
+[[routes]]
+pattern = "cdn.jakelabate.com/context-cards/*"
+zone_name = "jakelabate.com"
+
+# Serve the root of the host too, so a bare visit explains what this is
+# instead of returning a Cloudflare error page.
+[[routes]]
+pattern = "cdn.jakelabate.com/"
+zone_name = "jakelabate.com"

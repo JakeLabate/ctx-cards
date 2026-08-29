@@ -13,7 +13,7 @@ systems read the same source your readers do. No page text is sent anywhere.
 ## Install
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@v0.1.0/dist/ctx.min.js"
+<script src="https://cdn.jakelabate.com/context-cards/v0.10.0/dist/ctx.min.js"
         data-packs="seo-core"
         data-scope="main"
         data-style="minimal"
@@ -23,7 +23,19 @@ systems read the same source your readers do. No page text is sent anywhere.
 That is the whole install. `seo-core` gives you 40 terms immediately with
 nothing authored.
 
-Pin the version. `@v0.7.1` is served immutably by jsDelivr and the script
+Two hosts serve identical bytes:
+
+| Host | URL shape |
+|---|---|
+| `cdn.jakelabate.com` | `/context-cards/<tag>/dist/ctx.min.js` |
+| jsDelivr | `/gh/JakeLabate/ctx-cards@<tag>/dist/ctx.min.js` |
+
+The first is a Cloudflare Worker in `cdn/` proxying the repo at a pinned tag.
+Prefer it for anything customer-facing: the URL on their page is then yours,
+and you can move the backing store later without asking anyone to edit a tag.
+jsDelivr stays as a public mirror.
+
+Pin the version. Tagged paths are immutable on both hosts and the script
 derives its pack URLs from its own `src`, so pinning the tag pins the packs too.
 
 ### Subresource integrity
@@ -33,8 +45,8 @@ set, a compromised or substituted CDN file is refused by the browser rather
 than executed on your visitors' pages.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@v0.7.1/dist/ctx.min.js"
-        integrity="sha384-v28gmyQ2ad9QYnYIFYJz/BuCjd9GouQzf1nEgy2cpk6EiFzlYSmzMiFbtLYZY0UG"
+<script src="https://cdn.jakelabate.com/context-cards/v0.10.0/dist/ctx.min.js"
+        integrity="sha384-Ka780lxfLgvBnuNJcx9SdciwmPhhbd7GlxaRwwXwprXD2CgWQSXRZ8qVQeDojvR2"
         crossorigin="anonymous"
         data-packs="seo-core" defer></script>
 ```
