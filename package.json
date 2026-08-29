@@ -1,6 +1,6 @@
 {
   "name": "ctx-cards",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Contextual definition cards driven by schema.org DefinedTermSet. One script tag, no dependencies.",
   "main": "dist/ctx.js",
   "unpkg": "dist/ctx.min.js",
@@ -12,9 +12,10 @@
     "README.md"
   ],
   "scripts": {
-    "build": "terser src/ctx.js -c passes=2 -m --format preamble=\"/*! ctx-cards v0.2.0 | MIT | github.com/JakeLabate/ctx-cards */\" -o dist/ctx.min.js && cp src/ctx.js dist/ctx.js",
+    "build": "terser src/ctx.js -c passes=2 -m --format preamble=\"/*! ctx-cards v0.3.0 | MIT | github.com/JakeLabate/ctx-cards */\" -o dist/ctx.min.js && cp src/ctx.js dist/ctx.js",
     "packs": "python3 scripts/build-packs.py",
-    "serve": "python3 -m http.server 8000"
+    "serve": "python3 -m http.server 8000",
+    "test": "node test/repeat.test.mjs"
   },
   "keywords": [
     "schema.org",

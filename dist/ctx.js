@@ -21,7 +21,11 @@
     scope: S.getAttribute('data-scope') || 'main, article',
     style: S.getAttribute('data-style') || 'minimal',
     ignore: S.getAttribute('data-ignore') || 'pre, code, kbd, samp, a, h1, h2, h3, [data-no-ctx]',
-    max: parseInt(S.getAttribute('data-max-per-term') || '1', 10),
+    /* 'first' marks one occurrence per term, 'all' marks every occurrence.
+       data-max-per-term takes a number and overrides both. Occurrences inside
+       ignored elements (links, headings, code) never count toward the budget,
+       because they are never candidates in the first place. */
+    repeat: (S.getAttribute('data-repeat') || 'first').toLowerCase(),
     packs: (S.getAttribute('data-packs') || '').split(',')
              .map(function (x) { return x.trim(); }).filter(Boolean),
     packBase: (S.getAttribute('data-pack-base') ||
@@ -35,6 +39,11 @@
 
   /* mk* = on-page marker (sits on the HOST surface).
      bg/fg/mut/bd/acc = the card (its own surface). Keep them separate. */
+  /* data-max-per-term wins if present; otherwise repeat decides. */
+  var explicitMax = parseInt(S.getAttribute('data-max-per-term'), 10);
+  CFG.max = (explicitMax > 0) ? explicitMax
+          : (CFG.repeat === 'all' ? Infinity : 1);
+
   var THEMES = {
     minimal: {
       mkColor: '#8f8c85', mkStyle: 'dotted', mkWidth: '1.5px',
@@ -213,31 +222,41 @@
     for (var t = 0; t < TERMS.length; t++) {
       var term = TERMS[t];
       if (term.budget.n >= CFG.max) continue;
-      var b = wordy(term.match) ? '\\b' : '';
-      var re = new RegExp(b + esc(term.match) + b, term.match.length > 4 ? 'i' : '');
+      var bound = wordy(term.match) ? '\\b' : '';
+      /* Global flag so a single text node can yield more than one occurrence,
+         which is what data-repeat="all" needs. Case-insensitive only for
+         longer terms, so short acronyms are not matched inside ordinary words. */
+      var flags = 'g' + (term.match.length > 4 ? 'i' : '');
+      var re = new RegExp(bound + esc(term.match) + bound, flags);
+
       for (var i = 0; i < texts.length && term.budget.n < CFG.max; i++) {
         var node = texts[i];
         if (!node.parentNode) continue;
-        var m = re.exec(node.nodeValue);
-        if (!m) continue;
-        /* Two terms can match the same span ("query fan-out" inside
-           "query fan-outs"). Overlapping hit targets stack and swallow each
-           other's clicks, so the first (longest) match wins the span. */
-        var a = m.index, b = m.index + m[0].length, clash = false;
-        var taken = claimed.get(node);
-        if (taken) {
-          for (var k = 0; k < taken.length; k++) {
-            if (a < taken[k][1] && b > taken[k][0]) { clash = true; break; }
+        re.lastIndex = 0;
+        var m;
+        while ((m = re.exec(node.nodeValue)) !== null) {
+          if (term.budget.n >= CFG.max) break;
+          var a = m.index, z = m.index + m[0].length;
+          if (z === a) { re.lastIndex++; continue; }
+          /* Two terms can match the same span ("query fan-out" inside
+             "query fan-outs"). Overlapping hit targets stack and swallow each
+             other's clicks, so the first (longest) match wins the span. */
+          var clash = false;
+          var taken = claimed.get(node);
+          if (taken) {
+            for (var k = 0; k < taken.length; k++) {
+              if (a < taken[k][1] && z > taken[k][0]) { clash = true; break; }
+            }
           }
+          if (clash) continue;
+          if (!taken) { taken = []; claimed.set(node, taken); }
+          taken.push([a, z]);
+          var r = document.createRange();
+          r.setStart(node, a);
+          r.setEnd(node, z);
+          marks.push({ range: r, term: term });
+          term.budget.n++;
         }
-        if (clash) continue;
-        if (!taken) { taken = []; claimed.set(node, taken); }
-        taken.push([a, b]);
-        var r = document.createRange();
-        r.setStart(node, a);
-        r.setEnd(node, b);
-        marks.push({ range: r, term: term });
-        term.budget.n++;
       }
     }
   }

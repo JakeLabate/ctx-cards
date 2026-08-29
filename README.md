@@ -37,7 +37,37 @@ derives its pack URLs from its own `src`, so pinning the tag pins the packs too.
 | `data-packs` | none | Comma-separated pack ids or absolute URLs. |
 | `data-pack-base` | derived from `src` | Override where packs are fetched from. |
 | `data-ignore` | `pre, code, kbd, samp, a, h1, h2, h3, [data-no-ctx]` | Selectors never marked. |
-| `data-max-per-term` | `1` | Occurrences marked per term. |
+| `data-repeat` | `first` | `first` marks one occurrence per term; `all` marks every occurrence. |
+| `data-max-per-term` | unset | A number. Overrides `data-repeat` with an explicit cap. |
+
+### Repeating a term
+
+By default a term is marked once per page, on its first occurrence. Set
+`data-repeat="all"` to mark every occurrence instead:
+
+```html
+<script src="…/ctx.min.js" data-repeat="all" defer></script>
+```
+
+For a middle ground, `data-max-per-term="3"` caps each term at three
+occurrences and overrides `data-repeat` entirely.
+
+**Occurrences inside ignored elements never count.** A term appearing in a
+linked heading, a nav item, a `<code>` block, or anywhere else matched by
+`data-ignore` is not a candidate, so it neither gets marked nor consumes the
+budget under `first`. The first *markable* occurrence in body prose is the one
+that gets the card.
+
+Which to choose:
+
+- **`first`** suits articles and documentation, where a reader meets a term
+  once and a second underline on the same word is noise.
+- **`all`** suits long reference pages and pages a reader enters mid-scroll,
+  where the first occurrence may be far above where they started reading.
+
+`all` marks more of the page, so it also creates more visual texture. On a
+term-dense page it can start to look like a spam-linked article. Try it on
+your longest page before enabling it site-wide.
 
 The card follows the page. It samples your content background's luminance and
 picks a light or dark palette from that, rather than trusting the visitor's OS

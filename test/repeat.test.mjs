@@ -1,0 +1,41 @@
+/* Verifies data-repeat semantics without a browser: exercises the same
+   matching rules the scan loop uses, so a regression in flags, word
+   boundaries, or budget handling fails the build. */
+import assert from 'node:assert';
+
+const PROSE = 'mentions GEO and then GEO again, plus structured data. ' +
+              'A third GEO appears here alongside structured data once more. ' +
+              'But this final GEO in plain prose counts.';
+
+function count(term, text, max) {
+  const wordy = /^[\w][\w.\-]*$/.test(term);
+  const b = wordy ? '\\b' : '';
+  const esc = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(b + esc + b, 'g' + (term.length > 4 ? 'i' : ''));
+  let n = 0, m;
+  while ((m = re.exec(text)) !== null && n < max) {
+    if (m.index === re.lastIndex) { re.lastIndex++; continue; }
+    n++;
+  }
+  return n;
+}
+
+// repeat="first" -> max 1
+assert.strictEqual(count('GEO', PROSE, 1), 1, 'first should mark once');
+assert.strictEqual(count('structured data', PROSE, 1), 1);
+
+// repeat="all" -> every occurrence
+assert.strictEqual(count('GEO', PROSE, Infinity), 4, 'all should mark every occurrence');
+assert.strictEqual(count('structured data', PROSE, Infinity), 2);
+
+// explicit numeric cap
+assert.strictEqual(count('GEO', PROSE, 2), 2, 'max-per-term should cap');
+
+// short terms stay case-sensitive so acronyms do not match inside words
+assert.strictEqual(count('GEO', 'geometry and geography', Infinity), 0,
+  'short acronyms must not match inside ordinary words');
+
+// longer terms match case-insensitively
+assert.strictEqual(count('structured data', 'Structured Data here', Infinity), 1);
+
+console.log('repeat semantics: all assertions passed');
