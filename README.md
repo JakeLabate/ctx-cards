@@ -140,6 +140,56 @@ advice and must not be treated as a substitute for review by a qualified person.
 
 ---
 
+## Choosing terms for a site
+
+Packs are a starting point, not a shipping list. A pack term only earns its
+underline if readers of *that site* would not already know it. `scripts/score-corpus.py`
+ranks pack terms against a site's own pages and emits a trimmed pack, using no
+traffic data at all.
+
+```bash
+pip install wordfreq
+python3 scripts/score-corpus.py --corpus ./pages --packs seo-core,ecommerce \
+        --per-1000-words 12 --emit site-pack.json
+```
+
+Three factors, multiplied:
+
+**Reach** — how many pages carry the term, as a curve rather than a line. A term
+on 2% of pages is too rare to matter; around 15% is the sweet spot; past ~50% it
+is house vocabulary the audience has already absorbed and marking it is noise.
+
+**Obscurity** — the term's prominence in this corpus against its frequency in
+general English, both on the Zipf scale so they compare directly. This is the
+strongest factor because it approximates the actual question: would a reader of
+this page not already know this word. `HIPAA` is rare in English and frequent in
+healthcare writing. `conversion rate` is common in both.
+
+**Lookup cost** — what leaving would cost. An acronym resolves cheaply once
+expanded; a contested or vendor-specific term does not, because a generic search
+returns the wrong answer.
+
+### Density is a page property
+
+The score ranks terms, but it cannot tell you how many to keep — forty
+individually defensible marks still produce a page that reads like a
+spam-linked article. So the cut-off is simulated per page: for each candidate
+top-K, compute every page's marks per thousand words and bind on the 75th
+percentile, because the densest pages are where the problem shows up first.
+
+Run it at several targets and look at the shape before picking one. On a real
+40,000-word corpus, keeping every viable term put the densest pages at 30 marks
+per thousand words — one every 33 words. The budget is what stops that.
+
+### What it excludes outright
+
+Terms that appear only inside links and headings are structurally unmarkable
+whatever they score, since `data-ignore` skips those. The report lists them
+separately: they are not low-value, they are unreachable, and the fix is
+editorial rather than configuration.
+
+---
+
 ## Analytics
 
 Off unless you set `data-analytics`. Nothing is sent otherwise.

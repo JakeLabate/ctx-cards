@@ -1,0 +1,2 @@
+# score-corpus.py only. The runtime script has no dependencies.
+wordfreq>=3.0

@@ -17,7 +17,8 @@
     "packs": "python3 scripts/build-packs.py",
     "serve": "python3 -m http.server 8000",
     "test": "node test/repeat.test.mjs",
-    "sri": "openssl dgst -sha384 -binary dist/ctx.min.js | openssl base64 -A | sed \"s/^/sha384-/\" > dist/ctx.min.js.sri"
+    "sri": "openssl dgst -sha384 -binary dist/ctx.min.js | openssl base64 -A | sed \"s/^/sha384-/\" > dist/ctx.min.js.sri",
+    "score": "python3 scripts/score-corpus.py"
   },
   "keywords": [
     "schema.org",
