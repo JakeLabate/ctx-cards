@@ -392,6 +392,17 @@ Accountability Act" in body copy, so it belongs in `expansion`, not
 `alternateName`, or it becomes a match target and the useful acronym renders
 without its expansion.
 
+### Self-links are dropped
+
+A card whose `url` resolves to the page the reader is already on renders
+without a link: it would waste a line and invite a wasted click. Matching
+handles `/page`, `/page/`, and `/page/index.html` as the same location.
+
+Fragments are exempt. `#verdict` on its own page still jumps somewhere, so it
+is kept. This is what lets a term's card act as a summary of the page it
+belongs to — the definition without the scroll — while a bare self-link is
+suppressed.
+
 ### Card kinds
 
 Set `ctx.kind` to change the body. All kinds share the same shell, tail,

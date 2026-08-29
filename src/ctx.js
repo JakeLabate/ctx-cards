@@ -943,8 +943,34 @@
     });
     host.appendChild(dl);
   }
+  /* A link back to the page the reader is already on does nothing but waste a
+     line and invite a wasted click. Fragments are the exception: a same-page
+     link to #verdict jumps to a section and is genuinely useful, so only bare
+     self-links are dropped. */
+  function normalizePath(p) {
+    p = p.replace(/\/index\.html?$/i, '/');
+    if (p.length > 1 && p.charAt(p.length - 1) !== '/') p += '/';
+    return p;
+  }
+
+  function isSelfLink(href) {
+    if (!href) return false;
+    var here, there;
+    try {
+      there = new URL(href, document.baseURI);
+      here = new URL(location.href);
+    } catch (e) {
+      return false;                       /* unparseable: leave it alone */
+    }
+    if (there.hash) return false;         /* a jump link still has a job to do */
+    return there.origin === here.origin
+        && normalizePath(there.pathname) === normalizePath(here.pathname)
+        && there.search === here.search;
+  }
+
   function linkOut(host, href, label) {
     if (!href) return;
+    if (isSelfLink(href)) return;
     var a = el('a', 'lnk');
     a.href = href;
     a.addEventListener('click', function () {

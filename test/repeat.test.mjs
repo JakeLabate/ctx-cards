@@ -57,3 +57,38 @@ assert.strictEqual(resolvePack('custom.json', B), 'custom.json', 'bare filename 
 assert.strictEqual(resolvePack('agentic-ai', B), B + '/agentic-ai.json', 'hyphenated id still resolves');
 
 console.log('pack id resolution: all assertions passed');
+
+/* --- self-link suppression (v0.10.0) ---
+   A card linking to the page the reader is already on wastes a line and a
+   click. Fragments are exempt: #verdict still jumps somewhere. */
+function normalizePath(p) {
+  p = p.replace(/\/index\.html?$/i, '/');
+  if (p.length > 1 && p.charAt(p.length - 1) !== '/') p += '/';
+  return p;
+}
+function isSelfLink(href, current) {
+  if (!href) return false;
+  let there, here;
+  try { there = new URL(href, current); here = new URL(current); }
+  catch { return false; }
+  if (there.hash) return false;
+  return there.origin === here.origin
+      && normalizePath(there.pathname) === normalizePath(here.pathname)
+      && there.search === here.search;
+}
+
+const HERE = 'https://www.jakelabate.com/debunking-geo/llms-txt/';
+assert.strictEqual(isSelfLink(HERE, HERE), true, 'exact self');
+assert.strictEqual(isSelfLink('/debunking-geo/llms-txt/', HERE), true, 'root-relative self');
+assert.strictEqual(isSelfLink('/debunking-geo/llms-txt/index.html', HERE), true, 'index.html self');
+assert.strictEqual(isSelfLink('/debunking-geo/llms-txt', HERE), true, 'missing trailing slash');
+assert.strictEqual(isSelfLink('#verdict', HERE), false, 'fragment still links');
+assert.strictEqual(isSelfLink(HERE + '#verdict', HERE), false, 'absolute + fragment still links');
+assert.strictEqual(isSelfLink('/debunking-geo/', HERE), false, 'parent page is not self');
+assert.strictEqual(isSelfLink('/debunking-geo/content-chunking/', HERE), false, 'sibling is not self');
+assert.strictEqual(isSelfLink('https://example.com/x', HERE), false, 'other origin');
+assert.strictEqual(isSelfLink('?q=1', HERE), false, 'different query is not self');
+assert.strictEqual(isSelfLink('', HERE), false, 'empty href');
+assert.strictEqual(isSelfLink('ht tp://%%%', HERE), false, 'unparseable is left alone');
+
+console.log('self-link suppression: all assertions passed');
