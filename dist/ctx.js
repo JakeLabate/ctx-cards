@@ -501,7 +501,11 @@
       '#ctx-card{overflow:hidden}' +
       '#ctx-card .eye{margin:0;padding:8px 14px;background:var(--ctx-fg);color:var(--ctx-bg);' +
         'letter-spacing:.12em}' +
+      /* the card itself has no padding in this layout, so any row that is not
+         a full-bleed band has to supply its own gutters */
+      '#ctx-card .vhead{padding:11px 14px 0;margin-bottom:8px}' +
       '#ctx-card .ttl{padding:11px 14px 0}' +
+      '#ctx-card .vhead + .ttl{padding-top:0}' +
       '#ctx-card .rule{margin:10px 0 0;height:1px;background:var(--ctx-bd)}' +
       '#ctx-card .bdy{padding:10px 14px 12px}' +
       '#ctx-card .row{margin:0 14px;padding:6px 0}' +
@@ -557,7 +561,12 @@
     '#ctx-card .row dd{font-size:12.5px;color:var(--ctx-fg);margin:0;text-align:right}' +
     '#ctx-card .big{font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1;margin:2px 0 0}' +
     '#ctx-card .big.txt{font-size:19px;line-height:1.25;letter-spacing:-.01em;margin:4px 0 0}' +
-    '#ctx-card .badge{display:inline-block;font-family:' + MONO + ';font-size:10px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;padding:4px 8px;border-radius:3px;margin:0 0 9px}' +
+    /* letter-spacing is applied after every character including the last, so
+       symmetric padding leaves the text sitting visually left of centre.
+       Trim the right side by exactly one letter-space to correct it. */
+    '#ctx-card .badge{display:inline-block;font-family:' + MONO + ';font-size:10px;font-weight:600;' + 'letter-spacing:.11em;text-transform:uppercase;border-radius:3px;margin:0;' + 'padding:4px calc(8px - .11em) 4px 8px}' +
+    '#ctx-card .vhead{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 10px}' +
+    '#ctx-card .vhead .eye{margin:0;white-space:nowrap}' +
     '#ctx-card .avatar{width:38px;height:38px;border-radius:50%;flex:0 0 38px;display:flex;align-items:center;justify-content:center;font-family:' + MONO + ';font-size:12px;font-weight:600;background:var(--ctx-rule);color:var(--ctx-fg)}' +
     '#ctx-card .hd{display:flex;gap:11px;align-items:center}' +
     '#ctx-card ol.steps{margin:0;padding:0;list-style:none;counter-reset:s}' +
@@ -582,7 +591,12 @@
     '@media (prefers-reduced-motion:reduce){' +
       '#ctx-card,#ctx-card.on{transition:opacity .01s linear;transform:none}' +
       '#ctx-card .lnk .arw{transition:none}}' +
-    (LAY_CSS[T.layout] || '');
+    (LAY_CSS[T.layout] || '') +
+    /* The eyebrow inside a verdict header is a plain inline label whatever the
+       layout does with a stacked one — ledger's inverted bar and hero's pill
+       both look wrong sitting next to a badge. Emitted last so it wins. */
+    '#ctx-card .vhead .eye{display:inline;background:none;color:var(--ctx-eye);' +
+      'padding:0;margin:0;border-radius:0;letter-spacing:.08em;font-size:9.5px}';
   document.head.appendChild(css);
 
   var useHL = !!(window.CSS && CSS.highlights && window.Highlight);
@@ -965,13 +979,17 @@
         linkOut(h, d.href);
       } },
 
-    verdict: { w: 330, eyebrow: function () { return 'claim \u00b7 adjudicated'; },
-      body: function (h, d) {
+    verdict: { w: 330, headEyebrow: true,
+      eyebrow: function () { return 'claim \u00b7 adjudicated'; },
+      body: function (h, d, eyeNode) {
         var tone = VERDICT_TONE[(d.verdict || '').toUpperCase()] || VERDICT_TONE.CONTESTED;
         var b = el('span', 'badge', d.verdict);
         b.style.background = tone[0];
         b.style.color = tone[1];
-        h.appendChild(b);
+        var head = el('div', 'vhead');
+        head.appendChild(b);
+        if (eyeNode) head.appendChild(eyeNode);
+        h.appendChild(head);
         h.appendChild(el('span', 'ttl', d.title));
         h.appendChild(rule());
         h.appendChild(el('p', 'bdy', d.body));
@@ -1143,8 +1161,11 @@
     inner.innerHTML = '';
     var R = RENDER[t.kind] || RENDER.term;
     card.style.setProperty('--ctx-w', R.w + 'px');
-    if (L.eyebrow !== 'none') inner.appendChild(el('span', 'eye', R.eyebrow(t)));
-    R.body(inner, t);
+    var eyeNode = (L.eyebrow !== 'none') ? el('span', 'eye', R.eyebrow(t)) : null;
+    /* Most kinds want the eyebrow stacked on top. A verdict card already has a
+       badge on that line, so it places the eyebrow itself, opposite the badge. */
+    if (eyeNode && !R.headEyebrow) inner.appendChild(eyeNode);
+    R.body(inner, t, eyeNode);
     lastCost = readingCost(inner);
     var wasOpen = card.classList.contains('on');
     if (wasOpen) {
