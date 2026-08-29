@@ -38,8 +38,8 @@
       "id": "finance",
       "name": "Financial services",
       "terms": 53,
-      "version": "ff25b3c4",
-      "bytes": 11772,
+      "version": "33ae7c01",
+      "bytes": 11778,
       "note": "Industry vocabulary only. Not financial advice, and not a substitute for compliance review."
     },
     {
@@ -86,16 +86,16 @@
       "id": "manufacturing",
       "name": "Manufacturing and industrial",
       "terms": 40,
-      "version": "c05ccdf0",
-      "bytes": 9624,
+      "version": "7707198b",
+      "bytes": 9755,
       "note": "Production, supply chain, and industrial B2B."
     },
     {
       "id": "hospitality",
       "name": "Hospitality and travel",
       "terms": 38,
-      "version": "59985d34",
-      "bytes": 8670,
+      "version": "9b5f6ed4",
+      "bytes": 8678,
       "note": "Hotels, restaurants, and travel operators."
     },
     {

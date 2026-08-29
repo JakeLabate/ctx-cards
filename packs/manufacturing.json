@@ -55,9 +55,12 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "lead time",
+      "name": "manufacturing lead time",
       "termCode": "T1",
-      "description": "Elapsed time from placing an order to receiving it."
+      "description": "Elapsed time from placing an order to receiving it.",
+      "alternateName": [
+        "production lead time"
+      ]
     },
     {
       "@type": "DefinedTerm",
@@ -88,9 +91,12 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "yield",
+      "name": "process yield",
       "termCode": "T2",
-      "description": "The share of units produced that meet specification."
+      "description": "The share of units produced that meet specification.",
+      "alternateName": [
+        "first pass yield"
+      ]
     },
     {
       "@type": "DefinedTerm",
@@ -178,15 +184,12 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "NPI",
+      "name": "new product introduction",
       "termCode": "T2",
-      "description": "The process of taking a design from validated prototype into stable production.",
+      "description": "Taking a design from validated prototype into stable production. Distinct from the healthcare NPI, which is a provider identifier.",
       "alternateName": [
-        "new product introduction"
-      ],
-      "ctx": {
-        "expansion": "National provider identifier"
-      }
+        "NPI process"
+      ]
     },
     {
       "@type": "DefinedTerm",
@@ -315,5 +318,5 @@
       }
     }
   ],
-  "version": "c05ccdf0"
+  "version": "7707198b"
 }

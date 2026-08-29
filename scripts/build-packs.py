@@ -234,8 +234,16 @@ def main():
     # A term meaning different things in two verticals is acceptable, but it has
     # to be a deliberate choice: precedence silently picks a winner otherwise.
     core_ids = {"seo-core", "agentic-ai"}
+    # Terms that legitimately appear in two verticals with the SAME meaning.
+    # Anything not listed here is a genuine divergence and fails the build.
+    BENIGN = {
+        "chargeback", "escrow", "underwriting", "in-network", "loyalty program",
+        "seasonality", "gbp", "google business profile", "acv",
+        "actual cash value", "citation",
+    }
     clashes = {k: sorted(set(v)) for k, v in owners.items() if len(set(v)) > 1}
-    cross = {k: v for k, v in clashes.items() if not (set(v) & core_ids)}
+    cross = {k: v for k, v in clashes.items()
+             if not (set(v) & core_ids) and k not in BENIGN}
 
     open(os.path.join(OUT, "index.json"), "w").write(json.dumps(
         {"generated": TODAY, "totalTerms": total, "packs": index}, indent=2))
@@ -244,9 +252,12 @@ def main():
     if missing:
         raise SystemExit("FAIL acronyms without expansion: " + ", ".join(missing))
     if cross:
-        print(f"\n{len(cross)} cross-vertical collisions (precedence decides; review):")
+        print(f"\n{len(cross)} unresolved cross-vertical collisions:")
         for k, v in sorted(cross.items()):
             print("   %-26s %s" % (k, ", ".join(v)))
+        raise SystemExit(
+            "FAIL a term meaning different things in two packs must be renamed to "
+            "disambiguate, or added to BENIGN if the meanings actually match.")
     print("\nvalidation passed")
 
 

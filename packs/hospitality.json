@@ -65,7 +65,7 @@
       "termCode": "T2",
       "description": "How far ahead of arrival a reservation is made.",
       "alternateName": [
-        "lead time"
+        "booking lead time"
       ]
     },
     {
@@ -285,5 +285,5 @@
       "description": "Structured data describing a property's rooms, amenities, and rates for enriched search results."
     }
   ],
-  "version": "59985d34"
+  "version": "9b5f6ed4"
 }

@@ -29,6 +29,11 @@
     /* Off unless set. 'auto' forwards to whatever analytics the page already
        runs; a URL posts to your own collector. Nothing is sent otherwise. */
     analytics: S.getAttribute('data-analytics') || '',
+    /* Opt-in. When the page's own H1 contains a term, the reader already knows
+       it — it is the subject they clicked through for. Off by default because
+       the opposite is also a valid pattern: a card on the page's own subject
+       can work as a summary. */
+    skipTitle: S.getAttribute('data-skip-title') === 'true',
     packs: (S.getAttribute('data-packs') || '').split(',')
              .map(function (x) { return x.trim(); }).filter(Boolean),
     packBase: (S.getAttribute('data-pack-base') ||
@@ -211,6 +216,19 @@
   var marks = [];
   var claimed = new Map();
 
+  /* Terms named in the page's H1 are the page's subject. Under data-skip-title
+     they are dropped rather than marked. */
+  var titleText = '';
+  if (CFG.skipTitle) {
+    var h1s = document.querySelectorAll('h1');
+    for (var hi = 0; hi < h1s.length; hi++) titleText += ' ' + (h1s[hi].textContent || '');
+    titleText = titleText.toLowerCase();
+  }
+  function isPageSubject(term) {
+    if (!CFG.skipTitle || !titleText) return false;
+    return titleText.indexOf(term.match.toLowerCase()) !== -1;
+  }
+
   function scanRoot(root) {
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode: function (n) {
@@ -225,6 +243,7 @@
     for (var t = 0; t < TERMS.length; t++) {
       var term = TERMS[t];
       if (term.budget.n >= CFG.max) continue;
+      if (isPageSubject(term)) continue;
       var bound = wordy(term.match) ? '\\b' : '';
       /* Global flag so a single text node can yield more than one occurrence,
          which is what data-repeat="all" needs. Case-insensitive only for
@@ -407,6 +426,7 @@
     '#ctx-card .row dt{font-family:' + MONO + ';font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ctx-eye);margin:0}' +
     '#ctx-card .row dd{font-size:12.5px;color:var(--ctx-fg);margin:0;text-align:right}' +
     '#ctx-card .big{font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1;margin:2px 0 0}' +
+    '#ctx-card .big.txt{font-size:19px;line-height:1.25;letter-spacing:-.01em;margin:4px 0 0}' +
     '#ctx-card .badge{display:inline-block;font-family:' + MONO + ';font-size:10px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;padding:4px 8px;border-radius:3px;margin:0 0 9px}' +
     '#ctx-card .avatar{width:38px;height:38px;border-radius:50%;flex:0 0 38px;display:flex;align-items:center;justify-content:center;font-family:' + MONO + ';font-size:12px;font-weight:600;background:var(--ctx-rule);color:var(--ctx-fg)}' +
     '#ctx-card .hd{display:flex;gap:11px;align-items:center}' +
@@ -471,6 +491,51 @@
      five out of ninety. */
   if (ANALYTICS.on) {
     anchors.forEach(function (a) { ANALYTICS.send('mark', a.term); });
+
+    /* `mark` counts terms present on the page, which is the wrong denominator
+       for an open rate: a reader who leaves at the fold never laid eyes on the
+       terms below it. Worse, the error is positional — a term in the first
+       paragraph is seen by everyone and one in the last by a fraction, so
+       comparing their open rates would mostly measure page position.
+
+       `seen` fires once per marker when it actually enters the viewport, so
+       open/seen answers the real question: of the times a reader could have
+       used this card, how often did they.
+
+       Fires once per marker per page. There is no identifier, so this is a
+       count of viewport entries, not of distinct readers. */
+    if (typeof IntersectionObserver === 'function') {
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          var e = entries[i];
+          if (!e.isIntersecting) continue;
+          var a = e.target.__ctxAnchor;
+          if (a && !a.seen) {
+            a.seen = true;
+            ANALYTICS.send('seen', a.term);
+          }
+          io.unobserve(e.target);
+        }
+      }, {
+        /* A marker counts as seen once any part of it is on screen. Markers are
+           a line of text tall, so a threshold above 0 would miss ones clipped
+           by the viewport edge — exactly the boundary cases this is meant to
+           measure. */
+        threshold: 0,
+        rootMargin: '0px'
+      });
+      anchors.forEach(function (a) {
+        a.el.__ctxAnchor = a;
+        io.observe(a.el);
+      });
+    } else {
+      /* No IntersectionObserver: treat every marker as seen so open/seen stays
+         computable rather than dividing by zero. */
+      anchors.forEach(function (a) {
+        a.seen = true;
+        ANALYTICS.send('seen', a.term);
+      });
+    }
   }
 
   if (useHL) {
@@ -510,10 +575,19 @@
     /* vertical bars, last one emphasised */
     bars: function (c) {
       var wrap = el('div', 'spark');
-      var max = Math.max.apply(null, c.data) || 1;
+      var max = Math.max.apply(null, c.data);
+      var min = Math.min.apply(null, c.data);
+      /* Baseline at the series minimum, not zero. A run from 800 to 2400
+         baselined at zero starts at a third height and reads as almost flat,
+         which hides the shape the sparkline exists to show. A small floor keeps
+         the smallest bar visible. Set baseline:"zero" when absolute magnitude
+         matters more than trend. */
+      var zero = c.baseline === 'zero' || min === max;
+      var lo = zero ? 0 : min - (max - min) * 0.15;
+      var span = (max - lo) || 1;
       c.data.forEach(function (v) {
         var b = el('i');
-        b.style.height = Math.max(8, Math.round((v / max) * 100)) + '%';
+        b.style.height = Math.max(10, Math.round(((v - lo) / span) * 100)) + '%';
         wrap.appendChild(b);
       });
       return wrap;
@@ -774,7 +848,11 @@
       body: function (h, d) {
         h.appendChild(el('span', 'ttl', d.title));
         if (d.expansion) h.appendChild(el('span', 'exp', d.expansion));
-        h.appendChild(el('p', 'big', d.value));
+        var big = el('p', 'big', d.value);
+        /* .big is sized for figures. A text value ("MCP leads") at 30px
+           overpowers the card and wraps badly, so step it down. */
+        if (!/^[+\-]?[\d.,]/.test(String(d.value || ''))) big.className = 'big txt';
+        h.appendChild(big);
         var spec = d.chart || (d.series ? { type: 'bars', data: d.series } : null);
         var g = chart(spec);
         if (g) h.appendChild(g);

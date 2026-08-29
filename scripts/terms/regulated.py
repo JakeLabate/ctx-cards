@@ -53,7 +53,7 @@ FINANCE = [
     ("embedded finance", [], 2, "Financial products delivered inside a non-financial company's product experience."),
     ("ACH", [], 2, "The US network for batched bank-to-bank transfers. Cheaper and slower than card rails."),
     ("wire transfer", [], 2, "A direct bank-to-bank transfer, typically same day and irreversible."),
-    ("settlement", [], 2, "The point at which a transaction's funds actually move between parties."),
+    ("trade settlement", [], 2, "The point at which a transaction's funds actually move between parties."),
     ("reconciliation", [], 2, "Matching internal records against external statements to confirm they agree."),
     ("audit trail", [], 2, "A tamper-evident record of who did what and when."),
     ("Reg BI", [], 2, "A US rule requiring broker-dealers to act in a retail customer's best interest when recommending."),

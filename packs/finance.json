@@ -301,7 +301,7 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "settlement",
+      "name": "trade settlement",
       "termCode": "T2",
       "description": "The point at which a transaction's funds actually move between parties."
     },
@@ -375,5 +375,5 @@
       ]
     }
   ],
-  "version": "ff25b3c4"
+  "version": "33ae7c01"
 }

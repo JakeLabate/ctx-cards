@@ -42,7 +42,7 @@ const CORS = {
   "Access-Control-Max-Age": "86400",
 };
 
-const EVENTS = new Set(["mark", "open", "close", "follow"]);
+const EVENTS = new Set(["mark", "seen", "open", "close", "follow"]);
 const MAX_BATCH = 200;
 const MAX_LEN = 120;
 
@@ -64,6 +64,7 @@ export default {
       const { results } = await env.CTX_DB.prepare(`
         SELECT term, kind,
                SUM(CASE WHEN event='mark'   THEN n ELSE 0 END) AS marks,
+               SUM(CASE WHEN event='seen'   THEN n ELSE 0 END) AS seen,
                SUM(CASE WHEN event='open'   THEN n ELSE 0 END) AS opens,
                SUM(CASE WHEN event='follow' THEN n ELSE 0 END) AS follows,
                MAX(dwell_ms) AS max_dwell,
@@ -85,7 +86,11 @@ export default {
           : null;
         return {
           ...r,
-          open_rate: r.marks ? +(r.opens / r.marks).toFixed(3) : null,
+          // seen is the honest denominator: marks include terms below the fold
+          // that no reader ever reached. Fall back to marks only if seen is 0.
+          open_rate: r.seen ? +(r.opens / r.seen).toFixed(3)
+                   : r.marks ? +(r.opens / r.marks).toFixed(3) : null,
+          seen_rate: r.marks ? +(r.seen / r.marks).toFixed(3) : null,
           expected_ms: expected,
           read_ratio: expected && r.max_dwell ? +(r.max_dwell / expected).toFixed(2) : null,
         };
