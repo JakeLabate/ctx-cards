@@ -44,10 +44,23 @@ jobs:
           python3 scripts/build-packs.py
           git diff --exit-code packs/ || (echo "packs/ is stale, run scripts/build-packs.py" && exit 1)
 
+      - name: Site packs are valid JSON-LD
+        run: |
+          python3 - <<'PY'
+          import json, glob
+          for f in sorted(glob.glob('sites/*.json')):
+              d = json.load(open(f))
+              assert d['@type'] == 'DefinedTermSet', f
+              assert d.get('hasDefinedTerm'), f
+              for t in d['hasDefinedTerm']:
+                  assert t.get('name') and t.get('description'), (f, t.get('name'))
+              print(f, len(d['hasDefinedTerm']), 'terms')
+          PY
+
       - name: dist matches src
         run: |
           npx --yes terser@5 src/ctx.js -c passes=2 -m \
-            --format 'preamble="/*! ctx-cards v0.6.0 | MIT | github.com/JakeLabate/ctx-cards */"' \
+            --format 'preamble="/*! ctx-cards v0.7.0 | MIT | github.com/JakeLabate/ctx-cards */"' \
             -o /tmp/ctx.min.js
           diff -q /tmp/ctx.min.js dist/ctx.min.js || (echo "dist/ is stale, run npm run build" && exit 1)
 

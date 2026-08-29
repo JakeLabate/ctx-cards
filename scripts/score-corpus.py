@@ -143,6 +143,8 @@ def main():
                     help="density budget: marks allowed per 1000 words of prose")
     ap.add_argument("--emit", help="write a trimmed site-specific pack here")
     ap.add_argument("--top", type=int, default=40, help="rows to print")
+    ap.add_argument("--keep", default="",
+                    help="comma-separated terms to force-include regardless of score")
     args = ap.parse_args()
 
     files = sorted(glob.glob(os.path.join(args.corpus, "**", "*.html"), recursive=True))
@@ -232,6 +234,21 @@ def main():
         budget = k
     budget = max(budget, 1)
     kept = ranked[:budget]
+
+    # Reach conflates "this site uses the term constantly" with "readers already
+    # know it". Those come apart when the site is itself a primary explainer of
+    # the term: a visitor arriving from search may be meeting it for the first
+    # time even though it is on half the pages. --keep is the manual override
+    # for that case, and it counts against the density budget like anything else.
+    forced = {n.strip().lower() for n in args.keep.split(",") if n.strip()}
+    if forced:
+        have = {r["name"].lower() for r in kept}
+        add = [r for r in ranked if r["name"].lower() in forced and r["name"].lower() not in have]
+        for r in add:
+            kept.append(r)
+        missing = forced - {r["name"].lower() for r in ranked}
+        if missing:
+            print("  --keep not found in corpus: " + ", ".join(sorted(missing)))
 
     print(f"corpus: {npages} pages, {corpus_words:,} markable words")
     print(f"packs:  {args.packs}  ({len(terms)} terms)")
