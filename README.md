@@ -39,6 +39,7 @@ derives its pack URLs from its own `src`, so pinning the tag pins the packs too.
 | `data-ignore` | `pre, code, kbd, samp, a, h1, h2, h3, [data-no-ctx]` | Selectors never marked. |
 | `data-repeat` | `first` | `first` marks one occurrence per term; `all` marks every occurrence. |
 | `data-max-per-term` | unset | A number. Overrides `data-repeat` with an explicit cap. |
+| `data-analytics` | off | `auto` forwards to the analytics already on your page; a URL posts batches to your own collector. |
 
 ### Repeating a term
 
@@ -107,6 +108,65 @@ load in parallel and a failed pack is skipped rather than blocking the rest.
 **Caveat on regulated verticals.** The `healthcare` and `finance` packs contain
 industry and marketing vocabulary only. They carry no clinical or financial
 advice and must not be treated as a substitute for review by a qualified person.
+
+---
+
+## Analytics
+
+Off unless you set `data-analytics`. Nothing is sent otherwise.
+
+```html
+<script src="…/ctx.min.js" data-analytics="auto" defer></script>
+```
+
+`auto` forwards events to whatever analytics the page already runs, so there is
+no backend to deploy and no new vendor to approve. Detected automatically:
+Google Analytics via `gtag` or `dataLayer`, Plausible, PostHog, Umami, and
+Fathom. Anything else can hook `window.ctxAnalytics = (name, props) => …`.
+
+To collect the raw stream instead, pass a URL. Events batch and send with
+`sendBeacon`, flushing every five seconds, at twenty events, and on page hide.
+
+```html
+<script src="…/ctx.min.js"
+        data-analytics="https://ctx-collect.example.workers.dev/collect" defer></script>
+```
+
+`collector/` holds a reference Cloudflare Worker and D1 schema for that mode.
+
+### Events
+
+| Event | Fires when | Carries |
+|---|---|---|
+| `mark` | A term is marked on load | term, kind, path |
+| `open` | A card is opened | term, kind, path |
+| `close` | A card is dismissed | term, kind, path, dwell in ms |
+| `follow` | The card's outbound link is clicked | term, kind, path |
+
+`mark` exists to give `open` a denominator. Five opens out of five marked terms
+and five out of ninety are very different results, and an open count alone
+cannot tell them apart.
+
+Dwell separates a glance from a read. A card dismissed in 300ms answered
+nothing; one held for four seconds did. `follow` is the inverse signal: the
+card did not finish the job and the reader left anyway, which usually means the
+definition is too thin for that term's tier.
+
+### What is not sent
+
+No cookie, no `localStorage`, no visitor id, no session id, no fingerprint, no
+IP logging in the reference collector, and no page content of any kind. There
+is nothing in the payload that can be joined back to a person, which is what
+keeps this outside the scope of consent banners in most jurisdictions.
+
+Because there is no identifier, some questions are unanswerable by design: you
+cannot follow one reader across pages or measure per-visitor behaviour. That is
+the trade, and it is deliberate — the alternative would turn a script whose
+selling point is that page text never leaves the browser into one that needs a
+privacy review before install.
+
+`Do Not Track` and Global Privacy Control are both honoured: if either is set,
+no event is sent and the cards continue to work normally.
 
 ---
 

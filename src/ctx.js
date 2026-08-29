@@ -26,6 +26,9 @@
        ignored elements (links, headings, code) never count toward the budget,
        because they are never candidates in the first place. */
     repeat: (S.getAttribute('data-repeat') || 'first').toLowerCase(),
+    /* Off unless set. 'auto' forwards to whatever analytics the page already
+       runs; a URL posts to your own collector. Nothing is sent otherwise. */
+    analytics: S.getAttribute('data-analytics') || '',
     packs: (S.getAttribute('data-packs') || '').split(',')
              .map(function (x) { return x.trim(); }).filter(Boolean),
     packBase: (S.getAttribute('data-pack-base') ||
@@ -264,6 +267,102 @@
   for (var i = 0; i < roots.length; i++) scanRoot(roots[i]);
   if (!marks.length) return;
 
+  /* ---------- analytics ----------
+     Off by default. No identity of any kind: no cookie, no localStorage, no
+     visitor or session id, no fingerprint. Each event carries the term, its
+     card kind, the page path, and for opens a dwell time. That is all, which
+     keeps this outside the scope of consent banners in most jurisdictions and
+     means it cannot be joined back to a person later.
+
+     Two modes:
+       data-analytics="auto"    forward to the page's existing analytics
+       data-analytics="https://…"  POST batches to your own collector
+
+     Nothing about the page's text is ever transmitted. */
+  var ANALYTICS = (function () {
+    var mode = CFG.analytics;
+    if (!mode) return { on: false, send: function () {} };
+
+    /* Honour both the legacy header signal and Global Privacy Control. */
+    var nav = window.navigator || {};
+    if (nav.doNotTrack === '1' || nav.globalPrivacyControl === true) {
+      return { on: false, send: function () {} };
+    }
+
+    var isURL = /^https?:\/\//.test(mode);
+    var path = location.pathname;
+    var queue = [];
+    var flushTimer = null;
+
+    /* Adapters for the analytics tools a mid-market site is actually running.
+       Each receives a flat event object; none receives page content. */
+    function forward(ev) {
+      var name = 'ctx_' + ev.e;
+      var props = { term: ev.t, kind: ev.k, path: ev.p };
+      if (ev.d != null) props.dwell_ms = ev.d;
+
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, props);
+      } else if (Array.isArray(window.dataLayer)) {
+        window.dataLayer.push(Object.assign({ event: name }, props));
+      }
+      if (typeof window.plausible === 'function') {
+        window.plausible(name, { props: props });
+      }
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture(name, props);
+      }
+      if (window.umami && typeof window.umami.track === 'function') {
+        window.umami.track(name, props);
+      }
+      if (window.fathom && typeof window.fathom.trackEvent === 'function') {
+        window.fathom.trackEvent(name + ' ' + ev.t);
+      }
+      if (typeof window.ctxAnalytics === 'function') {
+        window.ctxAnalytics(name, props);   /* escape hatch for anything else */
+      }
+    }
+
+    function flush() {
+      flushTimer = null;
+      if (!queue.length || !isURL) { queue = []; return; }
+      var body = JSON.stringify({ v: 1, events: queue });
+      queue = [];
+      try {
+        if (nav.sendBeacon) {
+          nav.sendBeacon(mode, new Blob([body], { type: 'application/json' }));
+        } else {
+          fetch(mode, { method: 'POST', body: body, keepalive: true,
+                        credentials: 'omit',
+                        headers: { 'Content-Type': 'application/json' } });
+        }
+      } catch (e) { /* analytics must never break the page */ }
+    }
+
+    addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'hidden') flush();
+    });
+    addEventListener('pagehide', flush);
+
+    return {
+      on: true,
+      send: function (name, term, extra) {
+        var ev = { e: name, t: term.title, k: term.kind || 'term', p: path };
+        if (extra != null) ev.d = extra;
+        try {
+          if (isURL) {
+            queue.push(ev);
+            /* batch so a reader hovering ten terms makes one request */
+            if (queue.length >= 20) flush();
+            else if (!flushTimer) flushTimer = setTimeout(flush, 5000);
+          } else {
+            forward(ev);
+          }
+        } catch (e) {}
+      }
+    };
+  })();
+
   /* ---------- 3. paint markers ---------- */
   var css = document.createElement('style');
   css.textContent =
@@ -361,6 +460,13 @@
     }
   });
   if (useHL) CSS.highlights.set('ctx-term', hl);
+
+  /* One event per marked term on load. Without a denominator an open count is
+     meaningless: five opens out of five marks is a very different result from
+     five out of ninety. */
+  if (ANALYTICS.on) {
+    anchors.forEach(function (a) { ANALYTICS.send('mark', a.term); });
+  }
 
   if (useHL) {
     var reflow = function () {
@@ -612,6 +718,9 @@
     if (!href) return;
     var a = el('a', 'lnk');
     a.href = href;
+    a.addEventListener('click', function () {
+      if (cur) ANALYTICS.send('follow', cur.term);
+    });
     a.appendChild(document.createTextNode((label || 'Read more') + ' '));
     var w = el('span', 'arw', '\u2192');
     a.appendChild(w);
@@ -738,6 +847,7 @@
       } }
   };
 
+
   /* ---------- 4. the card ---------- */
   var card = document.createElement('div');
   card.id = 'ctx-card';
@@ -749,7 +859,7 @@
   card.appendChild(inner);
   document.body.appendChild(card);
 
-  var openT = null, closeT = null, cur = null, viaPointer = false;
+  var openT = null, closeT = null, cur = null, viaPointer = false, openedAt = 0;
   var coarse = matchMedia('(hover: none), (pointer: coarse)').matches;
 
   function place(el) {
@@ -792,9 +902,17 @@
     }
     card.classList.add('on');
     a.el.setAttribute('aria-describedby', 'ctx-card');
+    openedAt = Date.now();
+    ANALYTICS.send('open', t);
   }
 
   function hide() {
+    if (cur && openedAt) {
+      /* Dwell separates a glance from a read. A card dismissed in 300ms did not
+         answer anything; one held for four seconds did. */
+      ANALYTICS.send('close', cur.term, Date.now() - openedAt);
+    }
+    openedAt = 0;
     card.classList.remove('on');
     if (cur) cur.el.removeAttribute('aria-describedby');
     cur = null;
