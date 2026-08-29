@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>ctx.js on jakelabate.com content</title>
+<style>
+  :root { color-scheme: light dark; --pg:#fbf7f1; --tx:#211f1c; --sub:#665f54; --rule:#ddd5c7; }
+  @media (prefers-color-scheme: dark) {
+    :root { --pg:#171614; --tx:#f2efe9; --sub:#a8a49b; --rule:#363430; }
+  }
+  body { font-family: ui-serif, Georgia, serif; font-size:17px; line-height:1.8;
+         max-width:40rem; margin:0 auto; padding:3rem 1.25rem 9rem; background:var(--pg); color:var(--tx); }
+  h1 { font-size:1.55rem; line-height:1.25; margin:0 0 1.5rem; }
+  .note { font-family: ui-sans-serif, system-ui; font-size:13.5px; color:var(--sub);
+          border-top:1px solid var(--rule); padding-top:1rem; margin-top:2.5rem; }
+</style>
+</head>
+<body>
+<main>
+<h1>Debunking common GEO tactics, claims, and shortcuts</h1>
+
+<p>This collection answers one debate per page, closing each with a verdict. Some tactics
+hold up under evidence and some do not. Content chunking earns TRUE, while content gating
+is DEBUNKED outright. Schema markup and llms.txt both land on PLAUSIBLE, which is where
+most claims belong once you separate direct effects from indirect ones.</p>
+
+<p>The same discipline applies to rendering strategy, citation bait, markdown files, brand
+mentions, robots.txt directives, and query fan-outs. Each gets weighed on its own evidence
+rather than its hype, and the verdict stays PLAUSIBLE when the evidence is mixed.</p>
+
+<p>The reasoning behind those verdicts comes from a methodology library. First principles
+thinking defines what must be true. Systems thinking shows how parts interact. Decision
+intelligence improves tradeoffs. Information architecture and semantic modeling make
+meaning legible. Governance design, knowledge management, risk management, and operational
+design make the work repeatable.</p>
+
+<p>Results follow the method. Indexing recovery took an auto marketplace from 800k to 1.3M
+pages. Traffic growth tripled sessions for an investment client. Schema productization
+produced a CTR lift that became SchemaCDN.</p>
+
+<p>The forward-looking work is agentic. MCP, WebMCP, A2A, UCP, ACP, and NLWeb define how
+agents connect, and GEO is where structured data meets retrieval. Terms like JSON-LD and
+Core Web Vitals carry plain definitions.</p>
+<p class="note">Real content, real verdicts. <span id="ctx-count"></span></p>
+</main>
+<script type="application/ld+json" id="ctx-glossary">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://www.jakelabate.com/#glossary",
+  "name": "Jake Labate site glossary",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "schema markup",
+      "termCode": "T2",
+      "description": "Structured data can clarify entities and page meaning, but the evidence is stronger for conditional support than universal impact.",
+      "url": "https://www.jakelabate.com/debunking-geo/schema-markup/",
+      "ctx": {
+        "kind": "verdict",
+        "verdict": "PLAUSIBLE",
+        "title": "Does schema markup really affect GEO?",
+        "body": "Structured data can clarify entities and page meaning, but the evidence is stronger for conditional support than universal impact."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "content chunking",
+      "termCode": "T2",
+      "description": "Chunk shape, section boundaries, and self-contained passages directly affect how retrieval systems find and reuse your content.",
+      "url": "https://www.jakelabate.com/debunking-geo/content-chunking/",
+      "ctx": {
+        "kind": "verdict",
+        "verdict": "TRUE",
+        "title": "Does content chunking really affect GEO?",
+        "body": "Chunk shape, section boundaries, and self-contained passages directly affect how retrieval systems find and reuse your content."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "llms.txt",
+      "termCode": "T2",
+      "description": "The spec is real and low-risk to implement, but public proof of present-day citation impact is still thin.",
+      "url": "https://www.jakelabate.com/debunking-geo/llms-txt/",
+      "ctx": {
+        "kind": "verdict",
+        "verdict": "PLAUSIBLE",
+        "title": "Does llms.txt really affect GEO?",
+        "body": "The spec is real and low-risk to implement, but public proof of present-day citation impact is still thin."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "server-side rendering",
+      "termCode": "T2",
+      "description": "Rendering affects GEO when critical content is unavailable or unstable for crawlers and retrieval pipelines.",
+      "url": "https://www.jakelabate.com/debunking-geo/client-vs-server-side-rendering/",
+      "ctx": {
+        "kind": "verdict",
+        "verdict": "PLAUSIBLE",
+        "title": "Does rendering strategy really affect GEO?",
+        "body": "Rendering affects GEO when critical content is unavailable or unstable for crawlers and retrieval pipelines."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "content gating",
+      "termCode": "T2",
+      "description": "Gating can support lead generation, but often reduces access to the exact evidence AI systems need to cite.",
+      "url": "https://www.jakelabate.com/debunking-geo/selective-content-gating/",
+      "ctx": {
+        "kind": "verdict",
+        "verdict": "DEBUNKED",
+        "title": "Does selective content gating really affect GEO?",
+        "body": "Gating can support lead generation, but often reduces access to the exact evidence AI systems need to cite."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "citation bait",
+      "termCode": "T2",
+      "description": "Original, verifiable data points are highly reusable in retrieval systems and citation-heavy model outputs.",
+      "url": "https://www.jakelabate.com/debunking-geo/data-as-citation-bait/",
+      "ctx": {
+        "kind": "verdict",
+        "verdict": "TRUE",
+        "title": "Does data as citation bait really affect GEO?",
+        "body": "Original, verifiable data points are highly reusable in retrieval systems and citation-heavy model outputs."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "markdown files",
+      "termCode": "T2",
+      "description": "Markdown mirrors can help in some machine-readable workflows, but gains are conditional and not guaranteed.",
+      "url": "https://www.jakelabate.com/debunking-geo/html-equivalent-markdown-files/",
+      "ctx": {
+        "kind": "verdict",
+        "verdict": "PLAUSIBLE",
+        "title": "Do HTML-equivalent markdown files really affect GEO?",
+        "body": "Markdown mirrors can help in some machine-readable workflows, but gains are conditional and not guaranteed."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "brand mentions",
+      "termCode": "T2",
+      "description": "Third-party references can strengthen entity confidence and improve brand inclusion in generated answers.",
+      "url": "https://www.jakelabate.com/debunking-geo/off-site-brand-mentions/",
+      "ctx": {
+        "kind": "verdict",
+        "verdict": "TRUE",
+        "title": "Do off-site brand mentions really affect GEO?",
+        "body": "Third-party references can strengthen entity confidence and improve brand inclusion in generated answers."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "robots.txt",
+      "termCode": "T2",
+      "description": "Crawler directives change who can access your content, but impact depends on each platform's ingestion behavior.",
+      "url": "https://www.jakelabate.com/debunking-geo/ai-crawler-control-in-robots-txt/",
+      "ctx": {
+        "kind": "verdict",
+        "verdict": "PLAUSIBLE",
+        "title": "Does AI crawler control in robots.txt really affect GEO?",
+        "body": "Crawler directives change who can access your content, but impact depends on each platform's ingestion behavior."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "query fan-outs",
+      "termCode": "T2",
+      "description": "Sub-question coverage increases retrieval touchpoints and raises the odds your content is selected and cited.",
+      "url": "https://www.jakelabate.com/debunking-geo/query-fan-outs/",
+      "ctx": {
+        "kind": "verdict",
+        "verdict": "TRUE",
+        "title": "Do query fan-outs really affect GEO?",
+        "body": "Sub-question coverage increases retrieval touchpoints and raises the odds your content is selected and cited."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "first principles thinking",
+      "termCode": "T2",
+      "description": "Methodology framework. Addresses: bad assumptions and shallow best-practice seo.",
+      "url": "https://www.jakelabate.com/methodology/first-principles-thinking/",
+      "ctx": {
+        "kind": "term",
+        "title": "First principles thinking",
+        "body": "Methodology framework. Solves: bad assumptions and shallow best-practice seo."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "systems thinking",
+      "termCode": "T2",
+      "description": "Methodology framework. Addresses: isolated fixes that ignore how seo systems interact.",
+      "url": "https://www.jakelabate.com/methodology/systems-thinking/",
+      "ctx": {
+        "kind": "term",
+        "title": "Systems thinking",
+        "body": "Methodology framework. Solves: isolated fixes that ignore how seo systems interact."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "decision intelligence",
+      "termCode": "T2",
+      "description": "Methodology framework. Addresses: poor prioritization and unclear strategic reasoning.",
+      "url": "https://www.jakelabate.com/methodology/decision-intelligence/",
+      "ctx": {
+        "kind": "term",
+        "title": "Decision intelligence",
+        "body": "Methodology framework. Solves: poor prioritization and unclear strategic reasoning."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "information architecture",
+      "termCode": "T2",
+      "description": "Methodology framework. Addresses: disorganized content, weak findability, and unclear site structure.",
+      "url": "https://www.jakelabate.com/methodology/information-architecture/",
+      "ctx": {
+        "kind": "term",
+        "title": "Information architecture",
+        "body": "Methodology framework. Solves: disorganized content, weak findability, and unclear site structure."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "governance design",
+      "termCode": "T2",
+      "description": "Methodology framework. Addresses: inconsistent seo decisions across teams and workflows.",
+      "url": "https://www.jakelabate.com/methodology/governance-design/",
+      "ctx": {
+        "kind": "term",
+        "title": "Governance design",
+        "body": "Methodology framework. Solves: inconsistent seo decisions across teams and workflows."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "knowledge management",
+      "termCode": "T2",
+      "description": "Methodology framework. Addresses: stale, disconnected, or poorly maintained website knowledge.",
+      "url": "https://www.jakelabate.com/methodology/knowledge-management/",
+      "ctx": {
+        "kind": "term",
+        "title": "Knowledge management",
+        "body": "Methodology framework. Solves: stale, disconnected, or poorly maintained website knowledge."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "risk management",
+      "termCode": "T2",
+      "description": "Methodology framework. Addresses: preventable traffic loss from technical, content, and platform changes.",
+      "url": "https://www.jakelabate.com/methodology/risk-management/",
+      "ctx": {
+        "kind": "term",
+        "title": "Risk management",
+        "body": "Methodology framework. Solves: preventable traffic loss from technical, content, and platform changes."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "semantic modeling",
+      "termCode": "T2",
+      "description": "Methodology framework. Addresses: weak machine understanding of entities, attributes, and relationships.",
+      "url": "https://www.jakelabate.com/methodology/semantic-modeling/",
+      "ctx": {
+        "kind": "term",
+        "title": "Semantic modeling",
+        "body": "Methodology framework. Solves: weak machine understanding of entities, attributes, and relationships."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "operational design",
+      "termCode": "T2",
+      "description": "Methodology framework. Addresses: seo recommendations that fail to become implemented systems.",
+      "url": "https://www.jakelabate.com/methodology/operational-design/",
+      "ctx": {
+        "kind": "term",
+        "title": "Operational design",
+        "body": "Methodology framework. Solves: seo recommendations that fail to become implemented systems."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MCP",
+      "termCode": "T2",
+      "description": "Standardizes how an AI host discovers tools, resources, and prompts from external systems, so each integration is not custom-built per client.",
+      "url": "https://www.jakelabate.com/agentic-ai-protocols/",
+      "alternateName": [
+        "Model Context Protocol"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "WebMCP",
+      "termCode": "T2",
+      "description": "Lets a website declare structured tool APIs in-page through browser-mediated capabilities, reducing brittle DOM automation.",
+      "url": "https://www.jakelabate.com/agentic-ai-protocols/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "A2A",
+      "termCode": "T2",
+      "description": "Standardizes capability discovery, task lifecycle, and cross-agent messaging regardless of vendor stack.",
+      "url": "https://www.jakelabate.com/agentic-ai-protocols/",
+      "alternateName": [
+        "Agent2Agent"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "UCP",
+      "termCode": "T2",
+      "description": "Standardizes commerce capabilities and negotiation so platforms, merchants, and payment handlers can transact in agentic interfaces.",
+      "url": "https://www.jakelabate.com/agentic-ai-protocols/",
+      "alternateName": [
+        "Universal Commerce Protocol"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ACP",
+      "termCode": "T2",
+      "description": "An overloaded acronym. Confirm whether a source means the commerce protocol or the agent-communication one before implementing.",
+      "url": "https://www.jakelabate.com/agentic-ai-protocols/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "NLWeb",
+      "termCode": "T2",
+      "description": "Turns a site into a natural-language queryable endpoint. Every NLWeb instance is also an MCP server.",
+      "url": "https://www.jakelabate.com/agentic-ai-protocols/",
+      "alternateName": [
+        "Natural Language Web"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "indexing recovery",
+      "termCode": "T2",
+      "url": "https://www.jakelabate.com/about/case-studies/",
+      "description": "A large auto marketplace grew from 800k to 1.3M indexed pages, a +44% recovery driven by technical-first execution.",
+      "ctx": {
+        "kind": "stat",
+        "title": "Indexed pages, auto marketplace",
+        "value": "+44%",
+        "chart": {
+          "type": "line",
+          "data": [
+            800,
+            838,
+            861,
+            844,
+            905,
+            1012,
+            1121,
+            1207,
+            1300
+          ],
+          "alt": "Indexed pages 800k to 1.3M"
+        },
+        "rows": [
+          [
+            "From",
+            "800k"
+          ],
+          [
+            "To",
+            "1.3M"
+          ],
+          [
+            "Method",
+            "Technical-first"
+          ]
+        ]
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "traffic growth",
+      "termCode": "T2",
+      "url": "https://www.jakelabate.com/about/case-studies/",
+      "description": "An investment-focused client went from 800 to 2,400 monthly visits through deliberate search strategy.",
+      "ctx": {
+        "kind": "stat",
+        "title": "Monthly organic sessions",
+        "value": "+300%",
+        "chart": {
+          "type": "bars",
+          "data": [
+            800,
+            910,
+            1050,
+            1180,
+            1400,
+            1720,
+            2050,
+            2400
+          ],
+          "alt": "Sessions 800 to 2400"
+        },
+        "rows": [
+          [
+            "From",
+            "800"
+          ],
+          [
+            "To",
+            "2,400"
+          ]
+        ]
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "schema productization",
+      "termCode": "T2",
+      "url": "https://www.jakelabate.com/about/schemacdn/",
+      "description": "A hotel-industry schema framework delivered a +14% SERP CTR lift and became the foundation for SchemaCDN.",
+      "ctx": {
+        "kind": "stat",
+        "title": "Schema productization lift",
+        "value": "+14%",
+        "chart": {
+          "type": "ring",
+          "value": 14,
+          "caption": "SERP CTR lift",
+          "alt": "14 percent CTR lift"
+        },
+        "rows": [
+          [
+            "Sector",
+            "Hospitality"
+          ],
+          [
+            "Became",
+            "SchemaCDN"
+          ]
+        ]
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SchemaCDN",
+      "termCode": "T2",
+      "url": "https://www.jakelabate.com/about/schemacdn/",
+      "description": "AI-powered schema infrastructure. One script tag deploys centralized schema logic delivering JSON-LD at runtime.",
+      "ctx": {
+        "kind": "entity",
+        "kindLabel": "product",
+        "initials": "SC",
+        "title": "SchemaCDN",
+        "subtitle": "Schema infrastructure",
+        "body": "One script tag replaces page-by-page implementation, delivering JSON-LD at runtime with continuous governance.",
+        "rows": [
+          [
+            "Origin",
+            "Hotel schema framework"
+          ],
+          [
+            "Result",
+            "+14% SERP CTR"
+          ],
+          [
+            "Scale",
+            "5M+ pages"
+          ]
+        ]
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "GEO",
+      "alternateName": [
+        "generative engine optimization"
+      ],
+      "termCode": "T2",
+      "url": "https://www.jakelabate.com/debunking-geo/",
+      "description": "Optimizing for inclusion and citation in generative search answers rather than classic ranked links."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "JSON-LD",
+      "termCode": "T1",
+      "description": "The JSON serialization of linked data. The format search engines and retrieval systems read structured markup in."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Core Web Vitals",
+      "termCode": "T1",
+      "description": "Google's page-experience metrics covering loading, interactivity, and layout stability."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "query fan-out",
+      "termCode": "T1",
+      "description": "When a system decomposes one query into several sub-questions and retrieves against each."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "structured data",
+      "termCode": "T1",
+      "description": "Machine-readable annotations stating what a page's content means, rather than leaving a parser to infer it."
+    }
+  ]
+}
+</script>
+<script src="../dist/ctx.js" data-style="paper" data-scope="main" data-packs="seo-core" data-pack-base="../packs" defer></script>
+<script>
+window.addEventListener('load', function () {
+  document.getElementById('ctx-count').textContent =
+    document.querySelectorAll('[data-ctx-mark]').length + ' terms marked.';
+});
+</script>
+</body>
+</html>

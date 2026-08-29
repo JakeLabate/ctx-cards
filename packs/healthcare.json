@@ -1,0 +1,164 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/healthcare.json",
+  "identifier": "healthcare",
+  "name": "Healthcare and life sciences",
+  "description": "Industry and marketing vocabulary only. Contains no clinical guidance and must not be used for medical content without review.",
+  "dateModified": "2026-08-28",
+  "inLanguage": "en",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "HIPAA",
+      "termCode": "T2",
+      "description": "The US law governing the privacy and security of protected health information.",
+      "ctx": {
+        "expansion": "Health Insurance Portability and Accountability Act"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PHI",
+      "termCode": "T2",
+      "description": "Individually identifiable health data covered by HIPAA.",
+      "alternateName": [
+        "protected health information"
+      ],
+      "ctx": {
+        "expansion": "Protected health information"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "EHR",
+      "termCode": "T2",
+      "description": "The digital record of a patient's care held by a provider organization.",
+      "alternateName": [
+        "electronic health record",
+        "EMR"
+      ],
+      "ctx": {
+        "expansion": "Electronic health record"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "payer",
+      "termCode": "T2",
+      "description": "The organization that pays for care, typically an insurer or government program."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "provider",
+      "termCode": "T2",
+      "description": "The organization or clinician delivering care."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "prior authorization",
+      "termCode": "T2",
+      "description": "Approval a payer requires before it will cover a service or medication."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CPT code",
+      "termCode": "T2",
+      "description": "A standardized code identifying a medical procedure for billing purposes.",
+      "ctx": {
+        "expansion": "Current Procedural Terminology code"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ICD-10",
+      "termCode": "T2",
+      "description": "The international classification system used to code diagnoses.",
+      "ctx": {
+        "expansion": "International Classification of Diseases, 10th revision"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "telehealth",
+      "termCode": "T2",
+      "description": "Delivering care remotely by video, phone, or asynchronous messaging."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "interoperability",
+      "termCode": "T2",
+      "description": "The ability of health systems to exchange data and use what they receive."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "FHIR",
+      "termCode": "T2",
+      "description": "A standard for exchanging healthcare data over web APIs.",
+      "ctx": {
+        "expansion": "Fast Healthcare Interoperability Resources"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "value-based care",
+      "termCode": "T2",
+      "description": "Reimbursement tied to patient outcomes rather than volume of services delivered."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "patient acquisition",
+      "termCode": "T2",
+      "description": "The marketing function bringing new patients to a practice or health system."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "YMYL",
+      "termCode": "T2",
+      "description": "Your Money or Your Life. Google's designation for topics where inaccuracy could cause real harm, held to a higher quality bar.",
+      "ctx": {
+        "expansion": "Your Money or Your Life"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "medical review",
+      "termCode": "T2",
+      "description": "Having a qualified clinician verify health content before publication. Expected practice for YMYL pages."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "clinical trial",
+      "termCode": "T2",
+      "description": "A structured study evaluating an intervention in human participants."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "FDA clearance",
+      "termCode": "T2",
+      "description": "A regulatory pathway permitting a device to be marketed in the US. Distinct from approval."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CMS",
+      "termCode": "T2",
+      "description": "The US agency administering Medicare and Medicaid.",
+      "ctx": {
+        "expansion": "Centers for Medicare and Medicaid Services"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "population health",
+      "termCode": "T2",
+      "description": "Managing outcomes across a defined group rather than one patient at a time."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "care gap",
+      "termCode": "T2",
+      "description": "A difference between recommended care and the care a patient has actually received."
+    }
+  ],
+  "version": "ddec9aef"
+}

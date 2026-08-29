@@ -1,0 +1,223 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/saas.json",
+  "identifier": "saas",
+  "name": "SaaS and developer tools",
+  "description": "Subscription software, APIs, and technical products.",
+  "dateModified": "2026-08-28",
+  "inLanguage": "en",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "ARR",
+      "termCode": "T1",
+      "description": "Contracted subscription revenue normalized to a yearly figure.",
+      "alternateName": [
+        "annual recurring revenue"
+      ],
+      "ctx": {
+        "expansion": "Annual recurring revenue"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MRR",
+      "termCode": "T1",
+      "description": "Contracted subscription revenue normalized to a monthly figure.",
+      "alternateName": [
+        "monthly recurring revenue"
+      ],
+      "ctx": {
+        "expansion": "Monthly recurring revenue"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "churn",
+      "termCode": "T1",
+      "description": "The share of customers or revenue lost in a period.",
+      "alternateName": [
+        "churn rate"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "net revenue retention",
+      "termCode": "T2",
+      "description": "Revenue from existing customers this period versus last, including expansion and churn. Above 100% means growth without new logos.",
+      "alternateName": [
+        "NRR"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PQL",
+      "termCode": "T2",
+      "description": "A user whose product usage signals readiness to buy, as opposed to one who filled in a form.",
+      "alternateName": [
+        "product qualified lead"
+      ],
+      "ctx": {
+        "expansion": "Product qualified lead"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "product-led growth",
+      "termCode": "T2",
+      "description": "Acquiring and expanding customers through the product itself rather than through a sales motion.",
+      "alternateName": [
+        "PLG"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "free trial",
+      "termCode": "T2",
+      "description": "Time-limited full access used to demonstrate value before purchase."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "freemium",
+      "termCode": "T2",
+      "description": "A permanently free tier with paid upgrades, as distinct from a time-limited trial."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "activation",
+      "termCode": "T2",
+      "description": "The point where a new user first reaches meaningful value. The metric that most predicts retention."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "time to value",
+      "termCode": "T2",
+      "description": "How long it takes a new user to reach that first meaningful outcome.",
+      "alternateName": [
+        "TTV"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "API",
+      "termCode": "T1",
+      "description": "A defined contract letting one system call another programmatically.",
+      "alternateName": [
+        "application programming interface"
+      ],
+      "ctx": {
+        "expansion": "Application programming interface"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "REST",
+      "termCode": "T1",
+      "description": "An API style using standard HTTP verbs against resource URLs.",
+      "ctx": {
+        "expansion": "Representational State Transfer"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "GraphQL",
+      "termCode": "T1",
+      "description": "A query language letting a client request exactly the fields it needs in one round trip."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "webhook",
+      "termCode": "T2",
+      "description": "An outbound HTTP callback fired when an event occurs, so consumers do not have to poll."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "rate limit",
+      "termCode": "T2",
+      "description": "A cap on how many requests a client may make in a window."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SDK",
+      "termCode": "T1",
+      "description": "A language-specific library wrapping an API so developers do not hand-roll requests.",
+      "alternateName": [
+        "software development kit"
+      ],
+      "ctx": {
+        "expansion": "Software development kit"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SSO",
+      "termCode": "T2",
+      "description": "Authenticating once against an identity provider to access multiple applications.",
+      "alternateName": [
+        "single sign-on"
+      ],
+      "ctx": {
+        "expansion": "Single sign-on"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SOC 2",
+      "termCode": "T2",
+      "description": "An audit report on security and availability controls. Frequently required in enterprise procurement.",
+      "ctx": {
+        "expansion": "System and Organization Controls, Type 2"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "uptime SLA",
+      "termCode": "T2",
+      "description": "A contractual availability commitment, usually with credits owed when it is missed."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "documentation site",
+      "termCode": "T2",
+      "description": "The reference and guide content developers rely on. Often a product's highest-intent organic traffic.",
+      "alternateName": [
+        "docs"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "changelog",
+      "termCode": "T2",
+      "description": "A dated record of releases and changes."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "self-serve",
+      "termCode": "T2",
+      "description": "A purchase path a customer completes without talking to sales."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "expansion revenue",
+      "termCode": "T2",
+      "description": "Additional revenue from existing customers through upgrades, seats, or usage."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "usage-based pricing",
+      "termCode": "T2",
+      "description": "Charging by consumption rather than a flat seat fee."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "developer experience",
+      "termCode": "T2",
+      "description": "How easily a developer can adopt and succeed with a tool. A genuine differentiator in this category.",
+      "alternateName": [
+        "DX"
+      ]
+    }
+  ],
+  "version": "d3b1c674"
+}

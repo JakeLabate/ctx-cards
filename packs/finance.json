@@ -1,0 +1,190 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/finance.json",
+  "identifier": "finance",
+  "name": "Financial services",
+  "description": "General industry vocabulary. Not financial advice, and not a substitute for compliance review.",
+  "dateModified": "2026-08-28",
+  "inLanguage": "en",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "APR",
+      "termCode": "T1",
+      "description": "The yearly cost of borrowing including interest and most fees, expressed as a percentage.",
+      "alternateName": [
+        "annual percentage rate"
+      ],
+      "ctx": {
+        "expansion": "Annual percentage rate"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "APY",
+      "termCode": "T1",
+      "description": "The yearly return on savings including compounding. Distinct from a simple interest rate.",
+      "alternateName": [
+        "annual percentage yield"
+      ],
+      "ctx": {
+        "expansion": "Annual percentage yield"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "basis point",
+      "termCode": "T1",
+      "description": "One hundredth of a percentage point. Fifty basis points is half a percent.",
+      "alternateName": [
+        "bps"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "underwriting",
+      "termCode": "T2",
+      "description": "Assessing the risk of a loan or policy and deciding the terms on which to accept it."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "credit score",
+      "termCode": "T2",
+      "description": "A model output summarizing credit risk from a borrower's history."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "LTV ratio",
+      "termCode": "T2",
+      "description": "The loan amount divided by the value of the asset securing it.",
+      "alternateName": [
+        "loan-to-value"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "DTI",
+      "termCode": "T2",
+      "description": "Monthly debt payments divided by gross monthly income. A common lending threshold.",
+      "alternateName": [
+        "debt-to-income"
+      ],
+      "ctx": {
+        "expansion": "Debt-to-income ratio"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "escrow",
+      "termCode": "T2",
+      "description": "Funds held by a third party until the conditions of an agreement are met."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "amortization",
+      "termCode": "T2",
+      "description": "Paying down a balance through scheduled payments that cover both interest and principal."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "refinance",
+      "termCode": "T2",
+      "description": "Replacing an existing loan with a new one, usually for different rate or term."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "KYC",
+      "termCode": "T2",
+      "description": "Regulated identity verification performed before opening an account.",
+      "alternateName": [
+        "know your customer"
+      ],
+      "ctx": {
+        "expansion": "Know your customer"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "AML",
+      "termCode": "T2",
+      "description": "Controls and reporting designed to detect and prevent illicit funds moving through a business.",
+      "alternateName": [
+        "anti-money laundering"
+      ],
+      "ctx": {
+        "expansion": "Anti-money laundering"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "fiduciary",
+      "termCode": "T2",
+      "description": "A party legally obliged to act in another's interest ahead of its own."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "AUM",
+      "termCode": "T1",
+      "description": "The total market value of assets a firm manages on behalf of clients.",
+      "alternateName": [
+        "assets under management"
+      ],
+      "ctx": {
+        "expansion": "Assets under management"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "expense ratio",
+      "termCode": "T2",
+      "description": "The annual percentage of assets a fund charges to cover its operating costs."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "liquidity",
+      "termCode": "T2",
+      "description": "How quickly an asset can be converted to cash without materially moving its price."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "diversification",
+      "termCode": "T2",
+      "description": "Spreading exposure across assets so no single outcome dominates the result."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "compliance",
+      "termCode": "T2",
+      "description": "The function ensuring a business meets its regulatory and legal obligations."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "open banking",
+      "termCode": "T2",
+      "description": "Regulated sharing of bank data with third parties through APIs, at the customer's direction."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "chargeback",
+      "termCode": "T2",
+      "description": "A forced reversal of a card payment initiated by the cardholder's bank."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PCI DSS",
+      "termCode": "T2",
+      "description": "The security standard governing how card data is stored, processed, and transmitted.",
+      "ctx": {
+        "expansion": "Payment Card Industry Data Security Standard"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "embedded finance",
+      "termCode": "T2",
+      "description": "Financial products delivered inside a non-financial company's product experience."
+    }
+  ],
+  "version": "46f40527"
+}

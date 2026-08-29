@@ -1,0 +1,337 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/seo-core.json",
+  "identifier": "seo-core",
+  "name": "SEO and content marketing",
+  "description": "Universal pack. Load this on every site.",
+  "dateModified": "2026-08-28",
+  "inLanguage": "en",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "SEO",
+      "termCode": "T1",
+      "description": "Improving a site's visibility in organic search results through content, technical structure, and authority.",
+      "alternateName": [
+        "search engine optimization"
+      ],
+      "ctx": {
+        "expansion": "Search engine optimization"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SERP",
+      "termCode": "T1",
+      "description": "The page of results returned for a query, including organic links, ads, and enriched features.",
+      "alternateName": [
+        "search engine results page"
+      ],
+      "ctx": {
+        "expansion": "Search engine results page"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CTR",
+      "termCode": "T1",
+      "description": "The share of people who click a result after seeing it. Clicks divided by impressions.",
+      "alternateName": [
+        "click-through rate"
+      ],
+      "ctx": {
+        "expansion": "Click-through rate"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "impressions",
+      "termCode": "T1",
+      "description": "The number of times a page appeared in search results, whether or not anyone clicked."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "canonical tag",
+      "termCode": "T2",
+      "description": "A link element naming the preferred version of a page, used to consolidate duplicates onto one URL.",
+      "alternateName": [
+        "rel=canonical"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "crawl budget",
+      "termCode": "T2",
+      "description": "The number of pages a search engine will fetch from a site in a given period. Matters mainly at large scale."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "indexation",
+      "termCode": "T2",
+      "description": "Whether a page has been stored in a search engine's index and is therefore eligible to rank.",
+      "alternateName": [
+        "indexing"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "robots.txt",
+      "termCode": "T2",
+      "description": "A root-level file telling crawlers which paths they may request. It controls crawling, not indexing."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "noindex",
+      "termCode": "T2",
+      "description": "A directive asking search engines to keep a page out of the index while still allowing it to be crawled."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "XML sitemap",
+      "termCode": "T2",
+      "description": "A machine-readable list of a site's URLs submitted to search engines to aid discovery.",
+      "alternateName": [
+        "sitemap.xml"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "structured data",
+      "termCode": "T2",
+      "description": "Machine-readable annotations stating what a page's content means, rather than leaving a parser to infer it.",
+      "alternateName": [
+        "schema markup"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "JSON-LD",
+      "termCode": "T1",
+      "description": "The JSON serialization of linked data, and the format search engines prefer for structured data.",
+      "ctx": {
+        "expansion": "JavaScript Object Notation for Linked Data"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "rich result",
+      "termCode": "T2",
+      "description": "An enhanced search listing showing extra detail such as ratings, prices, or FAQs, driven by structured data.",
+      "alternateName": [
+        "rich snippet"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Core Web Vitals",
+      "termCode": "T2",
+      "description": "Google's page-experience metrics covering loading, interactivity, and layout stability."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "LCP",
+      "termCode": "T1",
+      "description": "How long the largest visible element takes to render. A loading-speed metric.",
+      "alternateName": [
+        "Largest Contentful Paint"
+      ],
+      "ctx": {
+        "expansion": "Largest Contentful Paint"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CLS",
+      "termCode": "T1",
+      "description": "How much visible content moves unexpectedly during load. A visual-stability metric.",
+      "alternateName": [
+        "Cumulative Layout Shift"
+      ],
+      "ctx": {
+        "expansion": "Cumulative Layout Shift"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "INP",
+      "termCode": "T1",
+      "description": "How quickly a page responds to user interaction. Replaced First Input Delay.",
+      "alternateName": [
+        "Interaction to Next Paint"
+      ],
+      "ctx": {
+        "expansion": "Interaction to Next Paint"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "internal linking",
+      "termCode": "T2",
+      "description": "Links between pages on the same site. Distributes authority and signals which pages matter."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "anchor text",
+      "termCode": "T1",
+      "description": "The visible, clickable words in a link. Describes what the destination is about."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "backlink",
+      "termCode": "T1",
+      "description": "A link from another site pointing at yours. A long-standing signal of authority.",
+      "alternateName": [
+        "inbound link"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "domain authority",
+      "termCode": "T2",
+      "description": "A third-party score estimating a domain's ranking strength. Useful for comparison, not a Google metric."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "keyword cannibalization",
+      "termCode": "T2",
+      "description": "Several pages on one site competing for the same query, splitting signals between them."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "search intent",
+      "termCode": "T2",
+      "description": "What a searcher is actually trying to accomplish. Usually grouped as informational, navigational, commercial, or transactional.",
+      "alternateName": [
+        "user intent"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "topic cluster",
+      "termCode": "T2",
+      "description": "A pillar page plus supporting pages on subtopics, interlinked to signal depth on a theme.",
+      "alternateName": [
+        "content hub"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "content decay",
+      "termCode": "T2",
+      "description": "The gradual traffic loss a page suffers as it ages and competitors publish fresher material."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "E-E-A-T",
+      "termCode": "T2",
+      "description": "Experience, expertise, authoritativeness, and trust. Criteria in Google's quality rater guidelines, not a direct ranking factor.",
+      "ctx": {
+        "expansion": "Experience, Expertise, Authoritativeness, Trust"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "hreflang",
+      "termCode": "T2",
+      "description": "An annotation declaring the language and region a page targets, used to serve the right version internationally."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "pagination",
+      "termCode": "T2",
+      "description": "Splitting a long list across numbered pages. Needs care so crawlers reach deep items."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "faceted navigation",
+      "termCode": "T2",
+      "description": "Filter-driven URLs on listing pages. A common source of near-duplicate pages and wasted crawl."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "log file analysis",
+      "termCode": "T2",
+      "description": "Reading server logs to see what crawlers actually requested, rather than what you assume they did."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "GEO",
+      "termCode": "T2",
+      "description": "Optimizing for inclusion and citation in generative search answers rather than classic ranked links.",
+      "alternateName": [
+        "generative engine optimization"
+      ],
+      "ctx": {
+        "expansion": "Generative engine optimization"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "AI Overviews",
+      "termCode": "T2",
+      "description": "Google's generated summaries shown above traditional results, assembled from retrieved pages."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "RAG",
+      "termCode": "T2",
+      "description": "Retrieving source documents at query time and generating an answer grounded in them.",
+      "alternateName": [
+        "retrieval-augmented generation"
+      ],
+      "ctx": {
+        "expansion": "Retrieval-augmented generation"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "query fan-out",
+      "termCode": "T2",
+      "description": "When a system decomposes one query into several sub-questions and retrieves against each."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "llms.txt",
+      "termCode": "T2",
+      "description": "A proposed root-level file offering LLM-oriented site guidance. Adoption and effect remain contested."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "MCP",
+      "termCode": "T2",
+      "description": "Standardizes how an AI host discovers tools and resources from external systems.",
+      "alternateName": [
+        "Model Context Protocol"
+      ],
+      "ctx": {
+        "expansion": "Model Context Protocol"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "redirect chain",
+      "termCode": "T2",
+      "description": "Two or more redirects in sequence before reaching the final URL. Wastes crawl and leaks a little signal each hop."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "orphan page",
+      "termCode": "T2",
+      "description": "A page with no internal links pointing to it, so crawlers and users can only reach it by direct URL."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "thin content",
+      "termCode": "T2",
+      "description": "A page with too little substance to satisfy the query it targets. Often generated at scale."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SERP feature",
+      "termCode": "T2",
+      "description": "Any non-standard result element such as a featured snippet, knowledge panel, or People Also Ask block."
+    }
+  ],
+  "version": "f4179151"
+}

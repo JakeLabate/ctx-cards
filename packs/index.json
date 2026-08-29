@@ -1,0 +1,53 @@
+{
+  "generated": "2026-08-28",
+  "packs": [
+    {
+      "id": "seo-core",
+      "name": "SEO and content marketing",
+      "terms": 40,
+      "version": "f4179151",
+      "bytes": 10889,
+      "note": "Universal pack. Load this on every site."
+    },
+    {
+      "id": "ecommerce",
+      "name": "Ecommerce and retail",
+      "terms": 25,
+      "version": "7c4f4406",
+      "bytes": 6844,
+      "note": "Marketplace, DTC, and retail catalog sites."
+    },
+    {
+      "id": "saas",
+      "name": "SaaS and developer tools",
+      "terms": 25,
+      "version": "d3b1c674",
+      "bytes": 6610,
+      "note": "Subscription software, APIs, and technical products."
+    },
+    {
+      "id": "finance",
+      "name": "Financial services",
+      "terms": 22,
+      "version": "46f40527",
+      "bytes": 5747,
+      "note": "General industry vocabulary. Not financial advice, and not a substitute for compliance review."
+    },
+    {
+      "id": "healthcare",
+      "name": "Healthcare and life sciences",
+      "terms": 20,
+      "version": "ddec9aef",
+      "bytes": 5183,
+      "note": "Industry and marketing vocabulary only. Contains no clinical guidance and must not be used for medical content without review."
+    },
+    {
+      "id": "real-estate",
+      "name": "Real estate and property",
+      "terms": 20,
+      "version": "e5ab36c9",
+      "bytes": 5137,
+      "note": "Residential and commercial property vocabulary."
+    }
+  ]
+}

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>ctx.js &mdash; card gallery</title>
+<style>
+  :root { color-scheme: light dark; --pg:#fbf7f1; --tx:#211f1c; --sub:#665f54; --rule:#ddd5c7; }
+  @media (prefers-color-scheme: dark) {
+    :root { --pg:#171614; --tx:#f2efe9; --sub:#a8a49b; --rule:#363430; }
+  }
+  body { font-family: ui-serif, Georgia, serif; font-size:17px; line-height:1.8; font-weight:400;
+         max-width:40rem; margin:0 auto; padding:3rem 1.25rem 8rem; background:var(--pg); color:var(--tx); }
+  h1 { font-size:1.55rem; line-height:1.25; margin:0 0 1.5rem; }
+  .note { font-family: ui-sans-serif, system-ui; font-size:13.5px; line-height:1.65; color:var(--sub);
+          border-top:1px solid var(--rule); padding-top:1rem; margin-top:2.5rem; }
+</style>
+</head>
+<body>
+<main>
+<h1>Eight card kinds, one shell</h1>
+
+<p>Every card below shares the same tail, entrance, and monospace eyebrow. Only the body
+changes. Start with the plain case: MCP renders as a definition, the simplest kind, and
+JSON-LD does the same with no outbound link.</p>
+
+<p>Adjudicated claims get a verdict badge and an evidence table. The claim that llms.txt
+improves AI visibility resolves one way; content chunking resolves the other. The badge
+color carries the verdict, and the rows carry the receipts.</p>
+
+<p>Numbers get their own treatment. Hovering indexing recovery gives the headline figure,
+a sparkline, and the provenance underneath, so the reader sees the value and its source
+without leaving the sentence.</p>
+
+<p>Entities get an avatar and a meta table, which is how SchemaCDN renders. Procedures get
+a numbered list, so NLWeb shows its four implementation steps inline. Comparisons get two
+columns, which is what UCP uses to sit beside its alternative.</p>
+
+<p>The remaining two are narrower in purpose. A DefinedTermSet renders as a code block with
+a caption, and a cited passage like operator mindset renders as a pull quote with
+attribution. Both reuse the same shell.</p>
+<p class="note">Tap or hover any underlined term. <span id="ctx-count"></span></p>
+</main>
+
+<script type="application/ld+json" id="ctx-glossary">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "name": "ctx card gallery",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "MCP",
+      "alternateName": [
+        "Model Context Protocol"
+      ],
+      "description": "Standardizes how an AI host discovers tools, resources, and prompts from external systems, so each integration is not custom-built per client.",
+      "url": "https://www.jakelabate.com/agentic-ai-protocols/",
+      "termCode": "T2"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "llms.txt",
+      "termCode": "T2",
+      "url": "https://www.jakelabate.com/debunking-geo/",
+      "ctx": {
+        "kind": "verdict",
+        "verdict": "DEBUNKED",
+        "title": "llms.txt improves AI visibility",
+        "body": "No major model provider has published documentation confirming they read the file. Adoption is producer-side only.",
+        "rows": [
+          [
+            "Sources reviewed",
+            "14"
+          ],
+          [
+            "First-party confirmations",
+            "0"
+          ],
+          [
+            "Reviewed",
+            "Aug 2026"
+          ]
+        ]
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "content chunking",
+      "termCode": "T2",
+      "url": "https://www.jakelabate.com/debunking-geo/",
+      "ctx": {
+        "kind": "verdict",
+        "verdict": "TRUE",
+        "title": "Chunking improves retrieval",
+        "body": "Retrieval operates on passages, not pages. Clean semantic boundaries measurably raise the odds a passage is selected.",
+        "rows": [
+          [
+            "Evidence",
+            "Direct"
+          ],
+          [
+            "Effect",
+            "Retrieval-side"
+          ]
+        ]
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "indexing recovery",
+      "termCode": "T2",
+      "url": "https://www.jakelabate.com/about/case-studies/",
+      "ctx": {
+        "kind": "stat",
+        "title": "Indexed pages, auto marketplace",
+        "value": "+44%",
+        "series": [
+          800,
+          860,
+          910,
+          880,
+          1010,
+          1120,
+          1210,
+          1300
+        ],
+        "rows": [
+          [
+            "From",
+            "800k pages"
+          ],
+          [
+            "To",
+            "1.3M pages"
+          ],
+          [
+            "Method",
+            "Technical-first"
+          ],
+          [
+            "Durability",
+            "Held post-launch"
+          ]
+        ]
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SchemaCDN",
+      "termCode": "T2",
+      "url": "https://www.jakelabate.com/about/schemacdn/",
+      "ctx": {
+        "kind": "entity",
+        "kindLabel": "product",
+        "initials": "SC",
+        "title": "SchemaCDN",
+        "subtitle": "Schema infrastructure \u00b7 Boston, MA",
+        "body": "One script tag replaces page-by-page schema implementation, delivering JSON-LD at runtime with continuous governance.",
+        "rows": [
+          [
+            "Origin",
+            "Hotel schema framework"
+          ],
+          [
+            "Result",
+            "+14% SERP CTR"
+          ],
+          [
+            "Scale",
+            "5M+ pages"
+          ]
+        ]
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "NLWeb",
+      "alternateName": [
+        "Natural Language Web"
+      ],
+      "termCode": "T2",
+      "url": "https://www.jakelabate.com/agentic-ai-protocols/",
+      "ctx": {
+        "kind": "steps",
+        "title": "Implementing NLWeb",
+        "steps": [
+          "Expose existing schema.org data as the retrieval corpus.",
+          "Stand up a vector store over that corpus.",
+          "Serve the standard /ask endpoint returning grounded JSON.",
+          "Register the endpoint; every NLWeb instance is also an MCP server."
+        ]
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "UCP",
+      "alternateName": [
+        "Universal Commerce Protocol"
+      ],
+      "termCode": "T2",
+      "url": "https://www.jakelabate.com/agentic-ai-protocols/",
+      "ctx": {
+        "kind": "compare",
+        "title": "UCP against ACP",
+        "pairs": [
+          [
+            "UCP",
+            "Broad coalition. Built for multi-agent commerce interoperability.",
+            "ACP",
+            "Narrower. Powers agent-initiated checkout in one ecosystem."
+          ],
+          [
+            "Portability",
+            "Wins if you implement only one.",
+            "Reach",
+            "Wins where that ecosystem is your traffic."
+          ]
+        ]
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "DefinedTermSet",
+      "termCode": "T2",
+      "ctx": {
+        "kind": "code",
+        "lang": "json-ld",
+        "title": "The glossary block",
+        "code": "{\n  \"@type\": \"DefinedTerm\",\n  \"name\": \"MCP\",\n  \"description\": \"\u2026\",\n  \"termCode\": \"T2\"\n}",
+        "body": "Cards and crawlers read this same node. One source, two consumers."
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "operator mindset",
+      "termCode": "T2",
+      "url": "https://www.jakelabate.com/about/",
+      "ctx": {
+        "kind": "quote",
+        "body": "Treat search like infrastructure, instrument everything, and let the data decide.",
+        "attribution": "Jake Labate \u00b7 About"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "JSON-LD",
+      "termCode": "T1",
+      "description": "The JSON serialization of linked data. The format search engines and retrieval systems read structured markup in."
+    }
+  ]
+}
+</script>
+
+<script src="../dist/ctx.js" data-style="minimal" data-scope="main" data-packs="seo-core" data-pack-base="../packs" defer></script>
+
+<script>
+window.addEventListener('load', function () {
+  var n = document.querySelectorAll('[data-ctx-mark]').length;
+  document.getElementById('ctx-count').textContent = n + ' terms marked.';
+});
+</script>
+</body>
+</html>

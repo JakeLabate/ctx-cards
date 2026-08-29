@@ -1,0 +1,54 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Syntax check
+        run: node --check src/ctx.js && node --check dist/ctx.min.js
+
+      - name: Packs are valid JSON-LD
+        run: |
+          python3 - <<'PY'
+          import json, glob, sys
+          bad = 0
+          for f in sorted(glob.glob('packs/*.json')):
+              d = json.load(open(f))
+              if f.endswith('index.json'):
+                  continue
+              assert d['@type'] == 'DefinedTermSet', f
+              for t in d['hasDefinedTerm']:
+                  if not t.get('name') or not t.get('description'):
+                      print('incomplete term in', f, t.get('name')); bad += 1
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: Packs are reproducible
+        run: |
+          python3 scripts/build-packs.py
+          git diff --exit-code packs/ || (echo "packs/ is stale, run scripts/build-packs.py" && exit 1)
+
+      - name: dist matches src
+        run: |
+          npx --yes terser@5 src/ctx.js -c passes=2 -m \
+            --format 'preamble="/*! ctx-cards v0.1.0 | MIT | github.com/JakeLabate/ctx-cards */"' \
+            -o /tmp/ctx.min.js
+          diff -q /tmp/ctx.min.js dist/ctx.min.js || (echo "dist/ is stale, run npm run build" && exit 1)
+
+      - name: Report size
+        run: |
+          echo "min:      $(wc -c < dist/ctx.min.js) bytes"
+          echo "gzipped:  $(gzip -c dist/ctx.min.js | wc -c) bytes"

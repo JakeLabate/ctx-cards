@@ -1,0 +1,172 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/real-estate.json",
+  "identifier": "real-estate",
+  "name": "Real estate and property",
+  "description": "Residential and commercial property vocabulary.",
+  "dateModified": "2026-08-28",
+  "inLanguage": "en",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "MLS",
+      "termCode": "T2",
+      "description": "The shared database brokers use to list and search properties in a market.",
+      "alternateName": [
+        "multiple listing service"
+      ],
+      "ctx": {
+        "expansion": "Multiple listing service"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "comps",
+      "termCode": "T2",
+      "description": "Recently sold similar properties used to estimate what a home is worth.",
+      "alternateName": [
+        "comparables"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "cap rate",
+      "termCode": "T2",
+      "description": "Net operating income divided by property value. A yield measure for income property.",
+      "alternateName": [
+        "capitalization rate"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "NOI",
+      "termCode": "T1",
+      "description": "Rental income less operating expenses, before debt service and taxes.",
+      "alternateName": [
+        "net operating income"
+      ],
+      "ctx": {
+        "expansion": "Net operating income"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "escrow",
+      "termCode": "T2",
+      "description": "Funds or documents held by a neutral third party until closing conditions are met."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "title insurance",
+      "termCode": "T2",
+      "description": "Coverage protecting against defects in a property's ownership history."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "appraisal",
+      "termCode": "T2",
+      "description": "A licensed valuation of a property, usually required by a lender."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "closing costs",
+      "termCode": "T2",
+      "description": "Fees paid at completion, covering lending, title, and transfer charges."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "HOA",
+      "termCode": "T2",
+      "description": "The body governing shared areas and rules in a community, funded by member dues.",
+      "alternateName": [
+        "homeowners association"
+      ],
+      "ctx": {
+        "expansion": "Homeowners association"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "zoning",
+      "termCode": "T2",
+      "description": "Local rules dictating how a parcel of land may be used and what may be built on it."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "absorption rate",
+      "termCode": "T2",
+      "description": "How quickly available inventory sells in a market, usually expressed in months of supply."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "days on market",
+      "termCode": "T1",
+      "description": "How long a listing has been active before going under contract.",
+      "alternateName": [
+        "DOM"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "under contract",
+      "termCode": "T2",
+      "description": "An accepted offer with conditions still outstanding, so the sale is not yet complete."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "1031 exchange",
+      "termCode": "T2",
+      "description": "A US provision deferring capital gains tax when sale proceeds are reinvested in like-kind property.",
+      "ctx": {
+        "expansion": "Section 1031 like-kind exchange"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "triple net lease",
+      "termCode": "T2",
+      "description": "A commercial lease where the tenant pays taxes, insurance, and maintenance on top of rent.",
+      "alternateName": [
+        "NNN"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "iBuyer",
+      "termCode": "T2",
+      "description": "A company making algorithmic instant cash offers on homes."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "local pack",
+      "termCode": "T2",
+      "description": "The map-plus-three-listings block in local search results. The primary organic target for agents."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Google Business Profile",
+      "termCode": "T2",
+      "description": "The listing controlling how a business appears in maps and local results.",
+      "alternateName": [
+        "GBP"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "IDX",
+      "termCode": "T2",
+      "description": "The framework letting brokers publish MLS listings on their own websites.",
+      "ctx": {
+        "expansion": "Internet Data Exchange"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "pocket listing",
+      "termCode": "T2",
+      "description": "A property marketed privately rather than through the MLS."
+    }
+  ],
+  "version": "e5ab36c9"
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Pack test &mdash; no page glossary</title>
+<style>
+ :root{color-scheme:light dark;--pg:#fff;--tx:#16161a;--sub:#55535d;--rule:#e6e5ea}
+ @media (prefers-color-scheme:dark){:root{--pg:#131317;--tx:#f2f1f5;--sub:#a9a7b3;--rule:#2c2b33}}
+ body{font-family:ui-sans-serif,system-ui,sans-serif;font-size:16.5px;line-height:1.75;
+      max-width:38rem;margin:0 auto;padding:3rem 1.25rem 9rem;background:var(--pg);color:var(--tx)}
+ h1{font-size:1.5rem;line-height:1.25;margin:0 0 1.4rem;font-weight:600}
+ .note{font-size:13px;color:var(--sub);border-top:1px solid var(--rule);padding-top:1rem;margin-top:2.5rem}
+</style></head><body>
+<main>
+<h1>Why your PDP is leaking revenue</h1>
+
+<p>Most mid-market retailers obsess over AOV while ignoring the pages that produce it.
+A product detail page that loads slowly, fails Core Web Vitals, or ships without
+Product schema is invisible to exactly the surfaces that now drive discovery.</p>
+
+<p>Start with the basics. Every variant needs a canonical tag or you will fragment
+signals across near-identical URLs. Faceted navigation on a PLP will burn crawl budget
+if it is left open. An out of stock item should keep its page rather than 404.</p>
+
+<p>Then measure honestly. Track CTR and impressions separately, because a ranking gain
+that does not move clicks is not a win. Watch cart abandonment against CAC to see
+whether acquisition spend is reaching customers who actually convert.</p>
+
+<p>The forward-looking piece is agentic commerce. UCP and MCP are how agents will
+discover and buy from your catalog, and structured data is what they read. GEO is not
+a separate discipline here, it is the same JSON-LD work with a wider audience.</p>
+<p class="note">No glossary on this page. Every card came from a pack. <span id="ctx-count"></span></p>
+</main>
+<script src="../dist/ctx.js" data-style="minimal" data-scope="main"
+        data-packs="seo-core,ecommerce" data-pack-base="../packs" defer></script>
+<script>
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    document.getElementById('ctx-count').textContent =
+      document.querySelectorAll('[data-ctx-mark]').length + ' terms marked.';
+  }, 900);
+});
+</script>
+</body></html>

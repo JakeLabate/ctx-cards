@@ -1,0 +1,226 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/ecommerce.json",
+  "identifier": "ecommerce",
+  "name": "Ecommerce and retail",
+  "description": "Marketplace, DTC, and retail catalog sites.",
+  "dateModified": "2026-08-28",
+  "inLanguage": "en",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "AOV",
+      "termCode": "T1",
+      "description": "Total revenue divided by number of orders. Measures how much a typical customer spends per purchase.",
+      "alternateName": [
+        "average order value"
+      ],
+      "ctx": {
+        "expansion": "Average order value"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "LTV",
+      "termCode": "T1",
+      "description": "The total revenue expected from a customer across the whole relationship.",
+      "alternateName": [
+        "lifetime value",
+        "CLV"
+      ],
+      "ctx": {
+        "expansion": "Lifetime value"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CAC",
+      "termCode": "T1",
+      "description": "The total sales and marketing spend required to acquire one new customer.",
+      "alternateName": [
+        "customer acquisition cost"
+      ],
+      "ctx": {
+        "expansion": "Customer acquisition cost"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "conversion rate",
+      "termCode": "T1",
+      "description": "The share of visitors who complete a target action, usually a purchase."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "cart abandonment",
+      "termCode": "T2",
+      "description": "When a shopper adds items then leaves without buying. Tracked as a percentage of carts created."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SKU",
+      "termCode": "T1",
+      "description": "A unique identifier for one distinct sellable item, including its size and colour variant.",
+      "alternateName": [
+        "stock keeping unit"
+      ],
+      "ctx": {
+        "expansion": "Stock keeping unit"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "GTIN",
+      "termCode": "T2",
+      "description": "A global trade item number identifying a product across retailers. Required for many shopping feeds.",
+      "alternateName": [
+        "UPC",
+        "EAN"
+      ],
+      "ctx": {
+        "expansion": "Global Trade Item Number"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "product feed",
+      "termCode": "T2",
+      "description": "A structured file of catalog data submitted to shopping channels so they can list your items.",
+      "alternateName": [
+        "merchant feed"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PDP",
+      "termCode": "T1",
+      "description": "The page for a single product, carrying its description, images, price, and availability.",
+      "alternateName": [
+        "product detail page"
+      ],
+      "ctx": {
+        "expansion": "Product detail page"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PLP",
+      "termCode": "T1",
+      "description": "A page listing multiple products, usually filterable and paginated.",
+      "alternateName": [
+        "product listing page",
+        "category page"
+      ],
+      "ctx": {
+        "expansion": "Product listing page"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "variant",
+      "termCode": "T2",
+      "description": "A version of a product differing by one attribute such as size or colour. A frequent duplicate-content source."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Product schema",
+      "termCode": "T2",
+      "description": "Structured data describing an item's price, availability, and reviews, enabling enriched shopping results."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "out of stock",
+      "termCode": "T2",
+      "description": "An unavailable item. How you handle the page matters: keeping and updating it usually beats removing it."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "merchandising",
+      "termCode": "T2",
+      "description": "Deciding which products surface where, in what order, to steer discovery and margin."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "marketplace",
+      "termCode": "T2",
+      "description": "A platform selling third-party inventory alongside or instead of its own."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "dropshipping",
+      "termCode": "T2",
+      "description": "Selling goods fulfilled directly by a supplier, so the retailer never holds stock."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "returns rate",
+      "termCode": "T1",
+      "description": "The share of orders sent back. A direct drag on contribution margin."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "basket analysis",
+      "termCode": "T2",
+      "description": "Studying which products are bought together to inform bundling and recommendations.",
+      "alternateName": [
+        "market basket analysis"
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "subscription commerce",
+      "termCode": "T2",
+      "description": "Selling on a recurring schedule rather than one purchase at a time."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "BOPIS",
+      "termCode": "T2",
+      "description": "Ordering online and collecting in a physical location.",
+      "alternateName": [
+        "buy online pick up in store"
+      ],
+      "ctx": {
+        "expansion": "Buy online, pick up in store"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "UCP",
+      "termCode": "T2",
+      "description": "Standardizes commerce capabilities so agents can discover products and complete purchases across platforms.",
+      "alternateName": [
+        "Universal Commerce Protocol"
+      ],
+      "ctx": {
+        "expansion": "Universal Commerce Protocol"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "agentic commerce",
+      "termCode": "T2",
+      "description": "Purchases initiated and completed by an AI agent on a shopper's behalf."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "price parity",
+      "termCode": "T2",
+      "description": "Keeping a product's price consistent across the channels you sell on."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "category taxonomy",
+      "termCode": "T2",
+      "description": "The hierarchy products are organized into. Drives both navigation and crawl efficiency."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "review schema",
+      "termCode": "T2",
+      "description": "Structured data exposing ratings and reviews, commonly rendered as stars in results."
+    }
+  ],
+  "version": "7c4f4406"
+}
