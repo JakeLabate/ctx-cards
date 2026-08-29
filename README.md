@@ -62,14 +62,20 @@ executable code.
 
 ### Themes
 
-| Theme | Reads as | Suits |
-|---|---|---|
-| `minimal` | Modern UI component. 12px radius, layered shadow, blue accent. | The default. Safe on most sites. |
-| `paper` | Editorial. 3px radius, warm surface, burnt-orange accent, hard bottom edge. | Publishers, essays, anything on a cream background. |
-| `contrast` | Deliberate and loud. Square corners, 2px black border, hard offset shadow. | Accessibility-first builds, or when cards should announce themselves. |
-| `terminal` | Reference material. Monospace throughout, 2px radius, green accent. | Developer tools and documentation. |
-| `soft` | Friendly. 16px radius, no hard border, violet accent, generous shadow. | Retail, health, education. The least technical option. |
-| `corporate` | Restrained. Navy accent, 4px radius, no flourish. | Finance, legal, insurance. |
+| Theme | Layout | Shape | Suits |
+|---|---|---|---|
+| `minimal` | standard | Eyebrow, rule, tail, 12px radius. | The default. |
+| `terminal` | compact | No eyebrow, no rule, no tail, tight padding, mono. | Docs, developer tools. |
+| `corporate` | bar | 3px left accent bar, eyebrow inline with title, no tail. | Finance, legal, insurance. |
+| `soft` | hero | Eyebrow as a pill, 20px title, 38px figures, big padding. | Retail, health, education. |
+| `paper` | editorial | Serif-weight title, wide letterspacing, generous rule. | Publishers, essays. |
+| `contrast` | ledger | Inverted eyebrow bar, edge-to-edge rules, square, no tail. | Accessibility-first builds. |
+
+Themes differ structurally, not just by colour. The same card renders between
+206px and 304px tall depending on the theme, because the layout decides whether
+there is an eyebrow at all, whether a rule separates title from body, whether
+the tail is drawn, and what the type scale is. Palette alone would make six
+themes look like one theme with six accent colours.
 
 All six carry a dark palette. The script picks by sampling the luminance of
 your content background, not the visitor's OS setting, so a light site stays

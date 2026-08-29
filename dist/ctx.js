@@ -54,6 +54,7 @@
 
   var THEMES = {
     minimal: {
+      layout: 'standard',
       mkColor: '#8f8c85', mkStyle: 'dotted', mkWidth: '1.5px',
       bg: '#ffffff', fg: '#16161a', mut: '#55535d', bd: '#e0dfe4', acc: '#15558f',
       eye: '#6d6a79', rule: '#ececf0',
@@ -63,6 +64,7 @@
               sh: '0 14px 36px -8px rgba(0,0,0,.6)' }
     },
     paper: {
+      layout: 'editorial',
       mkColor: '#8a7c63', mkStyle: 'solid', mkWidth: '1px',
       bg: '#fffdf8', fg: '#1e1b16', mut: '#5c554a', bd: '#e0d7c5', acc: '#7a4a1e',
       eye: '#7d735f', rule: '#eee7d9',
@@ -72,6 +74,7 @@
               sh: '0 14px 34px -10px rgba(0,0,0,.65)' }
     },
     contrast: {
+      layout: 'ledger',
       mkColor: '#000000', mkStyle: 'solid', mkWidth: '2px',
       bg: '#ffffff', fg: '#000000', mut: '#22222a', bd: '#000000', acc: '#0b3d91',
       eye: '#4a4a55', rule: '#000000',
@@ -85,6 +88,7 @@
        tight radius, so the card reads as part of a reference rather than a
        marketing surface. */
     terminal: {
+      layout: 'compact',
       mkColor: '#767670', mkStyle: 'dashed', mkWidth: '1px',
       font: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
       bg: '#fbfbfa', fg: '#17171a', mut: '#4b4b50', bd: '#d8d8d4', acc: '#0a6046',
@@ -98,6 +102,7 @@
     /* Consumer-facing sites: retail, health, education. Large radius, no hard
        border, generous padding. The least technical-looking option. */
     soft: {
+      layout: 'hero',
       mkColor: '#8b86a0', mkStyle: 'dotted', mkWidth: '2px',
       bg: '#ffffff', fg: '#1c1b22', mut: '#54525e', bd: '#e9e7f0', acc: '#5b3fb8',
       eye: '#6f6c80', rule: '#f1eff6',
@@ -110,6 +115,7 @@
     /* Finance, legal, insurance. Restrained navy, small radius, no flourish.
        Built to survive a compliance review rather than to be noticed. */
     corporate: {
+      layout: 'bar',
       mkColor: '#78818d', mkStyle: 'solid', mkWidth: '1px',
       bg: '#ffffff', fg: '#14181f', mut: '#4a525f', bd: '#d8dce2', acc: '#0f4c81',
       eye: '#5f6874', rule: '#eef1f4',
@@ -119,7 +125,27 @@
               sh: '0 10px 26px -8px rgba(0,0,0,.65)' }
     }
   };
+  /* Layout is structure, not colour: where the eyebrow goes, whether there is
+     a rule or a tail, how tight the padding is, how far the title sits above
+     the body. Two themes sharing a layout will look related no matter how
+     different their palettes are, so each theme picks one. */
+  var LAYOUTS = {
+    standard: { pad: '13px 15px 14px', eyebrow: 'top', rule: true, tail: true,
+                ttl: '14.5px', bdy: '13.5px', eye: '10px', gap: '4px' },
+    compact:  { pad: '9px 11px 10px', eyebrow: 'none', rule: false, tail: false,
+                ttl: '13px', bdy: '12.5px', eye: '9.5px', gap: '3px' },
+    bar:      { pad: '12px 14px 13px 15px', eyebrow: 'inline', rule: false, tail: false,
+                ttl: '14px', bdy: '13px', eye: '10px', gap: '5px', accentBar: true },
+    hero:     { pad: '18px 20px 20px', eyebrow: 'badge', rule: false, tail: true,
+                ttl: '20px', bdy: '14px', eye: '10px', gap: '8px' },
+    ledger:   { pad: '0', eyebrow: 'top', rule: true, tail: false,
+                ttl: '13.5px', bdy: '13px', eye: '9.5px', gap: '4px', banded: true },
+    editorial:{ pad: '16px 18px 17px', eyebrow: 'top', rule: true, tail: true,
+                ttl: '17px', bdy: '14px', eye: '10px', gap: '6px', serifTitle: true }
+  };
+
   var T = THEMES[CFG.style] || THEMES.minimal;
+  var L = LAYOUTS[T.layout] || LAYOUTS.standard;
 
   /* The card must match the surface it sits ON, not the visitor's OS setting.
      Walk up from the content root until we hit a non-transparent background. */
@@ -440,6 +466,58 @@
   })();
 
   /* ---------- 3. paint markers ---------- */
+
+  /* Structural overrides. Only the active layout's rules are emitted, so the
+     card is genuinely a different shape per theme rather than a recolour. */
+  var LAY_CSS = {
+    standard: '',
+
+    compact:
+      '#ctx-card .rule{display:none}' +
+      '#ctx-card .ttl{margin-bottom:3px}' +
+      '#ctx-card .bdy{line-height:1.45}' +
+      '#ctx-card .lnk{margin-top:8px;font-size:10.5px}' +
+      '#ctx-card .row{padding:3px 0}' +
+      '#ctx-card .big{font-size:22px}',
+
+    bar:
+      '#ctx-card{border-left:3px solid var(--ctx-acc);border-radius:0 4px 4px 0}' +
+      '#ctx-card .rule{display:none}' +
+      '#ctx-card .eye{display:inline;margin:0 8px 0 0;vertical-align:1px}' +
+      '#ctx-card .ttl{display:inline;font-weight:500}' +
+      '#ctx-card .bdy{margin-top:7px}' +
+      '#ctx-tail{display:none}',
+
+    hero:
+      '#ctx-card .rule{display:none}' +
+      '#ctx-card .eye{display:inline-block;background:var(--ctx-rule);color:var(--ctx-fg);' +
+        'padding:3px 8px;border-radius:20px;letter-spacing:.06em;margin-bottom:10px}' +
+      '#ctx-card .ttl{line-height:1.2;letter-spacing:-.02em;font-weight:500}' +
+      '#ctx-card .bdy{margin-top:8px}' +
+      '#ctx-card .big{font-size:38px;margin-top:6px}' +
+      '#ctx-card .lnk{margin-top:14px}',
+
+    ledger:
+      '#ctx-card{overflow:hidden}' +
+      '#ctx-card .eye{margin:0;padding:8px 14px;background:var(--ctx-fg);color:var(--ctx-bg);' +
+        'letter-spacing:.12em}' +
+      '#ctx-card .ttl{padding:11px 14px 0}' +
+      '#ctx-card .rule{margin:10px 0 0;height:1px;background:var(--ctx-bd)}' +
+      '#ctx-card .bdy{padding:10px 14px 12px}' +
+      '#ctx-card .row{margin:0 14px;padding:6px 0}' +
+      '#ctx-card .big{padding:0 14px;margin-top:6px}' +
+      '#ctx-card .spark,#ctx-card svg{margin-left:14px;margin-right:14px}' +
+      '#ctx-card .lnk{margin:0 14px 13px}' +
+      '#ctx-tail{display:none}',
+
+    editorial:
+      '#ctx-card .ttl{font-weight:500;line-height:1.25}' +
+      '#ctx-card .rule{margin:11px 0 10px}' +
+      '#ctx-card .bdy{line-height:1.6}' +
+      '#ctx-card .eye{letter-spacing:.14em}' +
+      '#ctx-card .big{font-size:34px}'
+  };
+
   var css = document.createElement('style');
   css.textContent =
     ':root{--ctx-mk:' + P.mkColor + ';--ctx-bg:' + P.bg + ';--ctx-fg:' + P.fg + ';' +
@@ -453,7 +531,7 @@
     '#ctx-card{position:absolute;z-index:2147483000;width:max-content;' +
       'max-width:min(var(--ctx-w,302px),calc(100vw - 24px));background:var(--ctx-bg);color:var(--ctx-fg);' +
       'border:1px solid var(--ctx-bd);border-radius:' + T.r + ';box-shadow:var(--ctx-sh);' +
-      'padding:13px 15px 14px;font-family:' + (T.font || 'inherit') + ';opacity:0;' +
+      'padding:' + L.pad + ';font-family:' + (T.font || 'inherit') + ';opacity:0;overflow:hidden;' +
       'transform:translateY(-6px) scale(.94);' +
       'transition:opacity .12s ease-out,transform .13s ease-out;pointer-events:none}' +
     '#ctx-card.on{opacity:1;transform:none;pointer-events:auto;' +
@@ -463,13 +541,13 @@
       'transform:rotate(45deg);left:18px}' +
     '#ctx-card.below #ctx-tail{top:-5.5px}' +
     '#ctx-card.above #ctx-tail{bottom:-5.5px;transform:rotate(225deg)}' +
-    '#ctx-card .eye{display:block;font-family:' + MONO + ';font-size:10px;font-weight:500;' +
+    '#ctx-card .eye{display:block;font-family:' + MONO + ';font-size:' + L.eye + ';font-weight:500;' +
       'letter-spacing:.09em;text-transform:uppercase;color:var(--ctx-eye);margin:0 0 7px}' +
-    '#ctx-card .ttl{display:block;font-size:14.5px;font-weight:600;line-height:1.3;' +
-      'letter-spacing:-.005em;color:var(--ctx-fg);margin:0}' +
+    '#ctx-card .ttl{display:block;font-size:' + L.ttl + ';font-weight:600;line-height:1.28;' +
+      'letter-spacing:-.012em;color:var(--ctx-fg);margin:0}' +
     '#ctx-card .exp{display:block;font-size:12.5px;line-height:1.4;color:var(--ctx-mut);margin:3px 0 0}' +
     '#ctx-card .rule{height:1px;background:var(--ctx-rule);margin:9px 0 8px;border:0}' +
-    '#ctx-card .bdy{margin:0;color:var(--ctx-mut);font-size:13.5px;line-height:1.55}' +
+    '#ctx-card .bdy{margin:0;color:var(--ctx-mut);font-size:' + L.bdy + ';line-height:1.55}' +
     '#ctx-card .lnk{display:inline-block;margin-top:11px;font-family:' + MONO + ';font-size:11.5px;' +
       'letter-spacing:.02em;color:var(--ctx-acc);text-decoration:none;' +
       'border-bottom:1px solid var(--ctx-acc);padding-bottom:1px}' +
@@ -503,7 +581,8 @@
     '[data-ctx-mark]:hover{border-bottom-color:var(--ctx-acc)}' +
     '@media (prefers-reduced-motion:reduce){' +
       '#ctx-card,#ctx-card.on{transition:opacity .01s linear;transform:none}' +
-      '#ctx-card .lnk .arw{transition:none}}';
+      '#ctx-card .lnk .arw{transition:none}}' +
+    (LAY_CSS[T.layout] || '');
   document.head.appendChild(css);
 
   var useHL = !!(window.CSS && CSS.highlights && window.Highlight);
@@ -833,7 +912,12 @@
     if (text != null) n.textContent = text;
     return n;
   }
-  function rule() { var h = document.createElement('hr'); h.className = 'rule'; return h; }
+  function rule() {
+    var h = document.createElement('hr');
+    h.className = 'rule';
+    if (!L.rule) h.style.display = 'none';
+    return h;
+  }
   function rows(host, pairs) {
     var dl = el('dl');
     dl.style.margin = '0';
@@ -1025,6 +1109,7 @@
   card.setAttribute('role', 'tooltip');
   var tail = document.createElement('span');
   tail.id = 'ctx-tail';
+  if (!L.tail) tail.style.display = 'none';
   var inner = document.createElement('div');
   card.appendChild(tail);
   card.appendChild(inner);
@@ -1058,7 +1143,7 @@
     inner.innerHTML = '';
     var R = RENDER[t.kind] || RENDER.term;
     card.style.setProperty('--ctx-w', R.w + 'px');
-    inner.appendChild(el('span', 'eye', R.eyebrow(t)));
+    if (L.eyebrow !== 'none') inner.appendChild(el('span', 'eye', R.eyebrow(t)));
     R.body(inner, t);
     lastCost = readingCost(inner);
     var wasOpen = card.classList.contains('on');
