@@ -45,7 +45,15 @@ attribution. Both reuse the same shell.</p>
 
 <script type="application/ld+json" id="ctx-glossary">
 {
-  "@context": "https://schema.org",
+  "@context": [
+    "https://schema.org",
+    {
+      "ctx": {
+        "@id": "https://jakelabate.com/ns/ctx#card",
+        "@context": { "@vocab": "https://jakelabate.com/ns/ctx#" }
+      }
+    }
+  ],
   "@type": "DefinedTermSet",
   "name": "ctx card gallery",
   "hasDefinedTerm": [

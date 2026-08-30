@@ -1,5 +1,15 @@
 {
-  "@context": "https://schema.org",
+  "@context": [
+    "https://schema.org",
+    {
+      "ctx": {
+        "@id": "https://jakelabate.com/ns/ctx#card",
+        "@context": {
+          "@vocab": "https://jakelabate.com/ns/ctx#"
+        }
+      }
+    }
+  ],
   "@type": "DefinedTermSet",
   "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/saas.json",
   "identifier": "saas",

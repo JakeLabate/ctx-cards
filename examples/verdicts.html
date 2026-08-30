@@ -47,7 +47,15 @@ Core Web Vitals carry plain definitions.</p>
 </main>
 <script type="application/ld+json" id="ctx-glossary">
 {
-  "@context": "https://schema.org",
+  "@context": [
+    "https://schema.org",
+    {
+      "ctx": {
+        "@id": "https://jakelabate.com/ns/ctx#card",
+        "@context": { "@vocab": "https://jakelabate.com/ns/ctx#" }
+      }
+    }
+  ],
   "@type": "DefinedTermSet",
   "@id": "https://www.jakelabate.com/#glossary",
   "name": "Jake Labate site glossary",

@@ -415,6 +415,33 @@ is kept. This is what lets a term's card act as a summary of the page it
 belongs to — the definition without the scroll — while a bare self-link is
 suppressed.
 
+### The ctx namespace
+
+`ctx` is not a schema.org property, so it needs a namespace or a conforming
+processor drops it during expansion along with everything inside it. Packs
+declare a scoped context:
+
+```json
+"@context": [
+  "https://schema.org",
+  {
+    "ctx": {
+      "@id": "https://jakelabate.com/ns/ctx#card",
+      "@context": { "@vocab": "https://jakelabate.com/ns/ctx#" }
+    }
+  }
+]
+```
+
+The scope matters. Declaring `ctx` as a bare prefix looks like it should work
+and does not: a prefix only expands compact IRIs such as `ctx:kind`, so a plain
+`ctx` key and every key inside it is still discarded. The nested `@vocab` maps
+the whole block into the namespace, which means no property has to be declared
+individually and the data shape does not change.
+
+Nothing in the reader changed. It parses the raw JSON rather than expanding it,
+so it never saw the difference. Validators did.
+
 ### Card kinds
 
 Set `ctx.kind` to change the body. All kinds share the same shell, tail,

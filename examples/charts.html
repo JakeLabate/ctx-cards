@@ -42,7 +42,15 @@ under its reasoning, and plain terms like MCP carry none at all.</p>
 </main>
 <script type="application/ld+json" id="ctx-glossary">
 {
-  "@context": "https://schema.org",
+  "@context": [
+    "https://schema.org",
+    {
+      "ctx": {
+        "@id": "https://jakelabate.com/ns/ctx#card",
+        "@context": { "@vocab": "https://jakelabate.com/ns/ctx#" }
+      }
+    }
+  ],
   "@type": "DefinedTermSet",
   "name": "chart gallery",
   "hasDefinedTerm": [
