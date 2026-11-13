@@ -9,9 +9,9 @@
  * a cold cache — tagged paths are immutable, so each edge fetches once and then
  * serves from cache indefinitely.
  *
- *   /context-cards/v0.10.0/dist/ctx.min.js
- *   /context-cards/v0.10.0/packs/seo-core.json
- *   /context-cards/v0.10.0/sites/jakelabate.json
+ *   /context-cards/v0.10.1/dist/ctx.min.js
+ *   /context-cards/v0.10.1/packs/seo-core.json
+ *   /context-cards/v0.10.1/sites/jakelabate.json
  *
  * The script derives its pack URLs from its own src by swapping /dist/<file>
  * for /packs, so a pinned script tag automatically pins its packs to the same
@@ -68,8 +68,8 @@ export default {
     if (url.pathname === "/" || url.pathname === PREFIX) {
       return new Response(
         `ctx-cards CDN\n\n` +
-        `  ${url.origin}${PREFIX}v0.10.0/dist/ctx.min.js\n` +
-        `  ${url.origin}${PREFIX}v0.10.0/packs/seo-core.json\n\n` +
+        `  ${url.origin}${PREFIX}v0.10.1/dist/ctx.min.js\n` +
+        `  ${url.origin}${PREFIX}v0.10.1/packs/seo-core.json\n\n` +
         `Source: https://github.com/${REPO}\n`,
         { status: 200, headers: cors({ "Content-Type": "text/plain; charset=utf-8" }) }
       );
@@ -87,7 +87,7 @@ export default {
     if (!immutable && !BRANCH.test(ref)) {
       // Refuse arbitrary refs: a ref is part of the upstream URL, so accepting
       // anything here would let a caller reach any commit or branch in the repo.
-      return fail(400, "Ref must be a version tag such as v0.10.0, or main");
+      return fail(400, "Ref must be a version tag such as v0.10.1, or main");
     }
     if (!DIRS.has(dir)) return fail(404, "Unknown directory");
     if (file.includes("..") || !/^[\w.\-/]+$/.test(file)) return fail(400, "Bad path");

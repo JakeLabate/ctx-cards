@@ -4,9 +4,9 @@ Serves the tagged build from `cdn.jakelabate.com/context-cards/*` so the URL on
 a customer's page belongs to you rather than to jsDelivr.
 
 ```
-https://cdn.jakelabate.com/context-cards/v0.10.0/dist/ctx.min.js
-https://cdn.jakelabate.com/context-cards/v0.10.0/packs/seo-core.json
-https://cdn.jakelabate.com/context-cards/v0.10.0/sites/jakelabate.json
+https://cdn.jakelabate.com/context-cards/v0.10.1/dist/ctx.min.js
+https://cdn.jakelabate.com/context-cards/v0.10.1/packs/seo-core.json
+https://cdn.jakelabate.com/context-cards/v0.10.1/sites/jakelabate.json
 ```
 
 ## How it works
@@ -39,8 +39,8 @@ hostname conflict.
 Verify:
 
 ```bash
-curl -I https://cdn.jakelabate.com/context-cards/v0.10.0/dist/ctx.min.js
-curl -s https://cdn.jakelabate.com/context-cards/v0.10.0/packs/index.json | head -c 200
+curl -I https://cdn.jakelabate.com/context-cards/v0.10.1/dist/ctx.min.js
+curl -s https://cdn.jakelabate.com/context-cards/v0.10.1/packs/index.json | head -c 200
 ```
 
 Expect `cache-control: public, max-age=31536000, immutable` and `x-cache: MISS`
@@ -49,7 +49,7 @@ on the first request, `HIT` on the second.
 ## The script tag
 
 ```html
-<script src="https://cdn.jakelabate.com/context-cards/v0.10.0/dist/ctx.min.js"
+<script src="https://cdn.jakelabate.com/context-cards/v0.10.1/dist/ctx.min.js"
         integrity="sha384-…"
         crossorigin="anonymous"
         data-packs="seo-core"

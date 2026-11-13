@@ -8,8 +8,8 @@ depend on a crawl of the site they were generated from.
 Load one by absolute URL:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@v0.7.0/dist/ctx.min.js"
-        data-packs="https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@v0.7.0/sites/jakelabate.json"
+<script src="https://cdn.jakelabate.com/context-cards/v0.10.1/dist/ctx.min.js"
+        data-packs="https://cdn.jakelabate.com/context-cards/v0.10.1/sites/jakelabate.json"
         defer></script>
 ```
 

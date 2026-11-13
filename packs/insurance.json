@@ -11,7 +11,7 @@
     }
   ],
   "@type": "DefinedTermSet",
-  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/insurance.json",
+  "@id": "https://cdn.jakelabate.com/context-cards/main/packs/insurance.json",
   "identifier": "insurance",
   "name": "Insurance",
   "description": "Industry vocabulary only. Not coverage advice.",
@@ -274,5 +274,5 @@
       "description": "Coverage offered inside another purchase, such as at checkout."
     }
   ],
-  "version": "aa545dbf"
+  "version": "3e48985e"
 }
