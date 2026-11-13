@@ -6,21 +6,21 @@ One script tag marks terms in your prose and shows a card on hover or tap. The
 definitions come from JSON-LD on the page, so search engines and retrieval
 systems read the same source your readers do. No page text is sent anywhere.
 
-**7.9 KB gzipped. No dependencies. No network calls unless you load a pack.**
+**10.7 KB gzipped. No dependencies. No network calls unless you load a pack or turn on analytics.**
 
 ---
 
 ## Install
 
 ```html
-<script src="https://cdn.jakelabate.com/context-cards/v0.10.0/dist/ctx.min.js"
+<script src="https://cdn.jakelabate.com/context-cards/v0.10.1/dist/ctx.min.js"
         data-packs="seo-core"
         data-scope="main"
         data-style="minimal"
         defer></script>
 ```
 
-That is the whole install. `seo-core` gives you 40 terms immediately with
+That is the whole install. `seo-core` gives you 100 terms immediately with
 nothing authored.
 
 Two hosts serve identical bytes:
@@ -45,8 +45,8 @@ set, a compromised or substituted CDN file is refused by the browser rather
 than executed on your visitors' pages.
 
 ```html
-<script src="https://cdn.jakelabate.com/context-cards/v0.10.0/dist/ctx.min.js"
-        integrity="sha384-Ka780lxfLgvBnuNJcx9SdciwmPhhbd7GlxaRwwXwprXD2CgWQSXRZ8qVQeDojvR2"
+<script src="https://cdn.jakelabate.com/context-cards/v0.10.1/dist/ctx.min.js"
+        integrity="sha384-ganjIXZmVTwfu7ge4Le3tATFWPJlnFOx8Ma2ER0eH7tqa5DxiIkKexgT5G/SF9SG"
         crossorigin="anonymous"
         data-packs="seo-core" defer></script>
 ```
@@ -167,7 +167,7 @@ setting, so a light site stays light for a visitor in dark mode.
 | `education` | 40 | Higher ed, K-12, workforce training, compliance. |
 | `automotive` | 39 | Dealership retail, service, EV. |
 
-**660 terms, 149 KB total.** Packs load independently, so a site pulls only
+**660 terms, 151 KB total.** Packs load independently, so a site pulls only
 what it needs. 145 acronyms carry a written-out expansion.
 
 Each pack carries a content-hashed `version` so the CDN can cache immutably.
@@ -484,9 +484,17 @@ number needs real analysis, the card's job is to link out to it.
 
 ## Accessibility
 
-Triggers are focusable and keyboard-operable. `Escape` dismisses and returns
-focus. Cards are `role="tooltip"` and wired with `aria-describedby`. Charts are
-`role="img"` with your `alt` text. All palettes clear WCAG AA for text in both
+Triggers are buttons in the reading order, right after the term they mark,
+with `aria-expanded`. Keyboard focus opens the card, and `Enter` or `Space`
+toggles it. When the card holds a link, `Tab` moves into it, `Shift+Tab` from
+its first link goes back to the term, and `Tab` past its last link closes it and
+returns to the term so the next `Tab` carries on through the page. `Escape`
+dismisses from anywhere and returns focus without reopening the card.
+
+A card with a link is a non-modal `role="dialog"` labelled with the term; a
+card with nothing to focus is `role="tooltip"`. Both are wired with
+`aria-describedby`, and a closed card is `inert` so its links never sit in the
+tab order unseen. Charts are `role="img"` with your `alt` text. All palettes clear WCAG AA for text in both
 light and dark, and clear 3:1 for the non-text underline.
 
 Pointer-initiated focus does not open the card, because on touch it fires

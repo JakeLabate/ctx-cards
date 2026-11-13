@@ -11,7 +11,7 @@
     }
   ],
   "@type": "DefinedTermSet",
-  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/agentic-ai.json",
+  "@id": "https://cdn.jakelabate.com/context-cards/main/packs/agentic-ai.json",
   "identifier": "agentic-ai",
   "name": "Agentic AI protocols",
   "description": "Protocols and vocabulary for AI agents consuming the web.",
@@ -211,5 +211,5 @@
       "description": "Structured so a program can parse meaning without inference. The prerequisite for agent consumption."
     }
   ],
-  "version": "3253033c"
+  "version": "ed0025a1"
 }

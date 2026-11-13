@@ -11,7 +11,7 @@
     }
   ],
   "@type": "DefinedTermSet",
-  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/saas.json",
+  "@id": "https://cdn.jakelabate.com/context-cards/main/packs/saas.json",
   "identifier": "saas",
   "name": "SaaS and developer tools",
   "description": "Subscription software, APIs, and technical products.",
@@ -409,5 +409,5 @@
       "description": "Winning a small initial deployment then growing it across an organization."
     }
   ],
-  "version": "81f9be67"
+  "version": "ace68405"
 }

@@ -20,7 +20,18 @@ from terms.verticals import (REAL_ESTATE, HOME_SERVICES, MANUFACTURING,
                              HOSPITALITY, EDUCATION, AUTOMOTIVE)
 
 TODAY = "2026-08-29"
-CDN = "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs"
+CDN = "https://cdn.jakelabate.com/context-cards/main/packs"
+
+# ctx is not a schema.org property. Under a plain schema.org context a
+# conforming JSON-LD processor drops it, and everything inside it, during
+# expansion. The scoped @vocab maps the whole ctx block into its own namespace
+# so the data shape stays the same. A bare "ctx" prefix does not work: it only
+# expands compact IRIs such as ctx:kind.
+CONTEXT = [
+    "https://schema.org",
+    {"ctx": {"@id": "https://jakelabate.com/ns/ctx#card",
+             "@context": {"@vocab": "https://jakelabate.com/ns/ctx#"}}},
+]
 
 PACKS = [
     ("seo-core", "Search and content marketing",
@@ -197,13 +208,13 @@ def build(pid, name, note, rows):
             t["ctx"] = {"expansion": exp}
         terms.append(t)
 
-    body = {"@context": "https://schema.org", "@type": "DefinedTermSet",
+    body = {"@context": CONTEXT, "@type": "DefinedTermSet",
             "@id": f"{CDN}/{pid}.json", "identifier": pid, "name": name,
             "description": note, "dateModified": TODAY, "inLanguage": "en",
             "hasDefinedTerm": terms}
     body["version"] = hashlib.sha1(
         json.dumps(body, sort_keys=True).encode()).hexdigest()[:8]
-    raw = json.dumps(body, indent=2, ensure_ascii=False)
+    raw = json.dumps(body, indent=2, ensure_ascii=False) + "\n"
     open(os.path.join(OUT, pid + ".json"), "w").write(raw)
     return terms, len(raw), body["version"]
 

@@ -11,7 +11,7 @@
     }
   ],
   "@type": "DefinedTermSet",
-  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/ecommerce.json",
+  "@id": "https://cdn.jakelabate.com/context-cards/main/packs/ecommerce.json",
   "identifier": "ecommerce",
   "name": "Ecommerce and retail",
   "description": "Marketplace, DTC, and retail catalog sites.",
@@ -423,5 +423,5 @@
       "description": "Selling through chat, messaging, or assistant interfaces rather than a browsing storefront."
     }
   ],
-  "version": "ccd286d7"
+  "version": "5e286be8"
 }

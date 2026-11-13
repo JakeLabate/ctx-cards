@@ -39,7 +39,7 @@
     packBase: (S.getAttribute('data-pack-base') ||
                /* derive from this script's own URL so a pinned tag gets pinned packs */
                ((S.src || '').replace(/\/dist\/[^\/]+$/, '/packs') || '') ||
-               'https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs')
+               'https://cdn.jakelabate.com/context-cards/main/packs')
              .replace(/\/+$/, ''),
     openDelay: 140,
     closeDelay: 380
@@ -603,6 +603,26 @@
   var hl = useHL ? new Highlight() : null;
   var anchors = [];
 
+  /* Highlight mode leaves the text alone, so each term gets an empty, absolutely
+     positioned hit target. It is inserted straight after the term rather than at
+     the end of <body>, so tab order and screen reader order follow the prose.
+     Coordinates are therefore relative to whatever the span's containing block
+     turns out to be, not to the document. */
+  function placeHit(el, range) {
+    var r = range.getBoundingClientRect();
+    var op = el.offsetParent, ox = scrollX, oy = scrollY;
+    if (op && op !== document.documentElement &&
+        !(op === document.body && getComputedStyle(op).position === 'static')) {
+      var pr = op.getBoundingClientRect();
+      ox = op.scrollLeft - pr.left - op.clientLeft;
+      oy = op.scrollTop - pr.top - op.clientTop;
+    }
+    el.style.left = (r.left + ox) + 'px';
+    el.style.top = (r.top + oy) + 'px';
+    el.style.width = r.width + 'px';
+    el.style.height = r.height + 'px';
+  }
+
   marks.forEach(function (m, idx) {
     if (useHL) {
       hl.add(m.range);
@@ -611,13 +631,19 @@
       hit.setAttribute('tabindex', '0');
       hit.setAttribute('role', 'button');
       hit.setAttribute('aria-label', m.term.title + ', show definition');
+      hit.setAttribute('aria-expanded', 'false');
       hit.style.cssText = 'all:unset;position:absolute;cursor:help';
-      var rect = m.range.getBoundingClientRect();
-      hit.style.left = (rect.left + scrollX) + 'px';
-      hit.style.top = (rect.top + scrollY) + 'px';
-      hit.style.width = rect.width + 'px';
-      hit.style.height = rect.height + 'px';
-      document.body.appendChild(hit);
+      /* Collapsing to the end splits the text node after the term. Live ranges
+         for later terms in the same node move with the split; this term's range
+         ends at the split point, so it never covers the hit span. */
+      try {
+        var at = m.range.cloneRange();
+        at.collapse(false);
+        at.insertNode(hit);
+      } catch (e) {
+        document.body.appendChild(hit);
+      }
+      placeHit(hit, m.range);
       anchors.push({ el: hit, term: m.term, range: m.range });
     } else {
       var sp = document.createElement('span');
@@ -625,6 +651,7 @@
       sp.setAttribute('tabindex', '0');
       sp.setAttribute('role', 'button');
       sp.setAttribute('aria-label', m.term.title + ', show definition');
+      sp.setAttribute('aria-expanded', 'false');
       try { m.range.surroundContents(sp); } catch (e) { return; }
       anchors.push({ el: sp, term: m.term, range: null });
     }
@@ -685,13 +712,7 @@
 
   if (useHL) {
     var reflow = function () {
-      anchors.forEach(function (a) {
-        var r = a.range.getBoundingClientRect();
-        a.el.style.left = (r.left + scrollX) + 'px';
-        a.el.style.top = (r.top + scrollY) + 'px';
-        a.el.style.width = r.width + 'px';
-        a.el.style.height = r.height + 'px';
-      });
+      anchors.forEach(function (a) { placeHit(a.el, a.range); });
     };
     addEventListener('resize', reflow, { passive: true });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(reflow);
@@ -1151,6 +1172,10 @@
   var card = document.createElement('div');
   card.id = 'ctx-card';
   card.setAttribute('role', 'tooltip');
+  /* Closed cards keep their content, so without inert their links would stay
+     in the tab order as invisible stops at the end of the page. */
+  card.setAttribute('inert', '');
+  card.setAttribute('aria-hidden', 'true');
   var tail = document.createElement('span');
   tail.id = 'ctx-tail';
   if (!L.tail) tail.style.display = 'none';
@@ -1160,6 +1185,16 @@
   document.body.appendChild(card);
 
   var openT = null, closeT = null, cur = null, viaPointer = false, openedAt = 0;
+  /* Set while the script moves focus back to a mark itself, so that focus does
+     not count as a reader asking for the card again. */
+  var quietFocus = false;
+  var FOCUSABLE = 'a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])';
+
+  function focusQuietly(el) {
+    quietFocus = true;
+    try { el.focus(); } finally { quietFocus = false; }
+  }
+  function cardStops() { return card.querySelectorAll(FOCUSABLE); }
   var lastCost = null;
   var coarse = matchMedia('(hover: none), (pointer: coarse)').matches;
 
@@ -1182,6 +1217,11 @@
 
   function show(a) {
     clearTimeout(closeT);
+    var prev = cur;
+    if (prev && prev !== a) {
+      prev.el.removeAttribute('aria-describedby');
+      prev.el.setAttribute('aria-expanded', 'false');
+    }
     cur = a;
     var t = a.term;
     inner.innerHTML = '';
@@ -1205,7 +1245,19 @@
       void card.offsetWidth;
       card.style.transition = '';
     }
+    card.removeAttribute('inert');
+    card.removeAttribute('aria-hidden');
+    /* A tooltip may not hold anything interactive. A card with a link in it is
+       a small non-modal dialog that keyboard users can Tab into. */
+    if (cardStops().length) {
+      card.setAttribute('role', 'dialog');
+      card.setAttribute('aria-label', t.title);
+    } else {
+      card.setAttribute('role', 'tooltip');
+      card.removeAttribute('aria-label');
+    }
     card.classList.add('on');
+    a.el.setAttribute('aria-expanded', 'true');
     a.el.setAttribute('aria-describedby', 'ctx-card');
     openedAt = Date.now();
     ANALYTICS.send('open', t);
@@ -1219,7 +1271,12 @@
     }
     openedAt = 0;
     card.classList.remove('on');
-    if (cur) cur.el.removeAttribute('aria-describedby');
+    card.setAttribute('inert', '');
+    card.setAttribute('aria-hidden', 'true');
+    if (cur) {
+      cur.el.removeAttribute('aria-describedby');
+      cur.el.setAttribute('aria-expanded', 'false');
+    }
     cur = null;
   }
 
@@ -1248,8 +1305,24 @@
     /* Keyboard focus opens the card. Pointer-initiated focus does not:
        on touch it fires alongside click and would toggle the card shut. */
     a.el.addEventListener('focus', function () {
-      if (viaPointer) return;
+      if (viaPointer || quietFocus) return;
       show(a);
+    });
+    /* role=button promises Enter and Space. Tab from an open mark goes into
+       the card when the card has something to focus. */
+    a.el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        clearTimeout(openT);
+        if (cur === a) hide(); else show(a);
+      } else if (e.key === 'Tab' && !e.shiftKey && cur === a) {
+        var stops = cardStops();
+        if (stops.length) {
+          e.preventDefault();
+          clearTimeout(closeT);
+          stops[0].focus();
+        }
+      }
     });
     a.el.addEventListener('blur', function () {
       closeT = setTimeout(function () {
@@ -1258,11 +1331,40 @@
     });
   });
 
+  /* Leaving the card by Tab returns to its mark, closed, so the next Tab
+     carries on through the page instead of looping back into the card.
+     Shift+Tab from the first stop returns to the mark with the card open. */
+  card.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab' || !cur) return;
+    var stops = cardStops();
+    if (!stops.length) return;
+    var first = stops[0], last = stops[stops.length - 1];
+    if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      var back = cur.el;
+      hide();
+      focusQuietly(back);
+    } else if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      clearTimeout(closeT);
+      focusQuietly(cur.el);
+    }
+  });
+  card.addEventListener('focusout', function () {
+    clearTimeout(closeT);
+    closeT = setTimeout(function () {
+      var f = document.activeElement;
+      if (cur && !card.contains(f) && f !== cur.el) hide();
+    }, 100);
+  });
   card.addEventListener('mouseenter', function () { clearTimeout(closeT); });
   card.addEventListener('mouseleave', function () { closeT = setTimeout(hide, CFG.closeDelay); });
   document.addEventListener('click', function (e) { if (cur && !card.contains(e.target)) hide(); });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && cur) { var el = cur.el; hide(); el.focus(); }
+    /* Focus goes back to the mark without reopening it. Calling focus() plainly
+       would fire the mark's focus handler and show the card again, which is
+       what happened after a hover-opened card was dismissed with Esc. */
+    if (e.key === 'Escape' && cur) { var el = cur.el; hide(); focusQuietly(el); }
   });
   /* No scroll reposition: the card is absolutely positioned, so it travels with
      the text already. Calling place() per frame re-triggered the transform

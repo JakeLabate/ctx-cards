@@ -11,7 +11,7 @@
     }
   ],
   "@type": "DefinedTermSet",
-  "@id": "https://cdn.jsdelivr.net/gh/JakeLabate/ctx-cards@latest/packs/home-services.json",
+  "@id": "https://cdn.jakelabate.com/context-cards/main/packs/home-services.json",
   "identifier": "home-services",
   "name": "Home and field services",
   "description": "Trades, local service businesses, and field operations.",
@@ -289,5 +289,5 @@
       "description": "Paired photos documenting completed work. The highest-converting content type in most trades."
     }
   ],
-  "version": "7547efea"
+  "version": "ec9b273d"
 }
